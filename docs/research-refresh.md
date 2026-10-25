@@ -46,3 +46,7 @@ Research capture scripts now choose timestamped folders by default to preserve f
 ## Subsequent phase
 
 The compact converter/SEO expansion supersedes the counts in this historical refresh: see `docs/seo-expansion-research.md` and current `docs/progress.md`. The reference ledger now contains 59 user/screenshot records. Native six-format codecs, canonical-header adaptation, optional Semrush/Pexels adapters and labeled house advertising are documented there; live credential-dependent services remain unverified.
+
+## PDF/developer and GPU refresh — 25 October 2026
+
+See [phase1-gpu-research.md](phase1-gpu-research.md) for all new GPU/video/topic decisions and focused source digests; repeated references retain their same-day decisions in the master ledger. cgpu is now operator-locally installed (help verified, OAuth-blocked status), superseding earlier not-installed notes. No upstream GPU/model source was copied into the website. This milestone extends the already licensed MIT pdf-lib and JSZip integrations with original browser-worker orchestration and real output tests; see [phase1-pdf-developer.md](phase1-pdf-developer.md).

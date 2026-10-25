@@ -1,0 +1,14 @@
+{
+  "version": "0.1.4",
+  "packageMetadata": {
+    "dist.integrity": "sha512-AXSf04rkwTbgCMhE+0q9bAFpafEWYsa2AJVKm92ulblqI8FxNt7fHDxudiIy8CfLvEOXYfbbQjJHRbhWtn3WCA==",
+    "dist.tarball": "https://registry.npmjs.org/cgpu/-/cgpu-0.1.4.tgz",
+    "license": "Apache-2.0"
+  },
+  "location": ".runtime/cgpu",
+  "installScripts": false,
+  "help": "passed",
+  "status": "blocked: isolated config has no OAuth credentials",
+  "gpuProvisioned": false,
+  "advisory": "GHSA-mrhx-c7xc-m3w5; Zod 3.23.8; two propagated high package entries; outside app dependencies"
+}

@@ -1,0 +1,70 @@
+[
+  {
+    "repository": "RohanAdwankar/cgpu",
+    "path": "src/config.ts",
+    "sha256": "b36c7ef4c2c8989aa6114d9e6cd879da4e6f5c4cd67527af1e5a727142031bba",
+    "bytes": 7899,
+    "possiblyTruncated": false
+  },
+  {
+    "repository": "RohanAdwankar/cgpu",
+    "path": "src/colab/client.ts",
+    "sha256": "1decb1d22e2b0f97b0de5d12e2170557f21d2e2e34d3d6b19d9a70524f43ccb1",
+    "bytes": 8184,
+    "possiblyTruncated": false
+  },
+  {
+    "repository": "RohanAdwankar/cgpu",
+    "path": "src/runtime/runtime-manager.ts",
+    "sha256": "35a17206b96ed20fcd314ad84d814d802a0217b6451f517ca2a0e89ad1ae1027",
+    "bytes": 9942,
+    "possiblyTruncated": false
+  },
+  {
+    "repository": "seeb4coding/free-seeb4-ai-upscaler",
+    "path": "src/models.ts",
+    "sha256": "0e9c0da441349e376f1de9a8c2e8b67c365066d775f7728a6dd74b8eab0e27f7",
+    "bytes": 3838,
+    "possiblyTruncated": false
+  },
+  {
+    "repository": "seeb4coding/free-seeb4-ai-upscaler",
+    "path": "src/pipeline.ts",
+    "sha256": "211bcacf85e63e4cc3ba7b594901f893ab6c26d86cdeba2dad63315ecb34d087",
+    "bytes": 6240,
+    "possiblyTruncated": false
+  },
+  {
+    "repository": "seeb4coding/free-seeb4-ai-upscaler",
+    "path": "src/image.ts",
+    "sha256": "7b7c197690630a84da8aea609592093d3dcec245a4fb7b71403613410e39cf6d",
+    "bytes": 7590,
+    "possiblyTruncated": false
+  },
+  {
+    "repository": "seeb4coding/free-seeb4-ai-upscaler",
+    "path": "docs/WEIGHTS.md",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "repository": "deepbeepmeep/WanGP",
+    "path": "docs/API.md",
+    "sha256": "4ddcb8ea942205531952817637a9806fed06ed7ba52dae159d6cff631e048164",
+    "bytes": 110642,
+    "possiblyTruncated": false
+  },
+  {
+    "repository": "deepbeepmeep/WanGP",
+    "path": "docs/INSTALLATION.md",
+    "sha256": "b9c0621d10eef5cd35028ea26a15850292fdb09113ffe5340fd3a3f57a76e706",
+    "bytes": 20075,
+    "possiblyTruncated": false
+  },
+  {
+    "repository": "deepbeepmeep/WanGP",
+    "path": "wgp.py",
+    "sha256": "18e5b615ea1d23379bdca1f59887aa303ed638a39c2b7844af2ea67826d8d3c3",
+    "bytes": 350000,
+    "possiblyTruncated": true
+  }
+]

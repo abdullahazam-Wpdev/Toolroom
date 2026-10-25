@@ -43,3 +43,7 @@ Native Sharp supplies six single-frame input/output formats; no extra executable
 ## S3-compatible storage adapter
 
 AWS SDK v3 client and presigner (Apache-2.0) reused for maintained SigV4 signing and object requests; original application code implements the upload ticket, validation, Redis admission/replay controls, private result access and worker staging. Package versions are locked in `package-lock.json`. No provider SDK source was copied. See `docs/production-hardening.md` and `THIRD_PARTY_NOTICES.md`; real bucket acceptance is pending.
+
+## PDF/developer and GPU refresh — 25 October 2026
+
+See [phase1-gpu-research.md](phase1-gpu-research.md) for all new GPU/video/topic decisions and focused source digests; repeated references retain their same-day decisions in the master ledger. cgpu is now operator-locally installed (help verified, OAuth-blocked status), superseding earlier not-installed notes. No upstream GPU/model source was copied into the website. This milestone extends the already licensed MIT pdf-lib and JSZip integrations with original browser-worker orchestration and real output tests; see [phase1-pdf-developer.md](phase1-pdf-developer.md).

@@ -233,3 +233,7 @@ The two newly supplied repositories, two topic pages, source pins, reviewed file
 ## Compact converter / SEO expansion
 
 Focused source review of Lightspeed/cgpu/OpenSEO/Semrush candidates and the new topics is retained in [seo-expansion-research.md](seo-expansion-research.md). It supersedes assumptions that open-source wrappers make provider data/GPU capacity free. Actual MIT OpenSEO canonical-header adaptation is licensed and tested; incompatible services and unsafe scraper paths remain uninstalled. Acquisitions and failures are recorded separately from runtime validation.
+
+## PDF/developer and GPU refresh — 25 October 2026
+
+See [phase1-gpu-research.md](phase1-gpu-research.md) for all new GPU/video/topic decisions and focused source digests; repeated references retain their same-day decisions in the master ledger. cgpu is now operator-locally installed (help verified, OAuth-blocked status), superseding earlier not-installed notes. No upstream GPU/model source was copied into the website. This milestone extends the already licensed MIT pdf-lib and JSZip integrations with original browser-worker orchestration and real output tests; see [phase1-pdf-developer.md](phase1-pdf-developer.md).

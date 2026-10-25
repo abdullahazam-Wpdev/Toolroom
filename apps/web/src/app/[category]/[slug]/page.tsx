@@ -1,8 +1,18 @@
+import { LocalToolGuide } from "@/components/local-tool-guide";
+import { PdfTool } from "@/components/pdf-tool";
+import { DeveloperTool } from "@/components/developer-tool";
+import type { PdfOperation } from "@/lib/pdf-tools";
+import type { DeveloperId } from "@/lib/developer-tools";
 import { storageConfigured } from "../../../../../../packages/storage/s3";
 import { inlineImageLimit } from "../../../../../../packages/core/upload-limits";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { tools, toolHref, categories, effectivelyAvailable } from "@/lib/catalog";
+import {
+  tools,
+  toolHref,
+  categories,
+  effectivelyAvailable,
+} from "@/lib/catalog";
 import { metadata, origin } from "@/lib/seo";
 import { MediaJobTool } from "@/components/media-job-tool";
 import { Converter } from "@/components/converter";
@@ -30,17 +40,25 @@ export async function generateMetadata({ params }: Props) {
     t?.name || "Tool not found",
     t?.description || "This tool could not be found.",
     `/${p.category}/${p.slug}`,
-    Boolean(t) && effectivelyAvailable(t!, process.env.MEDIA_JOBS_ENABLED === "true"),
+    Boolean(t) &&
+      effectivelyAvailable(t!, process.env.MEDIA_JOBS_ENABLED === "true"),
   );
 }
 export default async function Page({ params }: Props) {
   const { category, slug } = await params;
   const tool = tools.find((t) => t.id === slug && t.category === category);
   if (!tool) notFound();
-  const storedImages = storageConfigured() && Boolean(process.env.REDIS_URL?.match(/^rediss?:\/\//));
+  const storedImages =
+    storageConfigured() &&
+    Boolean(process.env.REDIS_URL?.match(/^rediss?:\/\//));
   const imageMaxBytes = storedImages ? 10 * 1024 * 1024 : inlineImageLimit();
   const name = categories.find((c) => c.slug === category)?.name;
-  const isMediaJob = ["video-compressor", "video-converter", "background-remover", "ai-image-upscaler"].includes(tool.id);
+  const isMediaJob = [
+    "video-compressor",
+    "video-converter",
+    "background-remover",
+    "ai-image-upscaler",
+  ].includes(tool.id);
   // Media-job tools are now verified working code gated by operator
   // infrastructure (Postgres/Redis/worker/model weights), the same
   // "requires-configuration" shape as PageSpeed/Semrush below: the real
@@ -112,17 +130,38 @@ export default async function Page({ params }: Props) {
             ? "READY WHEN YOU ARE"
             : "ON THE ROADMAP"}
       </div>
-      <div className="tool-title-row"><h1>{tool.name}</h1><ToolActions /></div>
+      <div className="tool-title-row">
+        <h1>{tool.name}</h1>
+        <ToolActions />
+      </div>
       <p className="lead">{tool.description}</p>
       {available ? (
-        tool.id === "social-media-inspector" ? (<ProviderMetadataTool />) : isMediaJob ? (<MediaJobTool key={tool.id} kind={tool.id} useStorage={storedImages} enabled={process.env.MEDIA_JOBS_ENABLED === "true"} />) : tool.id in imageToolConfig ? (
-          <Converter key={tool.id} tool={tool.id as ImageToolId} maxBytes={imageMaxBytes} useStorage={storedImages} />
+        category === "pdf-tools" ? (
+          <PdfTool key={tool.id} operation={tool.id as PdfOperation} />
+        ) : category === "developer-tools" ? (
+          <DeveloperTool key={tool.id} tool={tool.id as DeveloperId} />
+        ) : tool.id === "social-media-inspector" ? (
+          <ProviderMetadataTool />
+        ) : isMediaJob ? (
+          <MediaJobTool
+            key={tool.id}
+            kind={tool.id}
+            useStorage={storedImages}
+            enabled={process.env.MEDIA_JOBS_ENABLED === "true"}
+          />
+        ) : tool.id in imageToolConfig ? (
+          <Converter
+            key={tool.id}
+            tool={tool.id as ImageToolId}
+            maxBytes={imageMaxBytes}
+            useStorage={storedImages}
+          />
         ) : tool.id === "semrush-keyword-metrics" ? (
           <SemrushTool />
         ) : tool.id === "pagespeed-checker" ? (
           <PageSpeedTool />
         ) : tool.id === "direct-media-downloader" ? (
-          <DirectMediaTool maxMiB={inlineImageLimit()/1024/1024} />
+          <DirectMediaTool maxMiB={inlineImageLimit() / 1024 / 1024} />
         ) : tool.id === "social-url-inspector" ? (
           <SocialTool />
         ) : tool.id === "robots-txt-checker" ||
@@ -190,10 +229,10 @@ export default async function Page({ params }: Props) {
             <aside>
               <h3>Know the limits</h3>
               <p>
-                {imageMaxBytes / 1024 / 1024} MiB per image. Up to 24 million pixels and 8,000 pixels on
-                either edge. JPEG inputs only. Animated files and SVG are not
-                supported. Metadata is removed by default, and orientation is
-                applied.
+                {imageMaxBytes / 1024 / 1024} MiB per image. Up to 24 million
+                pixels and 8,000 pixels on either edge. JPEG inputs only.
+                Animated files and SVG are not supported. Metadata is removed by
+                default, and orientation is applied.
               </p>
               <Link href="/guides" className="text-link">
                 Read the conversion guide <ArrowUpRight size={16} />
@@ -205,7 +244,10 @@ export default async function Page({ params }: Props) {
             <details>
               <summary>Will this preserve every detail?</summary>
               <p>
-                WebP conversion defaults to lossy encoding. Enable lossless WebP to preserve decoded pixels. Higher lossy quality keeps more detail but usually increases file size. Always inspect your output.
+                WebP conversion defaults to lossy encoding. Enable lossless WebP
+                to preserve decoded pixels. Higher lossy quality keeps more
+                detail but usually increases file size. Always inspect your
+                output.
               </p>
             </details>
             <details>
@@ -227,56 +269,63 @@ export default async function Page({ params }: Props) {
           </div>
         </>
       )}
-      {available && <AdPlacement />}
-      {available && tool.id !== "jpg-to-webp" && tool.id !== "direct-media-downloader" && tool.id !== "semrush-keyword-metrics" && (
-        <div className="tool-explainer">
-          <div>
-            <h2>{tool.name}: what to expect</h2>
-            <p>{tool.description}</p>
-            <h3>How to use this tool</h3>
-            <ol>
-              {(category === "image-tools"
-                ? [
-                    "Choose compatible images or drop them into the upload area.",
-                    "Set the output controls for your task and process the batch.",
-                    "Inspect the actual before/after preview and download individual files or a ZIP.",
-                  ]
-                : tool.id === "social-url-inspector"
-                  ? [
-                      "Paste a link from a supported social platform.",
-                      "Inspect the identified hostname and path.",
-                      "Review provider limitations; no media is downloaded by this inspector.",
-                    ]
-                  : [
-                      "Enter a public URL, or choose pasted source when available.",
-                      "Run the check and read the observed evidence and coverage notes.",
-                      "Review recommendations in context; download PDF/JSON for the full SEO audit.",
-                    ]
-              ).map((step) => (
-                <li key={step}>{step}</li>
-              ))}
-            </ol>
-          </div>
-          <aside>
-            <h3>Limits and privacy</h3>
-            <p>
-              {category === "image-tools"
-                ? `JPEG, PNG, WebP, AVIF, GIF and TIFF operations accept up to 10 images per batch and ${imageMaxBytes / 1024 / 1024} MiB per image, subject to the specific tool’s format requirements. Maximum 24 megapixels and 8,000 pixels per edge. PNG and LZW TIFF encoding are lossless; GIF uses a limited palette. JPEG/WebP/AVIF quality controls can change details. Metadata is stripped by default (optional retention), orientation applied, and images are not enlarged. Inputs are processed in server memory; direct storage uploads use private temporary objects when configured.`
-                : tool.id === "pagespeed-checker"
-                  ? "The submitted URL is sent to Google’s PageSpeed Insights service. API quotas, availability and field-data coverage apply. Lab scores are measurements, not ranking guarantees. API keys remain on the server."
-                  : tool.id === "social-url-inspector"
-                    ? "Runs locally without fetching content. Platform identification does not verify that a post exists, establish ownership, or grant download permission."
-                    : "Static HTML or technical-document analysis has explicit response and time limits. Private networks, reserved IPs, credentials and nonstandard ports are blocked. No rendering or whole-site crawl is implied. A custom diagnostic score does not predict rankings."}
-            </p>
-            <h3>Is every check performed?</h3>
-            <p>
-              Read the result’s evidence and coverage. Missing measurements are
-              shown as Not tested; empty or unavailable data is never treated as
-              a passed check.
-            </p>
-          </aside>
-        </div>
+      {available && tool.execution === "browser" && (
+        <LocalToolGuide id={tool.id} name={tool.name} />
       )}
+      {available && <AdPlacement />}
+      {available &&
+        tool.id !== "jpg-to-webp" &&
+        tool.id !== "direct-media-downloader" &&
+        tool.id !== "semrush-keyword-metrics" &&
+        tool.execution !== "browser" && (
+          <div className="tool-explainer">
+            <div>
+              <h2>{tool.name}: what to expect</h2>
+              <p>{tool.description}</p>
+              <h3>How to use this tool</h3>
+              <ol>
+                {(category === "image-tools"
+                  ? [
+                      "Choose compatible images or drop them into the upload area.",
+                      "Set the output controls for your task and process the batch.",
+                      "Inspect the actual before/after preview and download individual files or a ZIP.",
+                    ]
+                  : tool.id === "social-url-inspector"
+                    ? [
+                        "Paste a link from a supported social platform.",
+                        "Inspect the identified hostname and path.",
+                        "Review provider limitations; no media is downloaded by this inspector.",
+                      ]
+                    : [
+                        "Enter a public URL, or choose pasted source when available.",
+                        "Run the check and read the observed evidence and coverage notes.",
+                        "Review recommendations in context; download PDF/JSON for the full SEO audit.",
+                      ]
+                ).map((step) => (
+                  <li key={step}>{step}</li>
+                ))}
+              </ol>
+            </div>
+            <aside>
+              <h3>Limits and privacy</h3>
+              <p>
+                {category === "image-tools"
+                  ? `JPEG, PNG, WebP, AVIF, GIF and TIFF operations accept up to 10 images per batch and ${imageMaxBytes / 1024 / 1024} MiB per image, subject to the specific tool’s format requirements. Maximum 24 megapixels and 8,000 pixels per edge. PNG and LZW TIFF encoding are lossless; GIF uses a limited palette. JPEG/WebP/AVIF quality controls can change details. Metadata is stripped by default (optional retention), orientation applied, and images are not enlarged. Inputs are processed in server memory; direct storage uploads use private temporary objects when configured.`
+                  : tool.id === "pagespeed-checker"
+                    ? "The submitted URL is sent to Google’s PageSpeed Insights service. API quotas, availability and field-data coverage apply. Lab scores are measurements, not ranking guarantees. API keys remain on the server."
+                    : tool.id === "social-url-inspector"
+                      ? "Runs locally without fetching content. Platform identification does not verify that a post exists, establish ownership, or grant download permission."
+                      : "Static HTML or technical-document analysis has explicit response and time limits. Private networks, reserved IPs, credentials and nonstandard ports are blocked. No rendering or whole-site crawl is implied. A custom diagnostic score does not predict rankings."}
+              </p>
+              <h3>Is every check performed?</h3>
+              <p>
+                Read the result’s evidence and coverage. Missing measurements
+                are shown as Not tested; empty or unavailable data is never
+                treated as a passed check.
+              </p>
+            </aside>
+          </div>
+        )}
       <div className="related">
         <h2>Also in {name?.toLowerCase()}</h2>
         <div>

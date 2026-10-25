@@ -1,0 +1,2 @@
+export const PDF_LIMIT_BYTES = 20 * 1024 * 1024,
+  PDF_MAX_PAGES = 200;

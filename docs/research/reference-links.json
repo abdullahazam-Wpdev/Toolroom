@@ -510,7 +510,13 @@
     "status": "incompatible",
     "reviewedAt": "2026-10-25",
     "decision": "Interactive Colab OAuth/remote terminal learning CLI; no root license found. Not installed or used as a public worker. Free managed Colab policy restrictions and non-guaranteed runtime unsuitable.",
-    "evidence": "docs/seo-expansion-research.md; docs/research/seo-expansion-*.json"
+    "evidence": "docs/seo-expansion-research.md; docs/research/seo-expansion-*.json",
+    "phase1Refresh": {
+      "status": "reviewed",
+      "decision": "Installed exact 0.1.4 in isolated ignored operator directory; help ran, isolated status blocked on OAuth. Not a permitted production GPU backend. Package Apache declaration/root license ambiguity retained.",
+      "evidence": "docs/phase1-gpu-research.md",
+      "reviewedAt": "2026-10-25"
+    }
   },
   {
     "url": "https://github.com/every-app/open-seo",
@@ -588,5 +594,68 @@
     "reviewedAt": "2026-10-25",
     "decision": "Screenshot/public page reviewed; tab/paste patterns observed, media retrieval not verified or copied.",
     "evidence": "docs/seo-expansion-research.md; docs/research/seo-expansion-*.json"
+  },
+  {
+    "url": "https://github.com/seeb4coding/free-seeb4-ai-upscaler",
+    "status": "reviewed",
+    "decision": "MIT source excludes weights; linked WEIGHTS.md returned 404. Browser WebGPU candidate, not cloud GPU. Deferred pending weights and hardware acceptance.",
+    "evidence": "docs/phase1-gpu-research.md; docs/research/phase1-repositories.json",
+    "reviewedAt": "2026-10-25"
+  },
+  {
+    "url": "https://github.com/deepbeepmeep/WanGP",
+    "status": "incompatible",
+    "decision": "Current Community License 2.0 restricts paid hosted/API/white-label embedding without written license; GPU and per-model weight acceptance absent. No runtime integration.",
+    "evidence": "docs/phase1-gpu-research.md; docs/research/phase1-repositories.json",
+    "reviewedAt": "2026-10-25"
+  },
+  {
+    "url": "https://github.com/harryramoliya01/Free-AI-Tools",
+    "status": "reviewed",
+    "decision": "README directory without root license observed; no processing source selected.",
+    "evidence": "docs/phase1-gpu-research.md; docs/research/phase1-repositories.json",
+    "reviewedAt": "2026-10-25"
+  },
+  {
+    "url": "https://github.com/topics/free-video-generator",
+    "status": "reviewed",
+    "decision": "Short-video-studio candidate README requires Agnes API key; generation not wholly local. Model/provider/hardware terms unverified; deferred.",
+    "evidence": "docs/phase1-gpu-research.md; docs/research/phase1-repositories.json",
+    "reviewedAt": "2026-10-25"
+  },
+  {
+    "url": "https://github.com/topics/free-video-tool",
+    "status": "reviewed",
+    "decision": "VUZA candidate metadata/README reviewed; no scraper/provider assumptions imported.",
+    "evidence": "docs/phase1-gpu-research.md; docs/research/phase1-repositories.json",
+    "reviewedAt": "2026-10-25"
+  },
+  {
+    "url": "https://github.com/topics/free-ai-tools",
+    "status": "inaccessible",
+    "decision": "Initial topic opened, detailed refresh timed out twice. Partial review; no code selected.",
+    "evidence": "docs/phase1-gpu-research.md; docs/research/phase1-repositories.json",
+    "reviewedAt": "2026-10-25"
+  },
+  {
+    "url": "https://github.com/topics/free-online-tools",
+    "status": "reviewed",
+    "decision": "Topic and mini-tools/Toolimi directory candidates reviewed. Existing MIT pdf-lib/JSZip selected instead of unlicensed/marketing site source.",
+    "evidence": "docs/phase1-gpu-research.md; docs/research/phase1-repositories.json",
+    "reviewedAt": "2026-10-25"
+  },
+  {
+    "url": "https://github.com/topics/free-for-developers",
+    "status": "reviewed",
+    "decision": "free-for-dev directory reviewed; free tiers do not grant hosted GPU capacity.",
+    "evidence": "docs/phase1-gpu-research.md; docs/research/phase1-repositories.json",
+    "reviewedAt": "2026-10-25"
+  },
+  {
+    "url": "https://github.com/topics/tool-free",
+    "status": "rejected",
+    "decision": "Blobo assembly robot topic is unrelated to software utilities.",
+    "evidence": "docs/phase1-gpu-research.md; docs/research/phase1-repositories.json",
+    "reviewedAt": "2026-10-25"
   }
 ]

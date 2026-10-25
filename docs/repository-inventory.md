@@ -38,3 +38,7 @@ Additional repository discovered through the supplied skill website: [SNLabat/SE
 ## Compact converter / SEO expansion references
 
 All six new named repositories have explicit source/license/dependency decisions in [seo-expansion-research.md](seo-expansion-research.md). It includes Lightspeed, cgpu, OpenSEO and the three Semrush topic candidates. New topic candidates are screened separately from named source reviews. Source acquisitions/fallback hashes: `docs/research/seo-expansion-repositories.json`, `seo-expansion-source-files.json`, `seo-expansion-extra-source.json`. Total user/screenshot reference records: 59. OpenSEO is selected only for the small MIT canonical-header rule; no new full upstream service was installed.
+
+## PDF/developer and GPU refresh — 25 October 2026
+
+See [phase1-gpu-research.md](phase1-gpu-research.md) for all new GPU/video/topic decisions and focused source digests; repeated references retain their same-day decisions in the master ledger. cgpu is now operator-locally installed (help verified, OAuth-blocked status), superseding earlier not-installed notes. No upstream GPU/model source was copied into the website. This milestone extends the already licensed MIT pdf-lib and JSZip integrations with original browser-worker orchestration and real output tests; see [phase1-pdf-developer.md](phase1-pdf-developer.md).

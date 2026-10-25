@@ -83,9 +83,9 @@ describe("real JPEG to WebP processing", () => {
   });
 });
 describe("registry", () => {
-  it("has 20 unique canonical routes with explicit availability", () => {
-    expect(tools).toHaveLength(20);
-    expect(new Set(tools.map(toolHref)).size).toBe(20);
+  it("has 31 unique canonical routes with explicit availability", () => {
+    expect(tools).toHaveLength(31);
+    expect(new Set(tools.map(toolHref)).size).toBe(31);
     expect(tools.find((t) => t.id === "jpg-to-webp")?.status).toBe("available");
   });
 });

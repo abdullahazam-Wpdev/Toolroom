@@ -1,0 +1,136 @@
+[
+  {
+    "repository": "RohanAdwankar/cgpu",
+    "files": [
+      {
+        "path": "README.md",
+        "sha256": "8a55d6a7815abc17b20a842271ee261718e1b0533686df74adb2c7f0922260b2"
+      },
+      {
+        "path": "package.json",
+        "sha256": "9b6f32ed728c6acd4aaf2689838617110888190fa1bf6e0fae1c13e1513aae59"
+      },
+      {
+        "path": "src/index.ts",
+        "sha256": "727e7c828fe25f4d6f240c1b3f186c4d454b00561d4d48661c5c375328bfa744"
+      }
+    ],
+    "commitBranch": "main",
+    "license": null,
+    "treeFileCount": 35,
+    "sourcePaths": [
+      "README.md",
+      "package.json",
+      "src/auth/constants.ts",
+      "src/auth/oauth-manager.ts",
+      "src/auth/session-storage.ts",
+      "src/colab/api.ts",
+      "src/colab/client.ts",
+      "src/colab/headers.ts",
+      "src/config.ts",
+      "src/index.ts",
+      "src/runtime/file-transfer.ts",
+      "src/runtime/file-transfer.unit.test.ts",
+      "src/runtime/remote-command-runner.ts",
+      "src/runtime/runtime-manager.test.ts",
+      "src/runtime/runtime-manager.ts",
+      "src/runtime/terminal-session.ts",
+      "src/serve/runner.ts",
+      "src/serve/server.ts",
+      "src/serve/utils.ts",
+      "src/utils/shell.test.ts",
+      "src/utils/shell.ts",
+      "src/utils/uuid.ts"
+    ],
+    "reviewedAt": "2026-10-25",
+    "limitations": "Focused README/license/dependency/selected source review; not an exhaustive source or transitive dependency audit."
+  },
+  {
+    "repository": "seeb4coding/free-seeb4-ai-upscaler",
+    "files": [
+      {
+        "path": "LICENSE",
+        "sha256": "1f5d375d5dc7990553248df786f9978c30e1483aee32f710de7031d62a0fadcc"
+      },
+      {
+        "path": "README.md",
+        "sha256": "c57b7413e46f4c33bae6bc05ceb190dd259b2aca32525b58a5318c3aed518c2d"
+      },
+      {
+        "path": "package.json",
+        "sha256": "c90b65f668861497c271bad08024a17d976f8a1f35a716c7312774c0b298ce4c"
+      }
+    ],
+    "commitBranch": "main",
+    "license": "NOASSERTION",
+    "treeFileCount": 92,
+    "sourcePaths": [
+      "LICENSE",
+      "README.md",
+      "package.json",
+      "src/background-video.ts",
+      "src/compare.ts",
+      "src/cursor.ts",
+      "src/image.ts",
+      "src/main.ts",
+      "src/models.ts",
+      "src/pipeline.ts",
+      "src/preview.ts",
+      "src/resolutions.ts",
+      "src/style.css",
+      "src/typewriter.ts",
+      "src/ui.ts",
+      "src/websr-ext/bin-weights.ts",
+      "src/websr-ext/cnn-2x-n.ts",
+      "src/websr-ext/layers.ts",
+      "src/websr-ext/register.ts",
+      "src/websr-instance.ts"
+    ],
+    "reviewedAt": "2026-10-25",
+    "limitations": "Focused README/license/dependency/selected source review; not an exhaustive source or transitive dependency audit."
+  },
+  {
+    "repository": "deepbeepmeep/WanGP",
+    "files": [
+      {
+        "path": "LICENSE.txt",
+        "sha256": "67c8e68389c945423c560c13936f0a960e5d2ffdcc5bb2ded4122fe1b095960f"
+      },
+      {
+        "path": "README.md",
+        "sha256": "17488ae97c64b0368ee01bdf02e5532ae9ac1a4495f2a0131531b2a4f99e4162"
+      },
+      {
+        "path": "requirements.txt",
+        "sha256": "42ee6e29311270c5da147e68d231d655fed47acc8f122e70a839fb9437b7ec06"
+      }
+    ],
+    "commitBranch": "main",
+    "license": "NOASSERTION",
+    "treeFileCount": 3242,
+    "sourcePaths": [
+      "LICENSE.txt",
+      "README.md",
+      "requirements.txt"
+    ],
+    "reviewedAt": "2026-10-25",
+    "limitations": "Focused README/license/dependency/selected source review; not an exhaustive source or transitive dependency audit."
+  },
+  {
+    "repository": "harryramoliya01/Free-AI-Tools",
+    "files": [
+      {
+        "path": "README.md",
+        "sha256": "47fce953478badc27641af6bf99dc27b4701e513bccc66a6a119d509390ed1bc"
+      }
+    ],
+    "commitBranch": "main",
+    "license": null,
+    "treeFileCount": 1,
+    "sourcePaths": [
+      "README.md"
+    ],
+    "reviewedAt": "2026-10-25",
+    "limitations": "Focused README/license/dependency/selected source review; not an exhaustive source or transitive dependency audit."
+  }
+]

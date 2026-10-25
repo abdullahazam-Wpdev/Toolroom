@@ -11,3 +11,6 @@ Continue the existing Next.js/TypeScript monorepo and approved sidebar/mobile la
 7. SaaS polish: measured performance/Lighthouse, ownership/support/legal configuration, consent-aware ads, quotas/account workflows and monitoring. No ranking or AdSense approval guarantees.
 
 Rendered auditing remains blocked on a securely sandboxed browser worker. Provider capabilities remain restricted to official supported operations; credentials and paid quotas are operator prerequisites, not reasons to stall independent tools.
+
+## Phase 1 requested milestone status — 26 October 2026
+Five real PDF operations and six browser developer utilities now implemented and tested; release verification is in progress.md. Further PDF/image/developer operations remain subsequent milestones. GPU/video candidates are explicitly reviewed, not all installed or working: see phase1-gpu-research.md.

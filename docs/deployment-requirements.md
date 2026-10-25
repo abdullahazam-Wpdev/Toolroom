@@ -1,3 +1,7 @@
+## Browser-local tools milestone — 26 October 2026
+
+Five PDF and six developer utilities require no API key, production migration, Redis or worker. Next serves the worker chunk from the same origin under the existing CSP; JavaScript/Web Workers and enough local browser memory are required. Keep media/crawl jobs disabled. No Colab/GPU code is included in the web dependency tree. Preserve private object-storage and database acceptance gates for later server jobs.
+
 ## SEO milestone deployment
 
 This milestone needs no database migration or new credential. Keep media/crawl background jobs disabled. The synchronous crawl route declares maxDuration=60 with a 45-second engine budget on Vercel; verify plan support and runtime behavior. Browser-rendered auditing still needs an isolated sandboxed worker. Database connectivity remains unverified until the operator runs the hidden-input helper against the confirmed Prisma resource.
