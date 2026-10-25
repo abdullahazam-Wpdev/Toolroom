@@ -16,7 +16,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ q
         Search the collection. Available tools and the roadmap, clearly
         separated.
       </p>
-      <Catalog initialQuery={q.slice(0, 200)} />
+      <Catalog initialQuery={q.slice(0, 200)} mediaJobsEnabled={process.env.MEDIA_JOBS_ENABLED === "true"} />
     </section>
   );
 }

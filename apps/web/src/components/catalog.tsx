@@ -2,17 +2,28 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Search, ArrowUpRight, Star, X } from "lucide-react";
-import { tools, categories, toolHref } from "@/lib/catalog";
+import { tools, categories, toolHref, effectivelyAvailable as effAvail } from "@/lib/catalog";
 import { CategoryIcon } from "./icon";
 export function Catalog({
   initialCategory = "",
   compact = false,
   initialQuery = "",
+  mediaJobsEnabled = false,
 }: {
   initialCategory?: string;
   compact?: boolean;
   initialQuery?: string;
+  // Whether THIS running deployment has the self-hosted Postgres/Redis/
+  // worker installation configured (process.env.MEDIA_JOBS_ENABLED, read
+  // server-side and passed down — this client component can't read server
+  // env itself). When true, the "self-hosted setup required" tools
+  // (background-remover, ai-image-upscaler, video-compressor,
+  // video-converter) are genuinely working right here, right now, not just
+  // "set up correctly elsewhere" — the badge should say so.
+  mediaJobsEnabled?: boolean;
 }) {
+  const effectivelyAvailable = (t: (typeof tools)[number]) =>
+    effAvail(t, mediaJobsEnabled);
   const [query, setQuery] = useState(initialQuery),
     [category, setCategory] = useState(initialCategory),
     [live, setLive] = useState(false),
@@ -44,7 +55,7 @@ export function Catalog({
   const matches = tools.filter(
     (t) =>
       (!category || t.category === category) &&
-      (!live || t.status === "available") &&
+      (!live || effectivelyAvailable(t)) &&
       (!onlyFavorites || favorites.includes(t.id)) &&
       [t.name, t.description, ...t.keywords]
         .join(" ")
@@ -156,7 +167,7 @@ export function Catalog({
                 <CategoryIcon category={t.category} />
               </span>
               <div>
-                {t.status === "available" ? (
+                {effectivelyAvailable(t) ? (
                   <span className="status live">Available</span>
                 ) : (
                   <span className="status">
@@ -189,7 +200,7 @@ export function Catalog({
             <div className="tool-card-footer">
               {categories.find((c) => c.slug === t.category)?.name}
               <span>
-                {t.status === "available"
+                {effectivelyAvailable(t)
                   ? "Open tool"
                   : t.status === "requires-configuration"
                     ? "View integration"

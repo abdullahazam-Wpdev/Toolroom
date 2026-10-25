@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { categories, tools } from "@/lib/catalog";
+import { categories, tools, effectivelyAvailable } from "@/lib/catalog";
 import { Catalog } from "@/components/catalog";
 import { metadata } from "@/lib/seo";
 const pages: Record<string, { title: string; text: string }> = {
@@ -37,13 +37,14 @@ export async function generateMetadata({
   const { category } = await params;
   const c = categories.find((c) => c.slug === category);
   const p = pages[category];
+  const mediaJobsEnabled = process.env.MEDIA_JOBS_ENABLED === "true";
   return metadata(
     c?.name || p?.title || "Not found",
     c?.description || p?.text.slice(0, 155) || "Page not found",
     "/" + category,
     !!c &&
       tools.some(
-        (tool) => tool.category === category && tool.status === "available",
+        (tool) => tool.category === category && effectivelyAvailable(tool, mediaJobsEnabled),
       ),
   );
 }
@@ -65,7 +66,7 @@ export default async function Page({
         <div className="eyebrow">THE COLLECTION</div>
         <h1>{c.name}</h1>
         <p className="lead">{c.description}</p>
-        <Catalog initialCategory={category} />
+        <Catalog initialCategory={category} mediaJobsEnabled={process.env.MEDIA_JOBS_ENABLED === "true"} />
       </section>
     );
   const p = pages[category];

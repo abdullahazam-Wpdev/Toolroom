@@ -75,6 +75,14 @@ test('real background-removal job completes through the browser and downloads an
  expect(meta.format).toBe('png');
  expect(meta.hasAlpha).toBe(true);
 });
+test('video tools show as Available (not "self-hosted setup required") when this deployment actually has the worker configured',async({page})=>{
+ test.skip(process.env.MEDIA_JOBS_ENABLED!=='true','This assertion is specifically about what the badge says when infra IS configured.');
+ await page.goto('/video-tools');
+ const cards=page.locator('.tool-card');
+ await expect(cards).toHaveCount(2);
+ await expect(cards.getByText('Available',{exact:true})).toHaveCount(2);
+ await expect(page.getByText('Self-hosted setup required')).toHaveCount(0);
+});
 test('background website crawl submits, shows real progress and can be cancelled through the browser',async({page})=>{
  test.skip(process.env.MEDIA_JOBS_ENABLED!=='true','Requires a configured Postgres/Redis/worker installation (see docs/architecture.md).');
  await page.goto('/seo-tools/website-seo-checker');

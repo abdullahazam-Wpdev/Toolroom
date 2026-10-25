@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { tools, toolHref, categories } from "@/lib/catalog";
+import { tools, toolHref, categories, effectivelyAvailable } from "@/lib/catalog";
 import { metadata, origin } from "@/lib/seo";
 import { MediaJobTool } from "@/components/media-job-tool";
 import { Converter } from "@/components/converter";
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props) {
     t?.name || "Tool not found",
     t?.description || "This tool could not be found.",
     `/${p.category}/${p.slug}`,
-    t?.status === "available",
+    Boolean(t) && effectivelyAvailable(t!, process.env.MEDIA_JOBS_ENABLED === "true"),
   );
 }
 export default async function Page({ params }: Props) {
@@ -97,7 +97,8 @@ export default async function Page({ params }: Props) {
         <span>{tool.name}</span>
       </nav>
       <div className="eyebrow">
-        {tool.status === "requires-configuration"
+        {tool.status === "requires-configuration" &&
+        !(isMediaJob && process.env.MEDIA_JOBS_ENABLED === "true")
           ? tool.id === "semrush-keyword-metrics"
             ? "API ACCESS REQUIRED"
             : isMediaJob
