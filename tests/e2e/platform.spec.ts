@@ -92,10 +92,44 @@ test("search, availability, favorites consent and planned pages", async ({
   await expect(
     page.getByRole("button", { name: "Favorite JPG to WebP", exact: true }),
   ).toHaveAttribute("aria-pressed", "true");
+  // Social media inspector now has a real YouTube/Vimeo oEmbed integration
+  // behind it (no configuration needed), so it is "available", not
+  // "planned" — no tool in the registry is currently "planned". The
+  // outbound provider call is mocked here so this e2e run does not depend
+  // on live youtube.com reachability; the real live call is verified
+  // separately (see docs/progress.md).
   await page.goto("/social-media-tools/social-media-inspector");
-  await expect(
-    page.getByRole("heading", { name: "This tool is in the plan." }),
-  ).toBeVisible();
+  await page.route("**/api/provider-metadata", (route) =>
+    route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        provider: "YouTube",
+        id: "M7lc1UVf-VE",
+        url: "https://www.youtube.com/watch?v=M7lc1UVf-VE",
+        title: "Fixture video title",
+        author: "Fixture channel",
+        source: "Official provider oEmbed",
+        fetchedAt: new Date().toISOString(),
+        views: null,
+        likes: null,
+        downloadSupported: false,
+        note: "oEmbed does not provide view/like counts or authorize media downloads. Provider HTML is not embedded or executed.",
+      }),
+    }),
+  );
+  await page
+    .getByLabel("Provider video URL")
+    .fill("https://www.youtube.com/watch?v=M7lc1UVf-VE");
+  await page.getByRole("button", { name: "Inspect video metadata" }).click();
+  await expect(page.getByRole("heading", { name: "Fixture video title" })).toBeVisible();
+  await expect(page.getByText("Not available from oEmbed")).toHaveCount(2);
+  // apps/web/src/lib/seo.ts forces noindex on any localhost origin
+  // regardless of tool status (a deliberate guard against indexing local
+  // test/dev deployments before a real public origin is configured), so
+  // this page is still noindex here even though the tool itself is
+  // "available" — this assertion checks that guard stays in force, not the
+  // tool's own availability.
   await expect(page.locator("meta[name=robots]")).toHaveAttribute(
     "content",
     /noindex/,

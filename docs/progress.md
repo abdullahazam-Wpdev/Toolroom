@@ -1,6 +1,12 @@
 # Progress — 25 October 2026 (authoritative)
 
-## SEO audit Phase 3 — background crawling at scale (latest)
+## GitHub, and a tool that was already built but mislabeled (latest)
+
+- **Pushed to GitHub**: `git@github.com:abdullahazam-Wpdev/Toolroom.git`, branch `main`, 221 files. Verified before committing that `apps/web/.env.local` (the file holding the real PageSpeed/Pexels/Semrush credentials) is correctly excluded by `.gitignore`'s `.env.*` pattern — checked with `git check-ignore -v`, not assumed. No secrets in the pushed history. Vercel deployment is pending the operator granting access; not attempted.
+- **`social-media-inspector` was already fully built and tested** (`apps/web/src/lib/provider-metadata.ts` + its route/UI/tests) but left at registry status `planned`, so real users never saw it — the same "built but mislabeled" pattern as the AI/video tools earlier in this session. It does real, keyless, official oEmbed metadata lookups (title/author/thumbnail, no view/like counts, no downloads, no raw provider HTML rendered) for YouTube and Vimeo. Verified live this session: a real YouTube video and a real public Vimeo video ("Big Buck Bunny") both returned genuine metadata through the actual API. Promoted to `available` — it needs no configuration, unlike the AI/video tools. **There are no `planned` tools left in the registry.**
+- Fixing that promotion surfaced the same test-maintenance pattern as before: the "planned pages" e2e test had to be updated since its target tool is no longer planned, and a wrong assumption in my own test fix (that an `available` tool wouldn't be `noindex`) was caught and corrected — `apps/web/src/lib/seo.ts` deliberately forces `noindex` on any `localhost` origin regardless of tool status, which is a safety feature, not a bug. 110/110 unit tests and 26/26 browser tests pass after the fix.
+
+## SEO audit Phase 3 — background crawling at scale (earlier this session)
 
 Full detail: `docs/seo-audit-architecture.md`. This phase built Priority 1 of the "Phase 3" request for real, end to end, verified against real Postgres/Redis/the production worker and real websites — not scaffolded.
 

@@ -38,6 +38,10 @@ General converter now supports JPEG, PNG, WebP, AVIF, GIF and TIFF in all 36 sin
 
 ## Infrastructure and AI/video verification phase
 
-`background-remover`, `ai-image-upscaler`, `video-compressor` and `video-converter` are no longer `planned`: each was verified end to end with real output through the actual job API, a real Postgres/Redis/BullMQ worker, real FFmpeg, and real ONNX inference (MODNet, Swin2SR — both Apache-2.0). They are now `requires-configuration`, the same category as PageSpeed/Semrush, because they need an operator-deployed Postgres/Redis/worker installation rather than working out of the box like the Sharp-based image tools. See `docs/progress.md` for the full verification record, the one remaining truly `planned` tool (`social-media-inspector`), and the PageSpeed quota diagnosis.
+`background-remover`, `ai-image-upscaler`, `video-compressor` and `video-converter` are no longer `planned`: each was verified end to end with real output through the actual job API, a real Postgres/Redis/BullMQ worker, real FFmpeg, and real ONNX inference (MODNet, Swin2SR — both Apache-2.0). They are now `requires-configuration`, the same category as PageSpeed/Semrush, because they need an operator-deployed Postgres/Redis/worker installation rather than working out of the box like the Sharp-based image tools. See `docs/progress.md` for the full verification record and the PageSpeed quota diagnosis.
 
-**Current registry totals: 20 tools, 13 available, 6 requires-configuration, 1 planned.**
+## Social media inspector — found already built, promoted to available
+
+`social-media-inspector` turned out to already have a complete, tested implementation (`apps/web/src/lib/provider-metadata.ts`, its API route and UI) that was simply never promoted out of `planned`: real official oEmbed metadata (title, author, thumbnail) for public YouTube and Vimeo videos, with no API key or configuration needed. It does not provide view/like counts (oEmbed doesn't expose them) and does not download media or support other providers — the tool's own description and UI say so. Verified live this session against a real YouTube video and a real Vimeo video. Moved to `available`. There are no `planned` tools left in the registry as of this phase.
+
+**Current registry totals: 20 tools, 14 available, 6 requires-configuration, 0 planned.**
