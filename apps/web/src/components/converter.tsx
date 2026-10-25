@@ -38,7 +38,7 @@ const size = (n: number) =>
   n >= 1024 * 1024
     ? `${(n / 1024 / 1024).toFixed(2)} MiB`
     : `${(n / 1024).toFixed(1)} KiB`;
-export function Converter({ tool = "jpg-to-webp" }: { tool?: ImageToolId }) {
+export function Converter({ tool = "jpg-to-webp", maxBytes = 10 * 1024 * 1024, useStorage = false }: { tool?: ImageToolId; maxBytes?: number; useStorage?: boolean }) {
   const config = imageToolConfig[tool];
   const [format, setFormat] = useState("source"),
     [background, setBackground] = useState("#ffffff");
@@ -109,8 +109,8 @@ export function Converter({ tool = "jpg-to-webp" }: { tool?: ImageToolId }) {
         errors.push(`${file.name}: choose a ${config.input} image.`);
         continue;
       }
-      if (file.size > 10 * 1024 * 1024) {
-        errors.push(`${file.name}: the limit is 10 MiB.`);
+      if (file.size > maxBytes) {
+        errors.push(`${file.name}: the limit is ${maxBytes / 1024 / 1024} MiB.`);
         continue;
       }
       accepted.push({
@@ -132,7 +132,7 @@ export function Converter({ tool = "jpg-to-webp" }: { tool?: ImageToolId }) {
   }
   async function tiffPreview(blob: Blob, signal: AbortSignal) {
     const form = new FormData(); form.set("file", new File([blob], "preview.tiff", {type:"image/tiff"})); form.set("tool", "image-converter"); form.set("format", "png"); form.set("width", "800");
-    return (await uploadImage(form, signal, () => {})).blob;
+    return (await uploadImage(form, signal, () => {}, useStorage)).blob;
   }
   function update(id: string, patch: Partial<Item>) {
     setItems((old) => old.map((x) => (x.id === id ? { ...x, ...patch } : x)));
@@ -173,7 +173,7 @@ export function Converter({ tool = "jpg-to-webp" }: { tool?: ImageToolId }) {
         form.set("lossless", String(lossless));
         form.set("stripMetadata", String(stripMetadata));
         const result = await uploadImage(form, abort.signal, (percent) =>
-          update(item.id, { progress: percent }),
+          update(item.id, { progress: percent }), useStorage,
         );
         const blob = result.blob;
         let preview: Blob | null = blob;
@@ -243,7 +243,7 @@ export function Converter({ tool = "jpg-to-webp" }: { tool?: ImageToolId }) {
   }
   return (
     <div className="converter compact-converter">
-      <div className="converter-head"><span><span className="dot" /> {config.label}</span><span>Up to 10 images · 10 MiB each</span></div>
+      <div className="converter-head"><span><span className="dot" /> {config.label}</span><span>Up to 10 images · {maxBytes / 1024 / 1024} MiB each</span></div>
       <input ref={picker} id="image-files" type="file" accept={config.accept} multiple className="sr-only" disabled={busy} onChange={e => { if(e.target.files) add(e.target.files); e.target.value = ""; }} />
       <div className="converter-toolbar">
         <div className="conversion-direction"><span>{config.input}</span><span aria-hidden="true">→</span>

@@ -1,15 +1,18 @@
+import { allowedOrigin } from "@/lib/request-guard";
+import { processImageForm } from "@/lib/image-service";
+import { inlineImageLimit, hostedOnVercel } from "../../../../../../packages/core/upload-limits";
+import { origin as expectedOrigin } from "@/lib/seo";
 import { NextRequest } from "next/server";
-import { convertJpeg, processImage, inputFormat, MAX_BYTES } from "@/lib/image";
 export const runtime = "nodejs";
 let active = 0;
 let windowStart = Date.now(),
   requests = 0;
 export async function POST(request: NextRequest) {
   const origin = request.headers.get("origin");
-  const expected = new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
-  ).origin;
-  if (origin && origin !== expected)
+  const expected = expectedOrigin;
+  const maxBytes = inlineImageLimit();
+  const limitMessage = `Upload exceeds the ${maxBytes / 1024 / 1024} MiB direct-upload limit.`;
+  if (origin && !allowedOrigin(origin))
     return Response.json(
       { error: "Cross-origin uploads are not permitted." },
       { status: 403 },
@@ -29,9 +32,9 @@ export async function POST(request: NextRequest) {
       { status: 429, headers: { "Retry-After": "5" } },
     );
   const length = Number(request.headers.get("content-length"));
-  if (!Number.isFinite(length) || length > MAX_BYTES + 64 * 1024)
+  if (!Number.isFinite(length) || length > maxBytes + 64 * 1024)
     return Response.json(
-      { error: "Upload exceeds the 10 MiB limit." },
+      { error: limitMessage },
       { status: 413 },
     );
   active++;
@@ -53,10 +56,10 @@ export async function POST(request: NextRequest) {
         const { done, value } = await reader.read();
         if (done) break;
         total += value.length;
-        if (total > MAX_BYTES + 64 * 1024) {
+        if (total > maxBytes + 64 * 1024) {
           await reader.cancel();
           return Response.json(
-            { error: "Upload exceeds the 10 MiB limit." },
+            { error: limitMessage },
             { status: 413 },
           );
         }
@@ -71,38 +74,8 @@ export async function POST(request: NextRequest) {
     const form = await new Response(body, {
       headers: { "Content-Type": request.headers.get("content-type")! },
     }).formData();
-    const file = form.get("file");
-    if (!(file instanceof File))
-      throw new Error("Choose a JPEG image to continue.");
-    if (
-      !["image/jpeg", "image/jpg", "image/png", "image/webp", "image/avif", "image/gif", "image/tiff", "image/x-tiff"].includes(
-        file.type,
-      )
-    )
-      throw new Error("Only JPEG, PNG, WebP, AVIF, GIF and TIFF uploads are supported.");
-    const input = Buffer.from(await file.arrayBuffer());
-    const tool = String(form.get("tool") || "jpg-to-webp");
-    if (
-      tool === "jpg-to-webp" &&
-      !["image/jpeg", "image/jpg"].includes(file.type)
-    )
-      throw new Error("This tool requires a JPEG image.");
-    const process = tool === "jpg-to-webp" ? convertJpeg : processImage;
-    if (tool !== "jpg-to-webp" && `image/${inputFormat(input)}` !== ({ "image/jpg": "image/jpeg", "image/x-tiff": "image/tiff" }[file.type] || file.type))
-      throw new Error(
-        "The declared MIME type does not match the image signature.",
-      );
-    const result = await process(input, {
-      tool,
-      format: form.get("format") || "source",
-      background: form.get("background") || "#ffffff",
-      quality: form.get("quality") || 80,
-      width: form.get("width") || undefined,
-      height: form.get("height") || undefined,
-      lock: form.get("lock") !== "false",
-      lossless: form.get("lossless") === "true",
-      stripMetadata: form.get("stripMetadata") !== "false",
-    });
+    const result = await processImageForm(form);
+    if (hostedOnVercel() && result.data.length > 4 * 1024 * 1024) return Response.json({ error: "Encoded output exceeds this host’s inline limit. Resize the image or use a smaller format/quality setting." }, { status: 413 });
     return new Response(new Uint8Array(result.data), {
       headers: {
         "Content-Type": result.mime,

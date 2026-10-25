@@ -68,3 +68,7 @@ The operator supplied real Pexels and Semrush credentials. **Pexels verified liv
 ## AI model activation — 25 October 2026
 
 `Xenova/modnet` (background removal) and `Xenova/swin2SR-lightweight-x2-64` (2x super-resolution), both listed above as Apache-2.0 candidates, were activated and verified this session: real ONNX inference ran through the isolated venv (`onnxruntime==1.31.0`), producing a genuine alpha-channel portrait cutout and a correct exact-2x upscale, both re-confirmed through the real job queue and a live browser session. RMBG-1.4 (noncommercial) was not substituted at any point. Full reproduction steps are in `docs/progress.md`.
+
+## Production storage integration
+
+Prepared S3-compatible SigV4 PUT/GET through AWS SDK v3 for private Cloudflare R2 or S3. Primary references: https://developers.cloudflare.com/r2/api/s3/presigned-urls/ , https://developers.cloudflare.com/r2/api/s3/api/ , https://vercel.com/docs/functions/limitations . R2 does not support presigned POST size policies; exact Content-Length/Content-Type are signed and downloaded bytes independently verified against the authorized SHA-256. No unsupported R2 full-object SHA-256 checksum mode is assumed. Real provider credentials/CORS/lifecycle/worker tests remain pending. Configuration and limits: `docs/production-hardening.md`.

@@ -1,0 +1,9 @@
+{
+  "Rules": [{
+    "ID": "toolroom-orphan-backstop",
+    "Status": "Enabled",
+    "Filter": {"Prefix": "toolroom/"},
+    "Expiration": {"Days": 1},
+    "AbortIncompleteMultipartUpload": {"DaysAfterInitiation": 1}
+  }]
+}

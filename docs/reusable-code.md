@@ -39,3 +39,7 @@ General conversion/AVIF and lossless/metadata settings reuse the existing Sharp 
 Adapted MIT OpenSEO HTTP `Link` canonical extraction into `apps/web/src/lib/http-canonical.ts` and integrated it into actual static audit evidence. Added relation-list/comma handling and tests. Full copyright/license in `third_party/open-seo/LICENSE`, immutable source identity/digest in `third_party/provenance.json`. No upstream Cloudflare app, auth/billing code, worker retry loop or DataForSEO account was imported.
 
 Native Sharp supplies six single-frame input/output formats; no extra executable codecs or unreviewed binaries installed. Semrush v4 and Pexels adapters are independently implemented from official documentation with bounded requests. Claude skill cost/cache ideas were adapted to Codex/Next rather than installing a blanket policy. Rejected Semrush scraper CAPTCHA/proxy modules and cgpu as a commercial worker. See `docs/seo-expansion-research.md` for all licenses, reviewed paths and source-access failures.
+
+## S3-compatible storage adapter
+
+AWS SDK v3 client and presigner (Apache-2.0) reused for maintained SigV4 signing and object requests; original application code implements the upload ticket, validation, Redis admission/replay controls, private result access and worker staging. Package versions are locked in `package-lock.json`. No provider SDK source was copied. See `docs/production-hardening.md` and `THIRD_PARTY_NOTICES.md`; real bucket acceptance is pending.

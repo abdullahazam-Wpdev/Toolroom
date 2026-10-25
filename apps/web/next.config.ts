@@ -5,6 +5,7 @@ const config: NextConfig = {
   serverExternalPackages: ["sharp"],
   async headers() {
     return [
+      { source: "/api/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] },
       {
         source: "/(.*)",
         headers: [
@@ -20,7 +21,7 @@ const config: NextConfig = {
             value:
               "default-src 'self'; " +
               (process.env.NODE_ENV === "development" ? "script-src 'self' 'unsafe-inline' 'unsafe-eval'; " : "script-src 'self' 'unsafe-inline'; ") +
-              "style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'",
+              `style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; connect-src 'self' ${process.env.S3_ENDPOINT ? new URL(process.env.S3_ENDPOINT).origin : ""}; font-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'`,
           },
         ],
       },

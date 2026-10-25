@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-25",
+  "unit": {
+    "passed": 116,
+    "skipped": 1
+  },
+  "productionBrowser": {
+    "passed": 28,
+    "skipped": 3
+  },
+  "storageFixtureBrowser": {
+    "passed": 1,
+    "liveBucket": false
+  },
+  "typecheck": "passed",
+  "productionBuild": "passed",
+  "productionDependencyAudit": {
+    "vulnerabilities": 0
+  },
+  "productionDatabase": "unverified: Vercel export is redacted",
+  "productionMigrationsApplied": false,
+  "deployedCodeChanges": false,
+  "productionCanonicalConfig": "https://toolroom-woad.vercel.app",
+  "mediaFlagUpdate": "false acknowledged by Vercel",
+  "crawlFlagUpdate": "false acknowledged by Vercel"
+}

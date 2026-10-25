@@ -1,0 +1,81 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "xRobotsTag": null,
+    "metadata": [
+      {
+        "name": "robots",
+        "content": "noindex, follow"
+      },
+      {
+        "rel": "canonical",
+        "href": "http://localhost:3000"
+      },
+      {
+        "property": "og:url",
+        "content": "http://localhost:3000"
+      }
+    ],
+    "localhost": true,
+    "document": null
+  },
+  {
+    "path": "/image-tools/image-converter",
+    "status": 200,
+    "xRobotsTag": null,
+    "metadata": [
+      {
+        "name": "robots",
+        "content": "noindex, follow"
+      },
+      {
+        "rel": "canonical",
+        "href": "http://localhost:3000/image-tools/image-converter"
+      },
+      {
+        "property": "og:url",
+        "content": "http://localhost:3000/image-tools/image-converter"
+      }
+    ],
+    "localhost": true,
+    "document": null
+  },
+  {
+    "path": "/seo-tools/website-seo-checker",
+    "status": 200,
+    "xRobotsTag": null,
+    "metadata": [
+      {
+        "name": "robots",
+        "content": "noindex, follow"
+      },
+      {
+        "rel": "canonical",
+        "href": "http://localhost:3000/seo-tools/website-seo-checker"
+      },
+      {
+        "property": "og:url",
+        "content": "http://localhost:3000/seo-tools/website-seo-checker"
+      }
+    ],
+    "localhost": true,
+    "document": null
+  },
+  {
+    "path": "/robots.txt",
+    "status": 200,
+    "xRobotsTag": null,
+    "metadata": [],
+    "localhost": true,
+    "document": "User-Agent: *\nDisallow: /\n\nSitemap: http://localhost:3000/sitemap.xml\n"
+  },
+  {
+    "path": "/sitemap.xml",
+    "status": 200,
+    "xRobotsTag": null,
+    "metadata": [],
+    "localhost": true,
+    "document": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n<url>\n<loc>http://localhost:3000</loc>\n<changefreq>weekly</changefreq>\n</url>\n<url>\n<loc>http://localhost:3000/tools</loc>\n<changefreq>weekly</changefreq>\n</url>\n<url>\n<loc>http://localhost:3000/guides</loc>\n<changefreq>weekly</changefreq>\n</url>\n<url>\n<loc>http://localhost:3000/image-tools</loc>\n<changefreq>weekly</changefreq>\n</url>\n<url>\n<loc>http://localhost:3000/seo-tools</loc>\n<changefreq>weekly</changefreq>\n</url>\n<url>\n<loc>http://localhost:3000/social-media-tools</loc>\n<changefreq>weekly</changefreq>\n</url>\n<url>\n<loc>http://localhost:3000/image-tools/image-converter</loc>\n<changefreq>weekly</changefreq>\n</url>\n<url>\n<loc>http://localhost:3000/image-tools/jpg-to-webp</loc>\n<changefreq>weekly</changefreq>\n</url>\n<url>\n<loc>http://localhost:3000/image-tools/image-compressor</loc>\n<changefreq>weekly</changefreq>\n</url>\n<url>\n<loc>http://localhost:3000/image-tools/webp-to-png</loc>\n<changefreq>weekly</changefreq>\n</url>\n<url>\n<loc>http://localhost:3000/image-tools/png-to-jpg</loc>\n<changefreq>weekly</changefreq>\n</url>\n<url>\n<loc>http://localhost:3000/image-tools/image-resizer</loc>\n<changefreq>weekly</changefreq>\n</url>\n<url>\n<loc>http://localhost:3000/seo-tools/website-seo-checker</loc>\n<changefreq>weekly</changefreq>\n</url>\n<url>\n<loc>http://localhost:3000/seo-tools/meta-tag-analyzer</loc>\n<changefreq>weekly</changefreq>\n</url>\n<url>\n<loc>http://localhost:3000/seo-tools/heading-checker</loc>\n<changefreq>weekly</changefreq>\n</url>\n<url>\n<loc>http://localhost:3000/seo-tools/robots-txt-checker</loc>\n<changefreq>weekly</changefreq>\n</url>\n<url>\n<loc>http://localhost:3000/seo-tools/sitemap-validator</loc>\n<changefreq>weekly</changefreq>\n</url>\n<url>\n<loc>http://localhost:3000/social-media-tools/social-media-inspector</loc>\n<changefreq>weekly</changefreq>\n</url>\n<url>\n<loc>http://localhost:3000/social-media-tools/direct-media-downloader</loc>\n<changefreq>weekly</changefreq>\n</url>\n<url>\n<loc>http://localhost:3000/social-media-tools/social-url-inspector</loc>\n<changefreq>weekly</changefreq>\n</url>\n</urlset>\n"
+  }
+]

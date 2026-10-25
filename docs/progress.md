@@ -1,5 +1,16 @@
 # Progress — 25 October 2026 (authoritative)
 
+## Production hardening update — 25 October 2026
+
+Prepared the Vercel production fixes and private R2/S3 integration; see [production-hardening.md](production-hardening.md) for configuration, architecture, exact test coverage and release steps. Changes are local and not deployed. Vercel production Config now has `NEXT_PUBLIC_SITE_URL=https://toolroom-woad.vercel.app`; explicit updates set both media and crawl job flags false. The public deployment still serves its old built localhost/noindex metadata until redeployed. The two supplied deployment aliases lead to Vercel authentication when requested anonymously; those responses are not treated as application verification.
+
+Normalized canonical/OG/schema/robots/sitemap origin; preserved intentional noindex and protected API routes; fixed typed quota errors to 429/Retry-After. Vercel inline image/direct-media transfers now have a truthful 4 MiB cap, with 10 MiB images supported by the prepared private-storage path. Added signed size/type-bound PUT URLs, HMAC/hash validation, one-time processing claims, Redis admission/byte budgets, private result downloads, cleanup/lifecycle templates and object-storage worker staging. AI/video jobs remain disabled; real bucket/worker deployment is not claimed.
+
+**Verification:** 116 unit/service tests passed, one Redis-dependent test skipped; 28 production-like browser tests passed, three worker-dependent tests skipped; one additional 5 MiB direct-storage browser fixture test passed. TypeScript and production build passed; production dependency audit reports zero advisories. Confirmed the actual Vercel build logs contained the two dynamic filesystem warnings; both are absent from the new build. Test-owned servers stopped; requested local dev preview retained.
+
+**Database gate:** Vercel exports sensitive credentials as `[SENSITIVE]`. Requested read-only Prisma migration status returned local P1012 against this placeholder; it does not establish invalid production credentials. No production migrations/writes were performed. Added read-only sanitized operator checks; actual database/Redis/migration verification waits for execution inside a trusted environment holding real values. New MediaJob storage columns have an additive, unapplied migration. No production readiness or live object-storage result is claimed.
+
+
 ## "Still many things are not supported" — a real labeling bug, not a missing feature (latest)
 
 The operator pointed at live screenshots of their own running instance: Video compressor and Video converter showed "Self-hosted setup required" badges, reasonably read as "not working yet." I checked, and they genuinely do work on this exact instance — I submitted a real compression job through the same server the operator's browser was hitting and it returned `202` immediately. The bug was the badge, not the feature: `apps/web/src/components/catalog.tsx` and the tool/category pages computed their "Available" vs. "Self-hosted setup required" label purely from the registry's static `status` field, which describes what *any* deployment of this codebase needs in general — it had no way to know that *this* deployment already has `MEDIA_JOBS_ENABLED`/Postgres/Redis/the worker configured and is actually ready.
@@ -314,3 +325,9 @@ Then exercise `/api/jobs` with a real multipart upload (`kind` one of
 `video-compressor`, `video-converter`, `background-remover`,
 `ai-image-upscaler`), poll `/api/jobs/:id`, and download with
 `?download=1` — or just use the real tool pages in a browser.
+
+## Vercel agent onboarding
+
+Followed the requested official onboarding playbook: existing Vercel CLI 65.2.0 authenticated, official Vercel plugin installed/enabled user-wide, shared global MCP registered and user OAuth completed. Preserved existing toolroom project linkage and unrelated Codex settings. Mutation confirmation configured. Reload Codex to expose new plugin commands/MCP tools; authenticated `list_teams` and documentation search are pending that refresh. No deployment was performed. See `docs/vercel-setup.md`.
+
+Backend continuation is in progress: real rootless Podman PostgreSQL/Redis checks, queue job processing and restart durability passed; an actual VP9/WebM job completed. New AI/video/crawl/provider code remains under acceptance verification and is not promoted to available based on source changes alone. Docker is absent in the Flatpak shell; rootless host Podman is usable. Chromium sandbox startup failed for operator-rendered audits; public JavaScript rendering stays disabled. AI runtime installation encountered interrupted PyPI downloads. This work does not replace the earlier accepted tool verification or imply production readiness.

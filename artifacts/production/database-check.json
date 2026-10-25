@@ -1,0 +1,9 @@
+{
+  "databaseConfigured": false,
+  "redisConfigured": false,
+  "postgresConnected": null,
+  "redisConnected": null,
+  "migrations": null,
+  "databaseError": "Vercel exported a redacted placeholder; run inside the trusted production environment.",
+  "redisError": "Vercel exported a redacted placeholder."
+}

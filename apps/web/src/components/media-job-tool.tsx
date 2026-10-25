@@ -1,14 +1,16 @@
 "use client";
+import { uploadObject } from "@/lib/upload";
 import { useEffect, useRef, useState } from 'react';
 import { Upload, Download, XCircle } from 'lucide-react';
 type Status = { status: string; progress: number; outputBytes?: number; error?: string; expiresAt?: string };
-export function MediaJobTool({ kind }: { kind: string }) {
+export function MediaJobTool({ kind, useStorage = false, enabled = true }: { kind: string; useStorage?: boolean; enabled?: boolean }) {
   const video = kind.startsWith('video-'), portrait = kind === 'background-remover';
   const [file, setFile] = useState<File | null>(null), [format, setFormat] = useState(video ? 'webm' : 'png'), [quality, setQuality] = useState('balanced');
   const [job, setJob] = useState<{ id: string; token: string } | null>(null), [state, setState] = useState<Status | null>(null), [error, setError] = useState(''), [upload, setUpload] = useState<number | null>(null), [result, setResult] = useState(''), [original, setOriginal] = useState('');
+  const storageAbort = useRef<AbortController | null>(null);
   const xhr = useRef<XMLHttpRequest | null>(null), generation = useRef(0);
   useEffect(() => { if (!file) { setOriginal(''); return; } const url = URL.createObjectURL(file); setOriginal(url); return () => URL.revokeObjectURL(url); }, [file]);
-  useEffect(() => () => { xhr.current?.abort(); generation.current++; }, []);
+  useEffect(() => () => { xhr.current?.abort(); storageAbort.current?.abort(); generation.current++; }, []);
   useEffect(() => { return () => { if (result) URL.revokeObjectURL(result); }; }, [result]);
   useEffect(() => {
     if (!job) return;
@@ -28,6 +30,12 @@ export function MediaJobTool({ kind }: { kind: string }) {
     if (!file) return;
     setError(''); setResult(''); setState(null); setJob(null); setUpload(0);
     const form = new FormData(); form.set('file', file); form.set('kind', kind); form.set('format', format); form.set('quality', quality);
+    if(useStorage) {
+      const abort=new AbortController();storageAbort.current=abort;
+      try {const signed=await uploadObject(file,"media",abort.signal,setUpload);const response=await fetch("/api/jobs",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({ticket:signed.ticket,kind,format,quality}),signal:abort.signal});const data=await response.json();if(!response.ok)throw new Error(data.error);setState({status:"queued",progress:0});setJob(data);}
+      catch(e){setError(e instanceof Error?e.message:"Upload failed.");}finally{setUpload(null);}
+      return;
+    }
     const request = new XMLHttpRequest(); xhr.current = request; request.open('POST', '/api/jobs'); request.timeout = 30000;
     request.upload.onprogress = (e) => { if (e.lengthComputable) setUpload(Math.round(e.loaded / e.total * 100)); };
     request.onload = () => { setUpload(null); try { const data = JSON.parse(request.responseText); if (request.status !== 202) throw new Error(data.error); setState({ status: 'queued', progress: 0 }); setJob(data); } catch (e) { setError(e instanceof Error ? e.message : 'Upload failed.'); } };
@@ -36,19 +44,20 @@ export function MediaJobTool({ kind }: { kind: string }) {
     request.send(form);
   }
   async function cancel() {
-    if (upload !== null) { xhr.current?.abort(); return; }
+    if (upload !== null) { xhr.current?.abort(); storageAbort.current?.abort(); return; }
     if (!job) return;
     try { const response = await fetch(`/api/jobs/${job.id}`, { method: 'DELETE', headers: { Authorization: `Bearer ${job.token}` } }); if (!response.ok) throw new Error('Cancellation failed.'); setState(s => s ? { ...s, status: 'cancelling' } : s); } catch (e) { setError(String(e)); }
   }
   async function download() {
     if (!job) return;
-    try { const response = await fetch(`/api/jobs/${job.id}?download=1`, { headers: { Authorization: `Bearer ${job.token}` } }); if (!response.ok) throw new Error('Download unavailable or expired.'); const blob = await response.blob(), url = URL.createObjectURL(blob); setResult(url); const a = document.createElement('a'); a.href = url; a.download = `toolroom-result.${format}`; a.click(); } catch (e) { setError(String(e)); }
+    try { const response = await fetch(`/api/jobs/${job.id}?download=1`, { headers: { Authorization: `Bearer ${job.token}` } }); if (!response.ok) throw new Error('Download unavailable or expired.'); const stored=response.headers.get("content-type")?.includes("application/json")?await response.json():null;const source=stored?await fetch(stored.downloadUrl,{credentials:"omit",referrerPolicy:"no-referrer"}):response;if(!source.ok)throw new Error("Result expired.");const blob = await source.blob(), url = URL.createObjectURL(blob); setResult(url); const a = document.createElement('a'); a.href = url; a.download = `toolroom-result.${format}`; a.click(); } catch (e) { setError(String(e)); }
   }
   return <div className="panel media-job-panel">
+    {!enabled && <p role="status">Worker not deployed on this installation. AI/video processing is unavailable.</p>}
     <div className="media-job-toolbar">
       <label>Output format<select aria-label="Output format" value={format} disabled={busy} onChange={e => setFormat(e.target.value)}>{video ? <><option value="webm">WebM · VP9 / Opus</option><option value="mp4">MP4 · H.264 / AAC</option></> : <option value="png">PNG {portrait ? '· transparent' : '· 2× resolution'}</option>}</select></label>
       {video && <label>Quality preset<select value={quality} disabled={busy} onChange={e => setQuality(e.target.value)}><option value="balanced">Balanced</option><option value="smaller">Smaller file</option><option value="quality">Higher quality</option></select></label>}
-      <button className="button" disabled={!file || busy} onClick={start}><Upload size={17} />Start processing</button>
+      <button className="button" disabled={!enabled || !file || busy} onClick={start}><Upload size={17} />Start processing</button>
       {busy && <button className="button outline" onClick={cancel}><XCircle size={17} />Cancel</button>}
     </div>
     <label className="media-job-drop">Choose {video ? 'a video' : portrait ? 'a portrait' : 'an image'}<input aria-label="Choose media file" type="file" disabled={busy} accept={video ? '.mp4,.mov,.webm,.mkv,.avi' : 'image/jpeg,image/png,image/webp'} onChange={e => { setFile(e.target.files?.[0] || null); setJob(null); setState(null); setResult(''); setError(''); }} /><span>{file ? `${file.name} · ${(file.size / 1024 / 1024).toFixed(2)} MiB` : 'Select a file to get started'}</span></label>

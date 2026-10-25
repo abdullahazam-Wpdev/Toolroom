@@ -1,0 +1,9 @@
+{
+  "CORSRules": [{
+    "AllowedOrigins": ["https://toolroom-woad.vercel.app"],
+    "AllowedMethods": ["PUT", "GET", "HEAD"],
+    "AllowedHeaders": ["Content-Type", "Content-Length"],
+    "ExposeHeaders": ["ETag", "Content-Length", "Content-Type"],
+    "MaxAgeSeconds": 300
+  }]
+}

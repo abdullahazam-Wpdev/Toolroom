@@ -33,3 +33,7 @@ Adapted `parseLinkHeaderCanonical` from [every-app/open-seo](https://github.com/
 ## Unsplash sample photograph
 
 Mountain lake by [Brittany Martin / Unsplash](https://unsplash.com/photos/a-lake-surrounded-by-mountains-and-trees-cpXJYdJSNeM), used under the [Unsplash License](https://unsplash.com/license), locally served as `apps/web/public/samples/unsplash-lake.jpg` for an actual conversion example. Attribution/source/download digest retained in `docs/research/photo-provenance.json`. No endorsement implied. Pexels API results display provider and photographer links and retain their own [license](https://www.pexels.com/license/).
+
+## AWS SDK v3 object-storage client and presigner
+
+`@aws-sdk/client-s3` and `@aws-sdk/s3-request-presigner` (Apache-2.0), versions pinned by `package-lock.json`, are used for S3-compatible requests and SigV4 URLs. Upstream: https://github.com/aws/aws-sdk-js-v3 . License is distributed with the installed packages. The upload authorization, validation, cleanup and integration logic is original project code; no external uploader application was copied.

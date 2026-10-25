@@ -1,3 +1,4 @@
+import { rateLimitResponse } from "@/lib/request-guard";
 import { z } from "zod";
 import { runAudit, analyzeHtml, scoreAudit } from "@/lib/audit";
 import { publicUrl } from "@/lib/safe-fetch";
@@ -14,7 +15,7 @@ export async function POST(request: Request) {
     if (active >= 2)
       return Response.json(
         { error: "The audit service is busy. Retry shortly." },
-        { status: 429 },
+        { status: 429, headers: { "Retry-After": "60" } },
       );
     const input = schema.parse(await boundedJson(request));
     publicUrl(input.url);
@@ -40,7 +41,7 @@ export async function POST(request: Request) {
     } finally {
       active--;
     }
-  } catch (error) {
+  } catch (error) { const limited = rateLimitResponse(error); if (limited) return limited;
     const message = error instanceof Error ? error.message : "Audit failed.";
     return Response.json(
       { error: message },

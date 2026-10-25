@@ -1,3 +1,4 @@
+import { resultUrl, deleteObjects } from "../../../../../../../packages/storage/s3";
 import { readFile, rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import { database, queue, jobDirectory, tokenHash } from '../../../../../../../packages/jobs/runtime';
@@ -17,6 +18,7 @@ export async function GET(request: Request, context: Context) {
     if (!job) return Response.json({ error: 'Job not found or expired.' }, { status: 404 });
     if (new URL(request.url).searchParams.get('download') === '1') {
       if (job.status !== 'completed') return Response.json({ error: 'Result is not ready.' }, { status: 409 });
+      if(job.storageBackend==='s3')return Response.json({downloadUrl:await resultUrl(job.id,job.format,Math.max(1,Math.min(60,Math.floor((job.expiresAt.getTime()-Date.now())/1000))))},{headers:{'Cache-Control':'no-store'}});
       const bytes = await readFile(join(jobDirectory(job.id), `output.${job.format}`));
       return new Response(bytes, { headers: { 'Content-Type': job.format === 'png' ? 'image/png' : `video/${job.format}`, 'Content-Disposition': `attachment; filename="toolroom-result.${job.format}"`, 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' } });
     }
@@ -32,6 +34,7 @@ export async function DELETE(request: Request, context: Context) {
       try { await (await queue().getJob(job.id))?.remove(); } catch { /* Worker may have claimed it; the cancellation flag remains durable. */ }
       await database().mediaJob.update({ where: { id: job.id }, data: { status: 'cancelled' } });
       await rm(jobDirectory(job.id), { recursive: true, force: true });
+      if(job.storageBackend==='s3')await deleteObjects(job.id,job.format);
     }
     return Response.json({ status: 'cancellation-requested' });
   } catch { return Response.json({ error: 'Cancellation service unavailable.' }, { status: 503 }); }

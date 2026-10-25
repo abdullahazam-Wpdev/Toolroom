@@ -43,6 +43,9 @@ model MediaJob {
   progress Int @default(0)
   cancelRequested Boolean @default(false)
   inputBytes Int
+  storageBackend String @default("local")
+  inputSha256 String?
+  inputMime String?
   outputBytes Int?
   error String?
   createdAt DateTime @default(now())

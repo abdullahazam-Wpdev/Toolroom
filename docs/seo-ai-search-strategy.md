@@ -17,3 +17,7 @@ The general image converter and direct-file downloader use the same server-rende
 ## Format directory and monetization revision
 
 The general converter describes all six actually tested formats and links from primary navigation/home. Keep supported format combinations in useful original tool content instead of creating hundreds of thin “any-to-any” pages. Unsupported formats stay explicit. The Semrush integration stays excluded from indexing/sitemap/working-only until live data is verified; fixture-backed code is not a live dataset. Canonical audits now include actual HTTP header evidence and conflicts. House advertising is separated/labeled; actual Google ad approval and indexing require a deployed public origin, operator/legal identity, content review and consent setup. No layout or keyword tool guarantees search/AI recommendations.
+
+## Production canonical correction
+
+The live origin is https://toolroom-woad.vercel.app . `NEXT_PUBLIC_SITE_URL` must exist during both build/runtime; production Config is now set and requires redeployment to replace the old built localhost canonicals/noindex/robots/sitemap. Available public tools index; setup-dependent tools/utility routes and API responses retain intentional noindex. Deployment aliases are request origins, not alternate canonical origins. See `docs/production-hardening.md` for verified versus pending live evidence.

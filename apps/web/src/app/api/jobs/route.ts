@@ -1,3 +1,6 @@
+import { allowedOrigin } from "@/lib/request-guard";
+import { submitStoredMedia } from "@/lib/storage-media-job";
+import { origin as configuredOrigin } from "@/lib/seo";
 import { randomBytes } from 'node:crypto';
 import { mkdir, writeFile, rm } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -7,16 +10,18 @@ let uploading = 0;
 export async function POST(request: Request) {
   let directory = '';
   try {
-    const expected = new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').origin;
-    if (request.headers.get('origin') && request.headers.get('origin') !== expected) return Response.json({ error: 'Cross-origin upload blocked.' }, { status: 403 });
+    const expected = configuredOrigin;
+    if (request.headers.get('origin') && !allowedOrigin(request.headers.get('origin')!)) return Response.json({ error: 'Cross-origin upload blocked.' }, { status: 403 });
     if (!process.env.MEDIA_JOBS_ENABLED || process.env.MEDIA_JOBS_ENABLED !== 'true') return Response.json({ error: 'Background worker is not enabled on this installation.' }, { status: 503 });
-    if (uploading >= 2) return Response.json({ error: 'Uploads are busy. Retry shortly.' }, { status: 429 });
+    if (request.headers.get('content-type')?.startsWith('application/json')) return await submitStoredMedia(request);
+    if (process.env.VERCEL === '1') return Response.json({error:'Use a direct object-storage upload for media jobs.'},{status:503});
+    if (uploading >= 2) return Response.json({ error: 'Uploads are busy. Retry shortly.' }, { status: 429, headers: { "Retry-After": "60" } });
     if (!request.headers.get('content-type')?.startsWith('multipart/form-data')) throw new Error('Use a multipart upload.');
     uploading++;
     try {
       const q = queue(), client = quotaRedis();
       const count = await client.eval("local n=redis.call('INCR',KEYS[1]); if n==1 then redis.call('EXPIRE',KEYS[1],60) end; return n", 1, 'toolroom:upload-minute') as number;
-      if (count > 12 || await q.getWaitingCount() >= 20) return Response.json({ error: 'Queue limit reached. Retry in a minute.' }, { status: 429 });
+      if (count > 12 || await q.getWaitingCount() >= 20) return Response.json({ error: 'Queue limit reached. Retry in a minute.' }, { status: 429, headers: { "Retry-After": "60" } });
       const reader = request.body?.getReader();
       if (!reader) throw new Error('Upload required.');
       let size = 0, expired = false;

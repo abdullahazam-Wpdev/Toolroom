@@ -10,7 +10,7 @@ test("server-rendered metadata, real conversion, download and ZIP", async ({
   await expect(page).toHaveTitle(/JPG to WebP/);
   await expect(page.locator("link[rel=canonical]")).toHaveAttribute(
     "href",
-    "http://localhost:3000/image-tools/jpg-to-webp",
+    `${process.env.TEST_CANONICAL_ORIGIN || "http://localhost:3000"}/image-tools/jpg-to-webp`,
   );
   const fixture = await sharp({
     create: { width: 640, height: 480, channels: 3, background: "#24694d" },
@@ -124,15 +124,10 @@ test("search, availability, favorites consent and planned pages", async ({
   await page.getByRole("button", { name: "Inspect video metadata" }).click();
   await expect(page.getByRole("heading", { name: "Fixture video title" })).toBeVisible();
   await expect(page.getByText("Not available from oEmbed")).toHaveCount(2);
-  // apps/web/src/lib/seo.ts forces noindex on any localhost origin
-  // regardless of tool status (a deliberate guard against indexing local
-  // test/dev deployments before a real public origin is configured), so
-  // this page is still noindex here even though the tool itself is
-  // "available" — this assertion checks that guard stays in force, not the
-  // tool's own availability.
+  // Public, available tools index on the configured production origin;
+  // local development remains noindex.
   await expect(page.locator("meta[name=robots]")).toHaveAttribute(
-    "content",
-    /noindex/,
+    "content", process.env.TEST_CANONICAL_ORIGIN ? /^index, follow$/ : /noindex/,
   );
   // Background removal now has a real, verified MODNet worker behind it; it
   // is "requires-configuration" (self-hosted infra), not "planned", so the

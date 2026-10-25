@@ -1,3 +1,5 @@
+import { storageConfigured } from "../../../../../../packages/storage/s3";
+import { inlineImageLimit } from "../../../../../../packages/core/upload-limits";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { tools, toolHref, categories, effectivelyAvailable } from "@/lib/catalog";
@@ -35,6 +37,8 @@ export default async function Page({ params }: Props) {
   const { category, slug } = await params;
   const tool = tools.find((t) => t.id === slug && t.category === category);
   if (!tool) notFound();
+  const storedImages = storageConfigured() && Boolean(process.env.REDIS_URL?.match(/^rediss?:\/\//));
+  const imageMaxBytes = storedImages ? 10 * 1024 * 1024 : inlineImageLimit();
   const name = categories.find((c) => c.slug === category)?.name;
   const isMediaJob = ["video-compressor", "video-converter", "background-remover", "ai-image-upscaler"].includes(tool.id);
   // Media-job tools are now verified working code gated by operator
@@ -111,14 +115,14 @@ export default async function Page({ params }: Props) {
       <div className="tool-title-row"><h1>{tool.name}</h1><ToolActions /></div>
       <p className="lead">{tool.description}</p>
       {available ? (
-        tool.id === "social-media-inspector" ? (<ProviderMetadataTool />) : isMediaJob ? (<MediaJobTool key={tool.id} kind={tool.id} />) : tool.id in imageToolConfig ? (
-          <Converter key={tool.id} tool={tool.id as ImageToolId} />
+        tool.id === "social-media-inspector" ? (<ProviderMetadataTool />) : isMediaJob ? (<MediaJobTool key={tool.id} kind={tool.id} useStorage={storedImages} enabled={process.env.MEDIA_JOBS_ENABLED === "true"} />) : tool.id in imageToolConfig ? (
+          <Converter key={tool.id} tool={tool.id as ImageToolId} maxBytes={imageMaxBytes} useStorage={storedImages} />
         ) : tool.id === "semrush-keyword-metrics" ? (
           <SemrushTool />
         ) : tool.id === "pagespeed-checker" ? (
           <PageSpeedTool />
         ) : tool.id === "direct-media-downloader" ? (
-          <DirectMediaTool />
+          <DirectMediaTool maxMiB={inlineImageLimit()/1024/1024} />
         ) : tool.id === "social-url-inspector" ? (
           <SocialTool />
         ) : tool.id === "robots-txt-checker" ||
@@ -186,7 +190,7 @@ export default async function Page({ params }: Props) {
             <aside>
               <h3>Know the limits</h3>
               <p>
-                10 MiB per image. Up to 24 million pixels and 8,000 pixels on
+                {imageMaxBytes / 1024 / 1024} MiB per image. Up to 24 million pixels and 8,000 pixels on
                 either edge. JPEG inputs only. Animated files and SVG are not
                 supported. Metadata is removed by default, and orientation is
                 applied.
@@ -257,7 +261,7 @@ export default async function Page({ params }: Props) {
             <h3>Limits and privacy</h3>
             <p>
               {category === "image-tools"
-                ? "JPEG, PNG, WebP, AVIF, GIF and TIFF operations accept up to 10 images per batch and 10 MiB per image, subject to the specific tool’s format requirements. Maximum 24 megapixels and 8,000 pixels per edge. PNG and LZW TIFF encoding are lossless; GIF uses a limited palette. JPEG/WebP/AVIF quality controls can change details. Metadata is stripped by default (optional retention), orientation applied, and images are not enlarged. Inputs are processed in server memory."
+                ? `JPEG, PNG, WebP, AVIF, GIF and TIFF operations accept up to 10 images per batch and ${imageMaxBytes / 1024 / 1024} MiB per image, subject to the specific tool’s format requirements. Maximum 24 megapixels and 8,000 pixels per edge. PNG and LZW TIFF encoding are lossless; GIF uses a limited palette. JPEG/WebP/AVIF quality controls can change details. Metadata is stripped by default (optional retention), orientation applied, and images are not enlarged. Inputs are processed in server memory; direct storage uploads use private temporary objects when configured.`
                 : tool.id === "pagespeed-checker"
                   ? "The submitted URL is sent to Google’s PageSpeed Insights service. API quotas, availability and field-data coverage apply. Lab scores are measurements, not ranking guarantees. API keys remain on the server."
                   : tool.id === "social-url-inspector"

@@ -14,7 +14,7 @@ const pages: Record<string, { title: string; text: string }> = {
   },
   privacy: {
     title: "Privacy and file handling",
-    text: "JPEG images are uploaded to the Toolroom server and processed in memory by Sharp. This version does not persist uploads or results, or forward files to third-party processing APIs. Request metadata may appear in infrastructure logs. Favorites and recent tool names are saved locally only when you opt in, and can be removed by disabling that option in the directory. No advertising or analytics trackers are enabled. This is a development policy and requires operator identity, contact details and jurisdiction review before public launch.",
+    text: "Direct image uploads are processed in server memory by Sharp. When private object storage is configured, images upload directly to that storage provider, are verified before processing, and temporary uploads/results are deleted by the cleanup service. Download links expire after five minutes; cleanup targets one hour, with a bucket lifecycle backstop. Media jobs require a separately deployed worker and may retain private files for up to one hour. Request metadata may appear in infrastructure logs. Favorites and recent tool names are saved locally only when you opt in, and can be removed by disabling that option in the directory. No advertising or analytics trackers are enabled. This is a development policy and requires operator identity, contact details and jurisdiction review before public launch.",
   },
   terms: {
     title: "Terms of use",

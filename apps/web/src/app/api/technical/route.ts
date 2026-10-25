@@ -1,3 +1,4 @@
+import { rateLimitResponse } from "@/lib/request-guard";
 import { z } from "zod";
 import { runTechnical, parseRobots, parseSitemap } from "@/lib/technical";
 import { publicUrl } from "@/lib/safe-fetch";
@@ -26,7 +27,7 @@ export async function POST(request: Request) {
           }
         : await runTechnical(input.url, input.mode);
     return Response.json(result, { headers: { "Cache-Control": "no-store" } });
-  } catch (e) {
+  } catch (e) { const limited = rateLimitResponse(e); if (limited) return limited;
     return Response.json(
       { error: e instanceof Error ? e.message : "Document check failed." },
       { status: 400 },

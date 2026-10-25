@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-export const origin =
-  process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+import { siteOrigin } from "../../../../packages/core/site-origin";
+export const origin = siteOrigin(process.env);
 export function metadata(
   title: string,
   description: string,
@@ -10,11 +10,11 @@ export function metadata(
   return {
     title,
     description,
-    alternates: { canonical: path },
+    alternates: { canonical: new URL(path, origin).href },
     openGraph: {
       title,
       description,
-      url: path,
+      url: new URL(path, origin).href,
       type: "website",
       siteName: "Toolroom",
     },

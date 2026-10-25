@@ -1,3 +1,4 @@
+import { origin as siteOrigin } from "./seo";
 const quotas = new Map<string, { start: number; count: number }>();
 export function takeQuota(key: string, limit = 12, windowMs = 60000) {
   const now = Date.now();
@@ -7,14 +8,11 @@ export function takeQuota(key: string, limit = 12, windowMs = 60000) {
     quotas.set(key, value);
   }
   if (++value.count > limit)
-    throw new Error("Request limit reached. Please retry in a minute.");
+    throw new RateLimitError(Math.max(1, Math.ceil((value.start + windowMs - now) / 1000)));
 }
 export async function boundedJson(request: Request, max = 256 * 1024) {
-  const expected = new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
-  ).origin;
   const origin = request.headers.get("origin");
-  if (origin && origin !== expected)
+  if (origin && !allowedOrigin(origin))
     throw new Error("Cross-origin requests are not permitted.");
   if (!request.headers.get("content-type")?.startsWith("application/json"))
     throw new Error("Use a JSON request.");
@@ -43,4 +41,16 @@ export async function boundedJson(request: Request, max = 256 * 1024) {
   } finally {
     clearTimeout(timer);
   }
+}
+
+export class RateLimitError extends Error {
+  constructor(public retryAfter: number) { super("Request limit reached. Please retry later."); }
+}
+export function rateLimitResponse(error: unknown) {
+  return error instanceof RateLimitError ? Response.json({ error: error.message }, { status: 429, headers: { "Retry-After": String(error.retryAfter), "Cache-Control": "no-store" } }) : null;
+}
+
+export function allowedOrigin(value: string) {
+ const origins = [siteOrigin, ...(process.env.APP_ALLOWED_ORIGINS || "").split(",").map(s=>s.trim()).filter(Boolean), ...[process.env.VERCEL_URL, process.env.VERCEL_BRANCH_URL].filter(Boolean).map(host=>`https://${host}`)];
+ return origins.includes(value);
 }

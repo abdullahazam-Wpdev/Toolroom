@@ -1,0 +1,19 @@
+[
+  {
+    "route": "/api/images",
+    "status": 200,
+    "decoded": {
+      "format": "webp",
+      "width": 16,
+      "height": 12
+    }
+  },
+  {
+    "route": "/api/jobs",
+    "status": 503
+  },
+  {
+    "route": "/api/crawl-jobs",
+    "status": 503
+  }
+]

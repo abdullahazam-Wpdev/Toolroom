@@ -1,0 +1,52 @@
+[
+  {
+    "origin": "https://toolroom-woad.vercel.app",
+    "path": "/",
+    "status": 200,
+    "localhostReferences": true,
+    "robots": null
+  },
+  {
+    "origin": "https://toolroom-woad.vercel.app",
+    "path": "/robots.txt",
+    "status": 200,
+    "localhostReferences": true,
+    "robots": "User-Agent: *\nDisallow: /\n\nSitemap: http://localhost:3000/sitemap.xml\n"
+  },
+  {
+    "origin": "https://toolroom-git-main-norax1.vercel.app",
+    "path": "/",
+    "status": 200,
+    "localhostReferences": false,
+    "robots": null,
+    "applicationVerified": false,
+    "note": "Deployment alias is protected; application metadata not verified anonymously."
+  },
+  {
+    "origin": "https://toolroom-git-main-norax1.vercel.app",
+    "path": "/robots.txt",
+    "status": 200,
+    "localhostReferences": false,
+    "robots": null,
+    "applicationVerified": false,
+    "note": "Redirect followed to Vercel authentication HTML; HTTP 200 is not an application robots.txt response."
+  },
+  {
+    "origin": "https://toolroom-hdshap5g1-norax1.vercel.app",
+    "path": "/",
+    "status": 200,
+    "localhostReferences": false,
+    "robots": null,
+    "applicationVerified": false,
+    "note": "Deployment alias is protected; application metadata not verified anonymously."
+  },
+  {
+    "origin": "https://toolroom-hdshap5g1-norax1.vercel.app",
+    "path": "/robots.txt",
+    "status": 200,
+    "localhostReferences": false,
+    "robots": null,
+    "applicationVerified": false,
+    "note": "Redirect followed to Vercel authentication HTML; HTTP 200 is not an application robots.txt response."
+  }
+]

@@ -1,3 +1,4 @@
+import { rateLimitResponse } from "@/lib/request-guard";
 import { z } from "zod";
 import { queryPageSpeed } from "@/lib/pagespeed";
 import { boundedJson, takeQuota } from "@/lib/request-guard";
@@ -13,7 +14,7 @@ export async function POST(request: Request) {
     if (active >= 2)
       return Response.json(
         { error: "Measurement service is busy. Retry shortly." },
-        { status: 429 },
+        { status: 429, headers: { "Retry-After": "60" } },
       );
     const input = schema.parse(await boundedJson(request, 8192));
     active++;
@@ -24,7 +25,7 @@ export async function POST(request: Request) {
     } finally {
       active--;
     }
-  } catch (error) {
+  } catch (error) { const limited = rateLimitResponse(error); if (limited) return limited;
     return Response.json(
       {
         error:

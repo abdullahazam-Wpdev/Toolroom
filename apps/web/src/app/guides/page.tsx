@@ -1,3 +1,4 @@
+import { inlineImageLimit } from "../../../../../packages/core/upload-limits";
 import Link from "next/link";
 import { metadata } from "@/lib/seo";
 export const generateMetadata = () =>
@@ -32,7 +33,7 @@ export default function Page() {
       <p>
         The converter applies EXIF orientation and strips embedded metadata by default (you can explicitly retain it),
         which can include location and camera information. It accepts JPEG
-        images up to 10 MiB and 24 million pixels. Batch downloads are assembled
+        images up to {inlineImageLimit() / 1024 / 1024} MiB through direct uploads (10 MiB with private object storage configured) and 24 million pixels. Batch downloads are assembled
         in your browser.
       </p>
       <Link className="button primary" href="/image-tools/jpg-to-webp">

@@ -2,6 +2,7 @@ FROM node:24-bookworm-slim AS build
 WORKDIR /app
 COPY package*.json ./
 COPY apps/web/package.json apps/web/package.json
+COPY infra infra
 RUN npm ci
 COPY . .
 ARG NEXT_PUBLIC_SITE_URL=http://localhost:3000

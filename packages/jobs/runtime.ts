@@ -3,7 +3,8 @@ import IORedis from 'ioredis';
 import { PrismaClient } from '@prisma/client';
 import { resolve, join } from 'node:path';
 import { randomBytes, createHash } from 'node:crypto';
-export const jobRoot = resolve(process.env.JOB_STORAGE_DIR || '.runtime/jobs');
+// Fixed fallback avoids tracing an arbitrary current working directory into Vercel bundles.
+export const jobRoot = process.env.JOB_STORAGE_DIR ? resolve(process.env.JOB_STORAGE_DIR) : '/tmp/toolroom-jobs';
 export const queueName = 'toolroom-media-v1';
 export const ttlMs = 60 * 60 * 1000;
 export const tokenHash = (token: string) => createHash('sha256').update(token).digest('hex');
