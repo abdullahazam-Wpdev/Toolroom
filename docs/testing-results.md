@@ -1,3 +1,15 @@
+## Phase 1 production acceptance — 26 October 2026
+
+**Released:** feature commit `3606b4d` and follow-up `5853d35` pushed to GitHub main. Follow-up Vercel deployment `toolroom-71vd33yer-norax1.vercel.app` reached Ready; public origin remains https://toolroom-woad.vercel.app. No migration or credential change was needed.
+
+**Final verification:** 135 unit/service tests passed (one Redis-dependent skip); 43 production-artifact browser tests passed (three worker-only skips); four Python migration-helper safety tests passed. TypeScript and production build passed. All **15 live browser tests passed** (44.8 seconds), covering all five PDF operations, six developer utilities, Unicode/error/reset/cancellation behavior and existing SEO CSV. Additional live clipboard check matched actual JSON output. Actual PDF and ZIP downloads were decoded, not inferred from success messages. Live PNG→JPEG decoded at 30×20. New tool pages returned 200 with public canonicals and no noindex; sitemap includes PDF/developer tools. Media/crawl POST routes remain 503. Production dependency audit reports zero vulnerabilities.
+
+Initial live run had two five-second result-wait failures (13/15 passed) with still-busy PDF UIs. Focused reruns passed; readiness assertions now align with the unchanged 30-second worker limit, loading status is explicit, and document-preservation limits are visible before choosing files. Final full live run passed without skipped cases. Mobile/desktop screenshots reviewed. Remote builds completed; npm platform cache/install-script advisories remain documented, with no blanket script permissions granted. Existing dev preview retained; test-owned servers stopped.
+
+**GPU:** cgpu 0.1.4 installed operator-locally; help succeeded and isolated status requires OAuth setup. No GPU allocation/model output is verified. Its Zod advisory (two propagated high package entries) blocks credentialed/service use and is not a Toolroom dependency. SeeB4 weights and WanGP hosted-use/model licensing/hardware remain gates. No public worker enabled, production SQL run, model weights silently adopted, or production readiness claimed. See `docs/phase1-gpu-research.md` and `docs/phase1-pdf-developer.md`.
+
+Next independent work remains image crop/metadata, images-to-PDF and further bounded PDF/developer utilities. Storage/Redis/database identity, deployed workers, rendered audits, video generation and Lighthouse acceptance remain separate gates.
+
 ## Phase 1 PDF/developer milestone — 26 October 2026
 
 Added five functional browser-local PDF tools (merge with file reordering, split/ZIP, extract, rotate, metadata) and six developer tools (JSON, UTF-8 Base64, URI components, UUID v4, SHA-256/384/512 and HEX/RGB/HSL). Registry now has 31 tools: 25 available and six requiring configuration. New PDF category/navigation, compact operation tabs, local result downloads and original server-rendered instructions use the existing Toolroom design system and SEO pipeline. PDF parsing runs in a cancellable 30-second worker with 20 MiB/200-page limits. Existing image and SEO tools remain intact.
@@ -6,7 +18,7 @@ Local acceptance: 135 unit/service tests passed, one Redis-dependent test skippe
 
 Installed cgpu 0.1.4 outside the app under ignored .runtime/cgpu; CLI help works, isolated status stops on missing Colab OAuth. No GPU or model output was provisioned. Its pinned Zod dependency has a high advisory, so no account credentials or public service were configured. Reviewed new GPU/video/free-tool sources and topics with explicit license/weight/provider blockers; see phase1-gpu-research.md and the master reference ledger. WanGP and SeeB4 are not deployed tools. Repeated references reuse retained same-day reviews rather than claiming exhaustive fresh audits.
 
-Release: commit/push/deployment/live acceptance will be recorded after verification. Full implementation/limitations: docs/phase1-pdf-developer.md. No production-readiness claim. Remaining: images-to-PDF/rendering/compression, image crop/metadata, further developer tools, securely rendered audits and verified production storage/workers/database.
+Release: completed; see the newer production acceptance entry above. Full implementation/limitations: docs/phase1-pdf-developer.md. No production-readiness claim. Remaining: images-to-PDF/rendering/compression, image crop/metadata, further developer tools, securely rendered audits and verified production storage/workers/database.
 
 ## Verified production deployment — SEO milestone
 

@@ -47,3 +47,5 @@ Covered in `docs/seo-api-integrations.md`: OAuth client registration (Search Con
 ## Current real test evidence for the audit engine itself
 
 See `docs/testing-results.md` for the dated entry: unit tests cover sitemap seeding (including orphaned pages not linked from the homepage), missing/unparsable sitemap handling, and platform detection (WordPress positive, blank-page negative) against injected fixtures; a live run against `wordpress.org/news/` and against `example.com` (as a true negative) is recorded in `docs/progress.md` with the actual evidence captured.
+
+Phase 1 production acceptance: 5853d35 reached Ready and all 15 live browser checks passed. No new environment keys/migrations required. Browser PDF engine loads on demand; processing has a 30-second deadline, and the acceptance wait allows 35 seconds to observe completion/error. Preserve the current worker-disabled configuration.
