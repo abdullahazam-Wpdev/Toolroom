@@ -1,3 +1,4 @@
+import { additionalSeoEvidence } from "./seo-evidence.ts";
 import { parseLinkHeaderCanonical } from "./http-canonical.ts";
 import { load } from "cheerio";
 import { safeFetch, type NetworkResponse } from "./safe-fetch.ts";
@@ -176,8 +177,17 @@ export function analyzeHtml(
     "canonical",
     "metadata",
     "Canonical declaration",
-    canonical && !(htmlCanonical && httpCanonical && resolve(htmlCanonical) !== httpCanonical) ? "pass" : "warning",
-    htmlCanonical && httpCanonical && resolve(htmlCanonical) !== httpCanonical ? `HTML canonical ${resolve(htmlCanonical)} differs from HTTP Link canonical ${httpCanonical}.` : canonical || "No canonical declared.",
+    canonical &&
+      !(
+        htmlCanonical &&
+        httpCanonical &&
+        resolve(htmlCanonical) !== httpCanonical
+      )
+      ? "pass"
+      : "warning",
+    htmlCanonical && httpCanonical && resolve(htmlCanonical) !== httpCanonical
+      ? `HTML canonical ${resolve(htmlCanonical)} differs from HTTP Link canonical ${httpCanonical}.`
+      : canonical || "No canonical declared.",
     "Review canonical intent; missing canonicals do not automatically cause a ranking penalty.",
   );
   const h1 = headings.filter((h) => h.level === 1);
@@ -373,7 +383,13 @@ export function analyzeHtml(
       reason,
       "Run a separately bounded verification workflow.",
     );
+  const additional = additionalSeoEvidence(html, url, network?.headers);
+  checks.push(...additional.checks);
   return {
+    platform: additional.platform,
+    contentFingerprint: additional.contentFingerprint,
+    contentCharacters: additional.contentCharacters,
+    alternateEvidence: additional.alternates,
     url,
     generatedAt: new Date().toISOString(),
     metadata: {
@@ -383,7 +399,11 @@ export function analyzeHtml(
       descriptionLength: description.length,
       robots,
       canonical: canonical ? resolve(canonical) : null,
-      canonicalSource: htmlCanonical ? "html" : httpCanonical ? "http-header" : null,
+      canonicalSource: htmlCanonical
+        ? "html"
+        : httpCanonical
+          ? "http-header"
+          : null,
       httpCanonical,
       language,
       viewport: meta("viewport"),

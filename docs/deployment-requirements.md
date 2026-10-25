@@ -1,3 +1,7 @@
+## SEO milestone deployment
+
+This milestone needs no database migration or new credential. Keep media/crawl background jobs disabled. The synchronous crawl route declares maxDuration=60 with a 45-second engine budget on Vercel; verify plan support and runtime behavior. Browser-rendered auditing still needs an isolated sandboxed worker. Database connectivity remains unverified until the operator runs the hidden-input helper against the confirmed Prisma resource.
+
 # Deployment requirements — SEO audit engine, 25 October 2026
 
 ## Migration history was stale — found and fixed, 25 October 2026

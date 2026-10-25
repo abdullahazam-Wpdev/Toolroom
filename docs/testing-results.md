@@ -1,3 +1,11 @@
+## SEO evidence milestone — 25 October 2026
+
+Added source-evidence checks for WordPress reply/query variants, corroborated Shopify/WooCommerce product JSON-LD and selected fields, JavaScript source content, and HTML hreflang syntax/self-reference. Crawls now compare return links only among fetched pages and group matching normalized main text (minimum 200 characters, excluding navigation); no semantic similarity or Google eligibility claim. Added formula-safe CSV downloads alongside existing reports.
+
+Fixed external image fetching without explicit opt-in, classified 401/403/5xx link results as unverified rather than healthy, and replaced stale 32-request guards with the declared 80-request cap. The synchronous Vercel crawl has a 45-second engine budget and a 60-second function duration; per-fetch deadlines remain enforced.
+
+Verification: TypeScript and production build passed; 29 production-artifact browser tests passed, three worker-only tests skipped; four secure migration-helper tests passed. 124 unit/service tests passed, one Redis-dependent test skipped. Dependency audit found zero production vulnerabilities. No production SQL/migrations or paid provider calls ran. MEDIA_JOBS_ENABLED and CRAWL_JOBS_ENABLED remain false. Production canonical/robots/sitemap already use the public origin, superseding earlier pending-deployment notes. Deployment of this SEO milestone is tracked separately below.
+
 # Verification record — 25 October 2026
 
 ## Local application

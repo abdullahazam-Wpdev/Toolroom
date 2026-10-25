@@ -1,18 +1,242 @@
 "use client";
-import { useState } from 'react';
-import type { SiteAuditReport } from '@/lib/site-audit';
+import { findingsCsv } from "@/lib/report-csv";
+import { useState } from "react";
+import type { SiteAuditReport } from "@/lib/site-audit";
 export function SiteAuditTool() {
-  const [url,setUrl]=useState(''),[external,setExternal]=useState(false),[maxPages,setMaxPages]=useState(10),[busy,setBusy]=useState(false),[error,setError]=useState(''),[report,setReport]=useState<SiteAuditReport|null>(null);
+  const [url, setUrl] = useState(""),
+    [external, setExternal] = useState(false),
+    [maxPages, setMaxPages] = useState(10),
+    [busy, setBusy] = useState(false),
+    [error, setError] = useState(""),
+    [report, setReport] = useState<SiteAuditReport | null>(null);
   async function submit(e: React.FormEvent) {
-    e.preventDefault();setBusy(true);setError('');setReport(null);
-    try { const r=await fetch('/api/site-audits',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url,external,maxPages})});const data=await r.json();if(!r.ok)throw new Error(data.error);setReport(data); } catch(e){setError(e instanceof Error?e.message:'Crawl failed.');}finally{setBusy(false);}
+    e.preventDefault();
+    setBusy(true);
+    setError("");
+    setReport(null);
+    try {
+      const r = await fetch("/api/site-audits", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url, external, maxPages }),
+      });
+      const data = await r.json();
+      if (!r.ok) throw new Error(data.error);
+      setReport(data);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Crawl failed.");
+    } finally {
+      setBusy(false);
+    }
   }
-  function download(){const link=document.createElement('a'),object=URL.createObjectURL(new Blob([JSON.stringify(report,null,2)],{type:'application/json'}));link.href=object;link.download='toolroom-site-audit.json';link.click();setTimeout(()=>URL.revokeObjectURL(object),1000);}
-  return <details className="panel media-job-panel"><summary>Full website audit · crawl, sitemap, platform detection, links and images</summary><p>Crawl up to {maxPages} pages on one website, seeded from on-page links and the sitemap when one is published. This follows robots.txt, does not execute page JavaScript, and reports which CMS/platform signals (if any) were actually observed — rendered-JavaScript comparison and authenticated owner data (Google Search Console, WordPress/Shopify admin) are not part of this mode yet.</p><form onSubmit={submit}><label>Website URL<input type="url" aria-label="Crawl website URL" required value={url} onChange={e=>setUrl(e.target.value)} placeholder="https://example.com" /></label><label>Page limit<input type="number" aria-label="Maximum pages to crawl" min={1} max={25} value={maxPages} onChange={e=>setMaxPages(Math.min(25,Math.max(1,Number(e.target.value)||10)))} /></label><label><input type="checkbox" checked={external} onChange={e=>setExternal(e.target.checked)}/> Also check selected external links and image resources</label><button className="button" disabled={busy}>{busy?'Crawling website…':'Run website crawl'}</button></form>{error&&<p role="alert">{error}</p>}{report&&<div><h2>{report.pages.length} pages inspected</h2><p className="muted">{report.coverage}</p><button className="button outline" onClick={download}>Download complete JSON report</button>
-  <h3>Platform signals</h3>
-  <p>{report.platform.platforms.length?report.platform.platforms.map(p=>`${p.id} (${p.confidence} confidence)`).join(', '):'No recognized platform signature found.'}{report.platform.uncertain?' — uncertain; treat as a hint, not a fact.':''}</p>
-  {report.platform.platforms.map(p=><p key={p.id} className="muted">{p.id}: {p.evidence.join('; ')}</p>)}
-  <h3>Sitemap discovery</h3>
-  <p>{report.sitemapDiscovery.found?`Found at ${report.sitemapDiscovery.url}. ${report.sitemapDiscovery.totalUrls} URL(s) listed; ${report.sitemapDiscovery.seeded} same-origin URL(s) added to the crawl queue.`:`No usable sitemap found${report.sitemapDiscovery.error?`: ${report.sitemapDiscovery.error}`:'.'}`}</p>
-  <h3>Page findings</h3>{report.pages.map(p=><details key={p.url}><summary>{p.url} · HTTP {p.status}</summary><p>{p.metadata.title}</p>{p.checks.filter(c=>c.status!=='pass').map(c=><p key={c.id}><strong>{c.title}</strong> · {c.evidence}<br/>{c.recommendation}</p>)}<h4>Structured data</h4>{p.structuredData.length?p.structuredData.map((s,i)=><p key={i}>{s.type||'Unknown type'}: {s.issues.join('; ')||'Selected field checks passed; full eligibility not tested.'}</p>):<p>No JSON-LD found.</p>}</details>)}<h3>Links</h3>{report.links.map(l=><p key={l.url}>{l.url}: {l.status===null?'Not verified':`HTTP ${l.status}`} {l.broken?'— fix or redirect this broken destination':''}</p>)}<h3>Image resources</h3>{report.images.map(i=><p key={i.url}>{i.url} · {i.bytes===null?'Not measured':`${(i.bytes/1024).toFixed(1)} KiB · ${i.width} × ${i.height}`}<br/>{i.issues.join(' ')}</p>)}{report.duplicateTitles.map(d=><p key={'t-'+d.title}>Duplicate title: {d.title} · {d.urls.join(', ')}. Give each page a descriptive unique title.</p>)}{report.duplicateDescriptions.map(d=><p key={'d-'+d.description}>Duplicate meta description: {d.description} · {d.urls.join(', ')}. Write a unique description per page.</p>)}{report.skipped.length>0&&<details><summary>Skipped / unverified pages</summary>{report.skipped.map((s,i)=><p key={i}>{s.url}: {s.reason}</p>)}</details>}</div>}</details>;
+  function csv() {
+    const a = document.createElement("a"),
+      u = URL.createObjectURL(
+        new Blob([findingsCsv(report!.pages)], {
+          type: "text/csv;charset=utf-8",
+        }),
+      );
+    a.href = u;
+    a.download = "toolroom-site-findings.csv";
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(u), 1000);
+  }
+  function download() {
+    const link = document.createElement("a"),
+      object = URL.createObjectURL(
+        new Blob([JSON.stringify(report, null, 2)], {
+          type: "application/json",
+        }),
+      );
+    link.href = object;
+    link.download = "toolroom-site-audit.json";
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(object), 1000);
+  }
+  return (
+    <details className="panel media-job-panel">
+      <summary>
+        Full website audit · crawl, sitemap, platform detection, links and
+        images
+      </summary>
+      <p>
+        Crawl up to {maxPages} pages on one website, seeded from on-page links
+        and the sitemap when one is published. This follows robots.txt, does not
+        execute page JavaScript, and reports which CMS/platform signals (if any)
+        were actually observed — rendered-JavaScript comparison and
+        authenticated owner data (Google Search Console, WordPress/Shopify
+        admin) are not part of this mode yet.
+      </p>
+      <form onSubmit={submit}>
+        <label>
+          Website URL
+          <input
+            type="url"
+            aria-label="Crawl website URL"
+            required
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
+            placeholder="https://example.com"
+          />
+        </label>
+        <label>
+          Page limit
+          <input
+            type="number"
+            aria-label="Maximum pages to crawl"
+            min={1}
+            max={25}
+            value={maxPages}
+            onChange={(e) =>
+              setMaxPages(
+                Math.min(25, Math.max(1, Number(e.target.value) || 10)),
+              )
+            }
+          />
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            checked={external}
+            onChange={(e) => setExternal(e.target.checked)}
+          />{" "}
+          Also check selected external links and image resources
+        </label>
+        <button className="button" disabled={busy}>
+          {busy ? "Crawling website…" : "Run website crawl"}
+        </button>
+      </form>
+      {error && <p role="alert">{error}</p>}
+      {report && (
+        <div>
+          <h2>{report.pages.length} pages inspected</h2>
+          <p className="muted">{report.coverage}</p>
+          <button className="button outline" onClick={download}>
+            Download complete JSON report
+          </button>
+          <button className="button outline" onClick={csv}>
+            Download findings CSV
+          </button>
+          <h3>Duplicate main text</h3>
+          <p>
+            Exact matches after whitespace/case normalization, excluding
+            navigation and short pages; this does not detect semantic
+            similarity.
+          </p>
+          {report.duplicateContent?.length ? (
+            report.duplicateContent.map((g) => (
+              <p key={g.fingerprint}>
+                {g.urls.join(" · ")} — review whether these pages need distinct
+                content or canonical consolidation.
+              </p>
+            ))
+          ) : (
+            <p>No matching normalized text found in the inspected pages.</p>
+          )}
+          <h3>Hreflang return links</h3>
+          {report.hreflangReciprocity?.length ? (
+            report.hreflangReciprocity.map((r, i) => (
+              <p key={i}>
+                {r.source} → {r.target} ({r.lang}): {r.status}. {r.evidence}
+              </p>
+            ))
+          ) : (
+            <p>No HTML language alternates found in the inspected pages.</p>
+          )}
+          <h3>Platform signals</h3>
+          <p>
+            {report.platform.platforms.length
+              ? report.platform.platforms
+                  .map((p) => `${p.id} (${p.confidence} confidence)`)
+                  .join(", ")
+              : "No recognized platform signature found."}
+            {report.platform.uncertain
+              ? " — uncertain; treat as a hint, not a fact."
+              : ""}
+          </p>
+          {report.platform.platforms.map((p) => (
+            <p key={p.id} className="muted">
+              {p.id}: {p.evidence.join("; ")}
+            </p>
+          ))}
+          <h3>Sitemap discovery</h3>
+          <p>
+            {report.sitemapDiscovery.found
+              ? `Found at ${report.sitemapDiscovery.url}. ${report.sitemapDiscovery.totalUrls} URL(s) listed; ${report.sitemapDiscovery.seeded} same-origin URL(s) added to the crawl queue.`
+              : `No usable sitemap found${report.sitemapDiscovery.error ? `: ${report.sitemapDiscovery.error}` : "."}`}
+          </p>
+          <h3>Page findings</h3>
+          {report.pages.map((p) => (
+            <details key={p.url}>
+              <summary>
+                {p.url} · HTTP {p.status}
+              </summary>
+              <p>{p.metadata.title}</p>
+              {p.checks
+                .filter((c) => c.status !== "pass")
+                .map((c) => (
+                  <p key={c.id}>
+                    <strong>{c.title}</strong> · {c.evidence}
+                    <br />
+                    {c.recommendation}
+                  </p>
+                ))}
+              <h4>Structured data</h4>
+              {p.structuredData.length ? (
+                p.structuredData.map((s, i) => (
+                  <p key={i}>
+                    {s.type || "Unknown type"}:{" "}
+                    {s.issues.join("; ") ||
+                      "Selected field checks passed; full eligibility not tested."}
+                  </p>
+                ))
+              ) : (
+                <p>No JSON-LD found.</p>
+              )}
+            </details>
+          ))}
+          <h3>Links</h3>
+          {report.links.map((l) => (
+            <p key={l.url}>
+              {l.url}: {l.status === null ? "Not verified" : `HTTP ${l.status}`}{" "}
+              {l.broken ? "— fix or redirect this broken destination" : ""}
+            </p>
+          ))}
+          <h3>Image resources</h3>
+          {report.images.map((i) => (
+            <p key={i.url}>
+              {i.url} ·{" "}
+              {i.bytes === null
+                ? "Not measured"
+                : `${(i.bytes / 1024).toFixed(1)} KiB · ${i.width} × ${i.height}`}
+              <br />
+              {i.issues.join(" ")}
+            </p>
+          ))}
+          {report.duplicateTitles.map((d) => (
+            <p key={"t-" + d.title}>
+              Duplicate title: {d.title} · {d.urls.join(", ")}. Give each page a
+              descriptive unique title.
+            </p>
+          ))}
+          {report.duplicateDescriptions.map((d) => (
+            <p key={"d-" + d.description}>
+              Duplicate meta description: {d.description} · {d.urls.join(", ")}.
+              Write a unique description per page.
+            </p>
+          ))}
+          {report.skipped.length > 0 && (
+            <details>
+              <summary>Skipped / unverified pages</summary>
+              {report.skipped.map((s, i) => (
+                <p key={i}>
+                  {s.url}: {s.reason}
+                </p>
+              ))}
+            </details>
+          )}
+        </div>
+      )}
+    </details>
+  );
 }

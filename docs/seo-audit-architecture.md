@@ -1,3 +1,7 @@
+## Source-evidence expansion — 25 October 2026
+
+Selected platform checks, normalized main-text duplicates, HTML hreflang checks and CSV findings are now implemented; see `docs/development-plan.md` and `apps/web/src/lib/seo-evidence.ts`. These supersede prior statements that only platform identification exists. No rendered DOM, authenticated owner data, full schema eligibility validation or semantic duplicate detection is claimed. Return-link evidence covers crawled HTML only; out-of-budget alternates stay Not tested.
+
 # SEO audit architecture — 25 October 2026
 
 This documents the actual current architecture of the SEO audit engine after the multi-platform audit upgrade. It is not a design proposal; everything described here is implemented and tested unless explicitly marked "planned."

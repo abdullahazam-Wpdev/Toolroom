@@ -1,3 +1,7 @@
+## Source-evidence expansion — 25 October 2026
+
+Selected platform checks, normalized main-text duplicates, HTML hreflang checks and CSV findings are now implemented; see `docs/development-plan.md` and `apps/web/src/lib/seo-evidence.ts`. These supersede prior statements that only platform identification exists. No rendered DOM, authenticated owner data, full schema eligibility validation or semantic duplicate detection is claimed. Return-link evidence covers crawled HTML only; out-of-budget alternates stay Not tested.
+
 # Platform-specific SEO rules — specified vs. built, 25 October 2026
 
 The original request (section 5/6) asked for deep WordPress/WooCommerce/Shopify-specific auditing: Elementor DOM-size analysis, hero-slider duplicate-H1 detection, lazy-loading/render-blocking checks, WooCommerce product schema validation, Shopify theme performance, faceted-navigation canonical conflicts, and more. **Only platform identification is built this phase** (`apps/web/src/lib/platform-detect.ts`); the deeper rule sets below are specified, not implemented, so this file tracks the gap honestly rather than silently narrowing scope.

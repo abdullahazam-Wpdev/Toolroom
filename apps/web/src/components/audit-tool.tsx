@@ -7,6 +7,7 @@ import {
   AlertCircle,
   CheckCircle2,
 } from "lucide-react";
+import { findingsCsv } from "@/lib/report-csv";
 import type { AuditReport } from "@/lib/audit";
 import { Button } from "./ui/button";
 export function AuditTool({
@@ -155,6 +156,19 @@ export function AuditTool({
                 }
               >
                 <Download size={15} /> JSON
+              </Button>
+              <Button
+                variant="outline"
+                onClick={() =>
+                  download(
+                    new Blob([findingsCsv([report])], {
+                      type: "text/csv;charset=utf-8",
+                    }),
+                    "toolroom-seo-report.csv",
+                  )
+                }
+              >
+                CSV report
               </Button>
               <Button variant="outline" onClick={pdf} disabled={exporting}>
                 <Download size={15} />{" "}

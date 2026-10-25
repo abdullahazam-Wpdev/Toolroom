@@ -1,3 +1,11 @@
+## SEO evidence milestone — 25 October 2026
+
+Added source-evidence checks for WordPress reply/query variants, corroborated Shopify/WooCommerce product JSON-LD and selected fields, JavaScript source content, and HTML hreflang syntax/self-reference. Crawls now compare return links only among fetched pages and group matching normalized main text (minimum 200 characters, excluding navigation); no semantic similarity or Google eligibility claim. Added formula-safe CSV downloads alongside existing reports.
+
+Fixed external image fetching without explicit opt-in, classified 401/403/5xx link results as unverified rather than healthy, and replaced stale 32-request guards with the declared 80-request cap. The synchronous Vercel crawl has a 45-second engine budget and a 60-second function duration; per-fetch deadlines remain enforced.
+
+Verification: TypeScript and production build passed; 29 production-artifact browser tests passed, three worker-only tests skipped; four secure migration-helper tests passed. 124 unit/service tests passed, one Redis-dependent test skipped. Dependency audit found zero production vulnerabilities. No production SQL/migrations or paid provider calls ran. MEDIA_JOBS_ENABLED and CRAWL_JOBS_ENABLED remain false. Production canonical/robots/sitemap already use the public origin, superseding earlier pending-deployment notes. Deployment of this SEO milestone is tracked separately below.
+
 # Progress — 25 October 2026 (authoritative)
 
 ## Production hardening update — 25 October 2026
@@ -331,3 +339,7 @@ Then exercise `/api/jobs` with a real multipart upload (`kind` one of
 Followed the requested official onboarding playbook: existing Vercel CLI 65.2.0 authenticated, official Vercel plugin installed/enabled user-wide, shared global MCP registered and user OAuth completed. Preserved existing toolroom project linkage and unrelated Codex settings. Mutation confirmation configured. Reload Codex to expose new plugin commands/MCP tools; authenticated `list_teams` and documentation search are pending that refresh. No deployment was performed. See `docs/vercel-setup.md`.
 
 Backend continuation is in progress: real rootless Podman PostgreSQL/Redis checks, queue job processing and restart durability passed; an actual VP9/WebM job completed. New AI/video/crawl/provider code remains under acceptance verification and is not promoted to available based on source changes alone. Docker is absent in the Flatpak shell; rootless host Podman is usable. Chromium sandbox startup failed for operator-rendered audits; public JavaScript rendering stays disabled. AI runtime installation encountered interrupted PyPI downloads. This work does not replace the earlier accepted tool verification or imply production readiness.
+
+## Prisma migration access investigation — 25 October 2026
+
+Confirmed through authenticated CLI/provider metadata that `prisma-postgres-carmine-island` is Available and linked to Toolroom. Production database credentials remain hidden; no SQL connection is verified. Reviewed schema (Prisma 6.19.3, DATABASE_URL only) and all three migrations: no explicit destructive SQL, but crawl migration's required maxPages/tokenHash fields without defaults can fail on existing AuditJob data. No migration was edited/applied. Prepared a hidden-input, identity-checking read-only status helper with four passing safety tests. Exact dashboard action, safe local command, references and all migration gates: `docs/prisma-production-connection.md`. Current MCP tools are unavailable in the session; authenticated CLI metadata is not misrepresented as MCP/SQL verification.
