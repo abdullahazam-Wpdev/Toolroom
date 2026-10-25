@@ -856,6 +856,9 @@ footer {
   padding: 20px;
   font-size: 14px;
 }
+.related a .tool-icon {
+  margin-bottom: 14px;
+}
 .related a span {
   display: flex;
   justify-content: space-between;

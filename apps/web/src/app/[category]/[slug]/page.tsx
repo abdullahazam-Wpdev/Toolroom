@@ -1,6 +1,7 @@
 import { LocalToolGuide } from "@/components/local-tool-guide";
 import { PdfTool } from "@/components/pdf-tool";
 import { DeveloperTool } from "@/components/developer-tool";
+import { CategoryIcon } from "@/components/icon";
 import type { PdfOperation } from "@/lib/pdf-tools";
 import type { DeveloperId } from "@/lib/developer-tools";
 import { storageConfigured } from "../../../../../../packages/storage/s3";
@@ -334,6 +335,9 @@ export default async function Page({ params }: Props) {
             .slice(0, 3)
             .map((t) => (
               <Link key={t.id} href={toolHref(t)}>
+                <span className={"tool-icon " + t.category}>
+                  <CategoryIcon category={t.category} />
+                </span>
                 {t.name}
                 <span>
                   {t.status === "available"
