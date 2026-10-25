@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "postinstall": "prisma generate --schema ../../infra/schema.prisma",
     "dev": "next dev --hostname 0.0.0.0",
     "build": "next build",
     "postbuild": "mkdir -p .next/standalone/apps/web/.next && cp -r .next/static .next/standalone/apps/web/.next/static && cp -r public .next/standalone/apps/web/public",
