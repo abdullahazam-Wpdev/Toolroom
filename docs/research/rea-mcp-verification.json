@@ -1,0 +1,6 @@
+{
+  "verifiedAt": "2026-10-25T07:21:48.685Z",
+  "transport": "standalone stdio client, not active Codex tool injection",
+  "toolCount": 207,
+  "browserTool": "capture_browser_scenario"
+}

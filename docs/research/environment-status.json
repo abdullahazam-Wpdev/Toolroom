@@ -1,0 +1,8 @@
+{
+  "reviewedAt": "2026-10-25",
+  "reaMcp": {"availableInSession": false, "doctor": "stale Codex registration", "configurationChanged": false},
+  "reaCli": {"package": "rea-agents@6.7.0", "browserScenariosCompleted": 6, "evidenceDirectory": "artifacts/research/rea", "ownedBrowsersCleanedUp": true},
+  "githubTools": {"availableInSession": false, "pluginDiscovered": true, "connected": false, "fallback": "Public GitHub REST metadata, source archives, raw files and web research"},
+  "docker": {"previouslyAvailable": false, "runtimeVerification": "not performed"},
+  "skill": {"name": "toolroom-development", "workspace": ".agents/skills/toolroom-development/SKILL.md", "installed": "/home/abdullah/.codex/skills/toolroom-development/SKILL.md", "validation": "quick_validate.py passed using isolated PyYAML dependency"}
+}

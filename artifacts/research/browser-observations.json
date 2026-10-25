@@ -1,0 +1,286 @@
+[
+  {
+    "id": "cloudconvert",
+    "url": "https://cloudconvert.com/jpg-to-webp",
+    "status": 200,
+    "title": "JPG to WEBP | CloudConvert",
+    "text": "cloudconvert\nTools\nAPI\nPricing\nSign in\nSign up\nJPG to WEBP Converter\n\nCloudConvert converts your image files online. Amongst many others, we support PNG, JPG, GIF, WEBP and HEIC. You can use the options to control image resolution, quality and file size.\n\nJPG\nTO\nWEBP\nSelect your file to convert\n\nor drop your file here.\n\nSelect File\nJPG\n– Joint Photographic Experts Group\n\nJPG, also known as JPEG, is a file format that can contain image with 10:1 to 20:1 lossy image compression technique. With the compression technique it can reduce the image size without losing the image quality. So it is widely used in web publishing to reduce the image size maintaining the image quality.\n\nJPG Converter\nWEBP\n– WebP\n\nWebP (\"weppy\") is a file format which stores images with both lossy and lossless compression. It was developed by Google, based on acquired technology of On2.\n\nWEBP Converter\nCompany\nAbout Us\nSecurity\nResources\nBlog\nStatus\nLegal\nPrivacy\nTerms\nImprint\nContact\nContact Us\n© 2026 Lunaweb GmbH\nMade in Munich, Germany",
+    "inputs": [
+      {
+        "type": "file",
+        "accept": "",
+        "placeholder": ""
+      }
+    ],
+    "buttons": [
+      "Tools",
+      "API",
+      "",
+      "JPG",
+      "",
+      "WEBP",
+      "",
+      "Select File",
+      "",
+      ""
+    ],
+    "mobileOverflow": false
+  },
+  {
+    "id": "freeconvert",
+    "url": "https://www.freeconvert.com/jpg-to-webp",
+    "status": 200,
+    "title": "JPG to WebP Converter - FreeConvert.com",
+    "text": "Convert\nCompress\nTools\nAPI\nPricing\nLog In\nSign Up\nHome\nJPG to WebP Converter\nJPG to WebP Converter\n\nConvert JPG to WebP online, for free.\n\n\n\n\n\n Choose Files\n From Device\nFrom Dropbox\nFrom Google Drive\nFrom OneDrive\n From Url\nMax file size 1GB. Sign Up for more\n\nBy proceeding, you confirm you own the rights to the files you upload and agree to our Terms of Use.\n\n\n\n Advanced settings (optional)\nResize Output Image\nKeep original size\nChoose how to set the output size: keep the original, enter a width or height and we'll keep the aspect ratio, enter both dimensions, or scale by a percentage. Use \"Keep original\" to leave its dimensions unchanged.\nLossless compression?\nEnable this option to compress the output WebP image without any quality loss\nImage Quality\n0\nLower values yield better compression but lower image quality. Default (92) is a good balance between image quality and compression.\nCompression Speed\n4 (Modest, default)\nLower values compress the image faster at the expense of lower compression quality and bigger file size.\nAuto Orient\nCorrectly orient the image using the gravity sensor data stored in EXIF\nStrip Metadata\nStrip the image of any profiles, EXIF, and comments to reduce size\nApply to All\nReset all options\nApply from Preset\nSave as Preset\n\n\nBuilt with ❤️ by FreeConvert\nAI Photo Editor\n\nTry ClipSnap, our powerful AI photo editing tools.\n\nBackground Remover\nAI Image Generator\nMagic Eraser\nGenerative Fill\nPDF Tools\n\nTry ProPDF, our all-in-one tools to edit, sign, and build PDFs.\n\nPDF Editor\nSign PDF\nForm Builder\nMerge PDF\nSplit PDF\n\n\n\n\nHow to Convert JPG to WebP?\nClick the “Choose Files” button to select your JPG files.\nClick the “Convert to WebP” button to start the conversion.\nWhen the status change to “Done” click the “Download WebP” button\nEasy to Use\n\nSimply upload your JPG files and click the convert button. You can also batch convert JPG to WebP format.\n\nBest Quality\n\nWe use both open source and custom software to make sure our conversions are of the highest quality. In most cases, you can fine-tune conversion parameters using “Advanced Settings” (optional, look for the  icon).\n\nFree & Secure\n\nOur JPG to WebP Converter is free and works on any web browser. We guarantee file security and privacy. Files are protected with 256-bit SSL encryption and automatically deleted after 8 hours.\n\n\n\nWhat is a JPG (Joint Photographic Experts Group) file?\n\nJPG (Joint Photographic Experts Group), is a universal file format that utilizes an algorithm to compress photographs and graphics. The considerable compression that JPG offers is the reason for its wide use. As such, the relatively small size of JPG files makes them excellent for transporting over the Internet and using on websites. You can use our compress JPEG tool to reduce the file size by up to 80%!\n\n \n\nIf you need even better compression, you can convert JPG to WebP, which is a newer and more compressible file format.\n\n \n\nHow to open a JPG file?\n\nAlmost all image-viewer programs and applications recognize and can open JPG files. Simply double-clicking the JPG file will usually result in its opening in your default image viewer, image editor, or web browser. To select a specific application to open the file, utilize right-click, and select \"Open with\" to make your selection.\n\n \n\nJPG files open automatically on popular web browsers such as Chrome, Microsoft applications such as Microsoft Photos, and Mac OS applications such as Apple Preview. To resize JPEG images use our Image Resizer tool.\n\n \n\nDeveloped by: Joint Photographic Experts Group\n\nInitial Release: 18 September 1992\n\nRelated JPG Tools: \n\nUse our Color Picker to pick colors from images\n\n\n\nWhat is a WebP file?\n\nWebP is an open-source file type that uses predictive compression to create images that are ideal for web pages and mobile applications. WebP images are as much as 30 percent smaller than JPEG (JPG) and Portable Network Graphics (PNG) files, with similar visual quality. WebP images load quickly on web pages and mobile applications.\n\nHow to open a WebP file?\n\nThe default program for opening WebP is Google Chrome (Chrome), which works across platforms. WebP files also open automatically on GIMP and Microsoft Paint. Besides Chrome, all other web browsers support the WebP format.\n\nAlternative viewers include Pixelmator and Photopea. Also, try Corel PaintShop Pro. IrfanView, Windows Photo Viewer, and Adobe Photoshop each require a WebP plugin. \n\nDeveloped by: Google\n\nInitial Release: September 2010\n\nGoogle Developer article on WebP compression\n\nRelated WebP Tools: \n\nUse our Color Picker to pick colors from WebP images\n\nConvert other files to WebP format\n\nFreeConvert.com can convert your other files to WebP format:\n\nWebP Converter\nGIF to WebP\nPSD to WebP\nODD to WebP\nTIFF to WebP\nBMP to WebP\nPNG to WebP\nSVG to WebP\nPEF to WebP\nORF (Olympus Raw) to WebP\nCanon RAW to WebP\nSigma RAW to WebP\nPanasonic RAW to WebP\nRAW to WebP\nLeica RAW to WebP\nPTX to WebP\nPentax RAW to WebP\nSR2 to WebP\nK25 to WebP\nNRW to WebP\nARW to WebP\nCR2 to WebP\nSony RAW to WebP\nRAF to WebP\nKDC to WebP\nDRF to WebP\nCRW to WebP\nNEF to WebP\nX3F to WebP\nRW2 to WebP\nDCR to WebP\nCR3 to WebP\nKodak RAW to WebP\nSRF to WebP\nSamsung RAW to WebP\nNikon RAW to WebP\nSRW to WebP\nDNG to WebP\nDCS to WebP\nRWL to WebP\nJFIF to WebP\nDJVU to WebP\nDIB to WebP\nTGA to WebP\nJPEG to WebP\nEPS to WebP\nDJV to WebP\nHEIC to WebP\nEMZ to WebP\nICO to WebP\nWMZ to WebP\nTIF to WebP\nPSB to WebP\nDPX to WebP\nPCX to WebP\nDDS to WebP\nART to WebP\nCBZ to WebP\nCBR to WebP\nJXL to WebP\nHEIF to WebP\nAVIF to WebP\nPPM to WebP\nEMF to WebP\nWMF to WebP\nSVGZ to WebP\nAI to WebP\nHTM to WebP\nWebpage to WebP\nPS to WebP\nPDF to WebP\nHTML to WebP\nConvert Your JPG files to other formats\n\nFreeConvert.com can convert your JPG files to these other formats:\n\nJPG Converter\nJPG to EPS\nJPG to SVG\nJPG to WORD\nJPG to DOC\nJPG to DOCX\nJPG to ICO\nJPG to TGA\nJPG to PDF\nJPG to GIF\nJPG to PSD\nJPG to ODD\nJPG to TIFF\nJPG to BMP\nJPG to PNG\nJPG to JPEG\nJPG to PS\nJPG to TEXT\nJPG to TXT\nRelated Tools\n\nFreeConvert.com can convert your files to these related formats:\n\nImage to Text\nImage to PDF\nImage To Word\nCompress JPEG\nImage Compressor\n\n\nYour Data, Our Priority\n\nAt FreeConvert, we go beyond just converting files—we protect them. Our robust security framework ensures that your data is always safe, whether you're converting an image, video, or document. With advanced encryption, secure data centers, and vigilant monitoring, we've covered every aspect of your data's safety.\n\nLearn ",
+    "inputs": [
+      {
+        "type": "text",
+        "accept": "",
+        "placeholder": "Search"
+      },
+      {
+        "type": "file",
+        "accept": "",
+        "placeholder": ""
+      },
+      {
+        "type": "file",
+        "accept": "",
+        "placeholder": ""
+      },
+      {
+        "type": "radio",
+        "accept": "",
+        "placeholder": ""
+      },
+      {
+        "type": "checkbox",
+        "accept": "",
+        "placeholder": ""
+      },
+      {
+        "type": "number",
+        "accept": "",
+        "placeholder": ""
+      },
+      {
+        "type": "range",
+        "accept": "",
+        "placeholder": ""
+      },
+      {
+        "type": "number",
+        "accept": "",
+        "placeholder": ""
+      },
+      {
+        "type": "checkbox",
+        "accept": "",
+        "placeholder": ""
+      },
+      {
+        "type": "checkbox",
+        "accept": "",
+        "placeholder": ""
+      },
+      {
+        "type": "radio",
+        "accept": "",
+        "placeholder": ""
+      },
+      {
+        "type": "radio",
+        "accept": "",
+        "placeholder": ""
+      },
+      {
+        "type": "radio",
+        "accept": "",
+        "placeholder": ""
+      },
+      {
+        "type": "radio",
+        "accept": "",
+        "placeholder": ""
+      },
+      {
+        "type": "radio",
+        "accept": "",
+        "placeholder": ""
+      }
+    ],
+    "buttons": [
+      "",
+      "",
+      "\n                        Apply to All\n                    ",
+      "\n                                Reset all options\n                            ",
+      "\n                                Apply from Preset\n                            ",
+      "\n                                Save as Preset\n                            "
+    ],
+    "mobileOverflow": false
+  },
+  {
+    "id": "removebg",
+    "url": "https://www.remove.bg/",
+    "status": 200,
+    "title": "Remove Background from Image for Free – remove.bg",
+    "text": "Skip to main content\nremove.bg\nUploads\nBulk Editing\nAPI\nPlugins\nPricing\nLog in\nSign up\nremove.bg's background removal is moving to Canva. The standalone website will no longer be available from 1 December 2026 at 9:00am CET. You can learn more here, and visit our updated General Terms and Conditions.\nRemove Image Background\n\n100% Automatically and Free\n\nUpload Image\n\nor drop a file,\n\npaste image or URL ​\nNo image?\nTry one of these:\n\nBy uploading an image or URL you agree to our Terms of Service. To learn more about how remove.bg handles your personal data, check our Privacy Policy.\n\nStunning quality\nProducts\nPeople\nAnimals\nCars\nGraphics\nSee more samples\nAll-in-one AI background remover & generator\n\nremove.bg is your go-to, high-quality background remover, making it easy to cut out a picture and isolate the background with incredible accuracy.\n\nBut it doesn’t stop there. With the AI background generator, you can instantly create custom backdrops - no need to write a prompt.\n\nOne tool, endless uses\n\nEdit your photos’ backgrounds to white for flawless e-commerce shots, car listings, or professional headshots. Create a transparent background (PNG) to design the perfect logo or graphic for any project or presentation. Whatever your need, remove.bg saves you time and helps you deliver professional results in seconds.\n\nMagic Brush\nfor Individuals\nfor Photographers\nfor Marketing\nfor Developers\nfor Ecommerce\nfor Media\nfor Car Dealerships\nfor Enterprise\nBoost your efficiency with automated background removal\n\nWith remove.bg, deleting backgrounds and extracting the subject from an image is fast and effortless.\n\nBulk editing lets you process up to 500 images per minute, while integrations with tools like Figma, Photoshop, and Zapier embed background removal directly into your workflow.\n\nAnd, with the mobile app, you can erase backgrounds on the go, anytime, anywhere.\n\nremove.bg's integrations\nremove.bg's API docs\nThey love us. You will too.\n\n“We are impressed by the AI and think it's the best choice on the market.”\n\nEmil Barsø Rheinlænder\nContent & Marketing Coordinator\n\n“remove.bg is leaps and bounds ahead of the competition. A thousand times better. It simplified the whole process.”\n\nMarc Cohen\nCEO\n\n“We were impressed by its ability to account for pesky, feathery hair without making an image look jagged and amateurish.”\n\nTaylor Hatmaker\nSenior Technology Editor\nRead Success Stories\nJust picture it\nPeople\nProducts\nAnimals\nCars\nGraphics\nRemove Image Background\nGet a transparent background for any image.\nUpload Image\n\nor drop a file,\n\npaste image or URL ​\nNo image?\nTry one of these:\n\nBy uploading an image or URL you agree to our Terms of Service. To learn more about how remove.bg handles your personal data, check our Privacy Policy.\n\nBlog\nSee more articles\nNov 25, 2025\n\nStrava overlay: How to use it for Instagram stories and posts\n\nNov 17, 2025\n\nBlack Friday offer: 50% off selected yearly plans\n\nOct 20, 2025\n\nRemove the background in GIMP\n\nGet Updates\n\nSign up for our mailing list to receive news and updates about remove.bg products and services. You can unsubscribe at any time.\n\nEnter your email\nSubscribe\n\nTo learn more about how remove.bg handles your personal data, check our Privacy Policy.\n\nLearn more\nAll features\nPhotographers\nMarketing\nDevelopers\nEcommerce\nMedia\nCar Dealerships\nEnterprise\nSuccess stories\nTools & API\nAPI Documentation\nIntegrations, tools & apps\nPhotoshop Extension\nWindows / Mac / Linux\nAndroid App\nDesign Templates\nSupport\nHelp & FAQs\nContact us\nRefunds\nPlatform Status\nResources\nCompany\nBlog\nAffiliate Program\nCreate automatic designs\nVideo Background Removal\nCareers\nAbout us\nPress & Partnerships\nEnglish\n\n© remove.bg, a Canva Austria GmbH brand\n\nTerms of Service\nGeneral Terms and Conditions\nPrivacy Policy\nCookie Policy\nImprint\n\nBy using remove.bg you agree to the use of cookies. You can find details on how we use cookies in our Cookie Policy.\n\nClose",
+    "inputs": [
+      {
+        "type": "range",
+        "accept": "",
+        "placeholder": ""
+      },
+      {
+        "type": "email",
+        "accept": "",
+        "placeholder": ""
+      },
+      {
+        "type": "checkbox",
+        "accept": "",
+        "placeholder": ""
+      },
+      {
+        "type": "checkbox",
+        "accept": "",
+        "placeholder": ""
+      },
+      {
+        "type": "checkbox",
+        "accept": "",
+        "placeholder": ""
+      },
+      {
+        "type": "checkbox",
+        "accept": "",
+        "placeholder": ""
+      },
+      {
+        "type": "checkbox",
+        "accept": "",
+        "placeholder": ""
+      },
+      {
+        "type": "checkbox",
+        "accept": "",
+        "placeholder": ""
+      }
+    ],
+    "buttons": [
+      "Uploads",
+      "Bulk Editing",
+      "API",
+      "Plugins",
+      "Pricing ",
+      "Log in",
+      "Sign up",
+      "Upload Image",
+      "",
+      "",
+      "",
+      "",
+      "Upload Image",
+      "",
+      "",
+      "",
+      "",
+      "Subscribe",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "Close"
+    ],
+    "mobileOverflow": false
+  },
+  {
+    "id": "imgupscaler",
+    "url": "https://imgupscaler.com/",
+    "status": 200,
+    "title": "AI Image Upscaler - Upscale Images Online | ImgUpscaler",
+    "text": "Img.Upscaler\nImage Upscaler\nImage Enhancer\nReimagine\nPricing\nChrome Extension\nLog in\nSign up\n\nAI IMAGE UPSCALER ONLINE\n\nUpscale images online with AI\n\nEnlarge photos, anime, product images, portraits, and old pictures by 2x or 4x. ImgUpscaler improves clarity and generates cleaner detail in a fast online workflow.\n\nChoose Images\nDrag and drop your images here\nSupports JPG, PNG, WebP, and AVIF images\n\nIntroducing Upscal, our desktop image upscaler\n\nUpscal helps you enhance and upscale images offline in batches. Learn more about it.\nMicrosoft Store\nMac App Store\nGoogle Play\nApp Store\nSee how AI image upscaling improves clarity\n\nImgUpscaler uses AI super-resolution to enlarge images by 2x or 4x and generate clearer visual detail. Watch the workflow, then explore tools for everyday image enhancement.\n\nAdvanced AI Super-Resolution\n\nIncrease image resolution with AI models designed to create sharper edges, cleaner textures, and more natural-looking detail.\n\n2x and 4x Image Upscaling\n\nChoose the right upscale ratio for web assets, product listings, social posts, presentations, and print-ready exports.\n\nBatch Image Upscaling\n\nPaid plans unlock batch processing so you can upscale multiple images without repeating the same upload and export steps.\n\nImage Enhancer Workflow\n\nImprove low-resolution photos, anime art, portraits, ecommerce images, and old pictures with a practical online enhancer.\n\nPrivacy-First Processing\n\nUploaded images and generated results are automatically deleted within 24 hours, so your files are not stored indefinitely.\n\nPersonal and Commercial Use\n\nUse your results for personal or commercial projects, including marketing, client work, ecommerce listings, and creative production.\n\nAI image upscaling for real creative work\n\nFrom free single-image upscaling to paid batch processing, ImgUpscaler helps creators and teams produce sharper visuals without complicated editing software.\n\nUpscale images online for web, print, and social media\n\nTurn small, soft, or pixelated images into cleaner high-resolution visuals for websites, thumbnails, presentations, posters, marketplaces, and social media posts. ImgUpscaler increases image size while preserving a more natural look than standard resizing.\n\nUpscale an image online\nBatch image upscaler for faster production\n\nPaid plans unlock batch upscaling for product photos, campaign assets, anime images, and client files. Process image sets with less repetitive work and prepare consistent exports faster.\n\nExplore batch upscaling\nEnhance portraits, products, anime, and old photos\n\nUse ImgUpscaler as an online image enhancer for the visuals people actually work with: profile photos, ecommerce listings, illustrations, scanned pictures, travel shots, and older images that need more usable resolution.\n\nImprove image quality\nHow to upscale an image online\n\nUse ImgUpscaler as a simple AI image upscaler: upload your file, choose the enlargement ratio, then preview and download a sharper result.\n\nSTEP 1\n\nUpload a JPG, PNG, or WebP image\n\nStart with a low-resolution photo, product image, anime artwork, portrait, old picture, or graphic that needs more clarity.\n\nSTEP 2\n\nChoose 2x or 4x upscaling\n\nSelect the size increase that fits your goal. The AI upscaler enlarges the image while enhancing details, textures, and edges.\n\nSTEP 3\n\nPreview, enhance, and download\n\nCompare the result, continue editing if needed, and download a high-resolution image ready for publishing, sharing, or further design work.\n\n||\nBefore\nAfter\nWhat users say about ImgUpscaler\n\nCreators, editors, marketers, and everyday users rely on ImgUpscaler when they need a practical online image upscaler for sharper, more usable visuals.\n\nImgUpscaler makes image enlargement simple, including batch upscaling for users who need to improve several images at once.\n\nEleonore Lefaix\nEditor at Siecledigital.fr\n\nImgUpscaler is useful when you need to upscale multiple images and improve a larger set of visuals without repeating the same manual steps.\n\nEva Williams\nEditor of Fixthephoto\n\nUpscaling images should not be costly or complicated. ImgUpscaler gives users a straightforward way to enlarge images online.\n\nMatic Broz\n\nEditor\n\nImgUpscaler works well across different image types, from landscapes and product photos to older pictures that need more detail.\n\nSravan\nProductHunt User\nAI image upscaler FAQ\n\nAnswers to common questions about ImgUpscaler, online image upscaling, image enhancement, file privacy, supported formats, and best-use cases.\n\n1. What is ImgUpscaler?\n\nImgUpscaler is an online AI image upscaler that helps you enlarge and enhance images by 2x or 4x. It is designed for photos, anime artwork, product images, portraits, old pictures, and other visuals that need more usable resolution.\n\n2. How does an AI image upscaler work?\n3. How do I upscale an image online?\n4. Can I upscale an image to 4K?\n5. What is the difference between an image upscaler and an image enhancer?\n6. Does AI upscaling fix blurry images?\n7. What image formats does ImgUpscaler support?\n8. Can I upscale multiple images at once?\n9. Are my uploaded images private?\n10. How long are uploaded images stored?\n11. Can I use upscaled images commercially?\n12. What images work best with AI upscaling?\n13. Is AI upscaling better than normal image resizing?\n14. Do I need to install software to use ImgUpscaler?\nImgUpscaler\n\n© 2026 ImgUpscaler. All rights reserved.\n\nf\nP\n@\nPrivacy Policy\nTerms of Service\nCookies\nBlog\nContact\nEnglish",
+    "inputs": [
+      {
+        "type": "file",
+        "accept": "image/jpeg,image/png,image/webp,image/avif",
+        "placeholder": ""
+      }
+    ],
+    "buttons": [
+      "Chrome Extension",
+      "Log in",
+      "Sign up",
+      "",
+      "1. What is ImgUpscaler?",
+      "2. How does an AI image upscaler work?",
+      "3. How do I upscale an image online?",
+      "4. Can I upscale an image to 4K?",
+      "5. What is the difference between an image upscaler and an image enhancer?",
+      "6. Does AI upscaling fix blurry images?",
+      "7. What image formats does ImgUpscaler support?",
+      "8. Can I upscale multiple images at once?",
+      "9. Are my uploaded images private?",
+      "10. How long are uploaded images stored?",
+      "11. Can I use upscaled images commercially?",
+      "12. What images work best with AI upscaling?",
+      "13. Is AI upscaling better than normal image resizing?",
+      "14. Do I need to install software to use ImgUpscaler?",
+      "English"
+    ],
+    "mobileOverflow": false
+  },
+  {
+    "id": "pagespeed",
+    "url": "https://pagespeed.web.dev/",
+    "status": 200,
+    "title": "PageSpeed Insights",
+    "text": "PageSpeed Insights\nDocs\nThis site uses cookies from Google to deliver its services and to analyze traffic.\nLearn More.\nOk, Got it.\n\nEnter a valid URL\n\nAnalyze\nMake your web pages fast on all devices\n\nCHECK OUT\n\nWhat's new\nDocumentation\nLearn about Web Performance\nMore on PageSpeed Insights\nWhat's new\nDocumentation\nLearn about Web Performance\nAsk questions on Stack Overflow\nMailing list\nRelated Content\nUpdates\nWeb Fundamentals\nCase Studies\nPodcasts\nConnect\nTwitter\nYoutube\nChrome\nFirebase\nAll products\nTerms and Privacy Policy\nFor details, see the Google Developers Site Policies.",
+    "inputs": [
+      {
+        "type": "text",
+        "accept": "",
+        "placeholder": "Enter a web page URL"
+      }
+    ],
+    "buttons": [
+      "Ok, Got it.",
+      "Analyze"
+    ],
+    "mobileOverflow": true,
+    "invalidInput": "PageSpeed Insights\nDocs\nThis site uses cookies from Google to deliver its services and to analyze traffic.\nLearn More.\nOk, Got it.\n\nEnter a valid URL\n\nAnalyze\nMake your web pages fast on all devices\n\nCHECK OUT\n\nWhat's new\nDocumentation\nLearn about Web Performance\nMore on PageSpeed Insights\nWhat's new\nDocumentation\nLearn about Web Performance\nAsk questions on Stack Overflow\nMailing list\nRelated Content\nUpdates\nWeb Fundamentals\nCase Studies\nPodcasts\nConnect\nTwitter\nYoutube\nChrome\nFirebase\nAll products\nTerms and Privacy Policy\nFor details, see the Google Developers Site Policies."
+  },
+  {
+    "id": "seobility",
+    "url": "https://www.seobility.net/en/seocheck/",
+    "status": 200,
+    "title": "SEO Checker | Test your website for free with Seobility",
+    "text": "Skip to content\nFeatures & Use Cases\nPricing\nResources\nEN\nLog in\nTry it free\n\nHome SEO Checker\n\nSEO Checker\nRanking Checker\nBacklink Checker\nKeyword Research\nSnippet Generator\nTF*IDF Tool\nRedirect Checker\nSEO Compare\nKeyword Checker\nFree SEO Checker\nTest your website with Seobility's SEO Checker!\n\nComplying with search engine guidelines – and making your content accessible to both traditional crawlers and AI bots – is essential for sustainable visibility. The Seobility SEO Checker analyzes your website and provides clear recommendations to improve performance in search engines and AI answer engines.\n\nURL\nAnalyze Website\nYou have 0 of max checks left today.\nStart your 14-day trial now!\nSeobility Premium\n\nAnalyze more than a single URL and unlock the full SEO software suite:\n\nFull-site SEO audit\nKeyword ranking monitoring\nBacklink tracking and link profile analysis\nCompetitor comparison\nExportable PDF reports\nFree 14-day trial\nPrice per month\n$69.90\n\nCan be canceled at any time! Automatically renews to our monthly Premium plan for $69.90/month.\n\nStart free trial\nFree website checker\nGet a quick overview of your website optimization\n\nAnalyze any web page with Seobility’s free SEO Checker to uncover technical errors and on-page SEO issues that limit organic rankings or reduce visibility in AI answer engines (LLM-based search tools like ChatGPT and Perplexity).\n\n \n\nWhat you get:\n\nOverall SEO score summarizing how well your page is currently optimized\nIndividual sub scores for meta-information, page quality, page & link structure, server configuration, and external signals\nA prioritized task list with clear recommendations based on your SEO check results\n\n \n\nThe report highlights the highest-impact issues first so you can start with changes that deliver quick, measurable improvements.\n\nMeta information\nHelp search engines and AI models understand your pages\n\nMeta-information helps search engines like Google correctly interpret, categorize, and display your content in search results.\n\n \n\nThe Seobility SEO Checker flags metadata issues, such as:\n\nOverly short, long, or missing meta titles and descriptions\nmeta tags that block indexing (noindex / nofollow)\nmissing or incorrect canonical links\ninconsistent language declarations\nUnclear or problematic domain names and page URLs",
+    "inputs": [
+      {
+        "type": "text",
+        "accept": "",
+        "placeholder": "https://example.com/subpage"
+      },
+      {
+        "type": "checkbox",
+        "accept": "",
+        "placeholder": ""
+      }
+    ],
+    "buttons": [
+      "Analyze Website",
+      "\n                \n            ",
+      "\n                            What is the Seobility SEO Checker?\n                            \n                        ",
+      "\n                            How does the SEO Checker work?\n                            \n                        ",
+      "\n                            What is an SEO score?\n                            \n                        ",
+      "\n                            Can I download my SEO report?\n                            \n                        ",
+      "\n                            How do I improve my SEO score?\n                            \n                        ",
+      "\n                            Can I check keyword rankings on Google too?\n                            \n                        ",
+      "\n        Contact us    "
+    ],
+    "mobileOverflow": true
+  }
+]

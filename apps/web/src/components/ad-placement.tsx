@@ -1,0 +1,3 @@
+import Link from 'next/link';
+// House advertising occupies the reviewed slot until an approved network/CMP is configured.
+export function AdPlacement(){return <aside className="ad-placement" aria-label="Advertisement"><span className="ad-label">Advertisement</span><div className="house-ad"><div><small>THE TOOLROOM FIELD GUIDE</small><h2>Better files. Better pages.</h2><p>Practical guides to image formats, compression and reading your SEO report.</p></div><Link href="/guides">Read the guides <span aria-hidden="true">↗</span></Link><span className="house-ad-brand">Toolroom</span></div></aside>}

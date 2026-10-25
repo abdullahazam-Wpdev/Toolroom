@@ -1,0 +1,43 @@
+{
+  "browser": {
+    "mode": "launch",
+    "executable_path": "/home/abdullah/.var/app/com.visualstudio.code/cache/ms-playwright/chromium-1248/chrome-linux64/chrome"
+  },
+  "start_url": {
+    "url": "https://www.seobility.net/en/seocheck/"
+  },
+  "environment": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "timezone": "Asia/Karachi"
+  },
+  "actions": [
+    {
+      "step_id": "settle",
+      "action": "wait_for_timeout",
+      "duration_ms": 500
+    },
+    {
+      "step_id": "invalid",
+      "action": "fill",
+      "locator": {
+        "kind": "css",
+        "selector": "input[type=text]"
+      },
+      "value": {
+        "source": "literal",
+        "value": "not-a-url"
+      },
+      "timeout_ms": 5000
+    }
+  ],
+  "capture": {
+    "at_end": [
+      "url",
+      "dom",
+      "accessibility"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "source": "https://raw.githubusercontent.com/mathiasbynens/small/master/jpeg.jpg",
+    "licenseEvidence": "https://github.com/mathiasbynens/small#license",
+    "status": 200,
+    "bytes": 107,
+    "mime": "image/jpeg"
+  },
+  {
+    "source": "https://raw.githubusercontent.com/mathiasbynens/small/master/Mpeg4.mp4",
+    "licenseEvidence": "https://github.com/mathiasbynens/small#license",
+    "status": 200,
+    "bytes": 262,
+    "mime": "video/mp4"
+  }
+]

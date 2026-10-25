@@ -1,0 +1,30 @@
+{
+  "browser": {
+    "mode": "launch",
+    "executable_path": "/home/abdullah/.var/app/com.visualstudio.code/cache/ms-playwright/chromium-1248/chrome-linux64/chrome"
+  },
+  "start_url": {
+    "url": "https://www.freeconvert.com/jpg-to-webp"
+  },
+  "environment": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "timezone": "Asia/Karachi"
+  },
+  "actions": [
+    {
+      "step_id": "settle",
+      "action": "wait_for_timeout",
+      "duration_ms": 500
+    }
+  ],
+  "capture": {
+    "at_end": [
+      "url",
+      "dom",
+      "accessibility"
+    ]
+  }
+}

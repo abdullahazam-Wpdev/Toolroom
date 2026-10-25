@@ -1,0 +1,22 @@
+{
+  "postgres": [
+    {
+      "version": "PostgreSQL 18.6 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit",
+      "current_database": "toolroom"
+    }
+  ],
+  "redisPing": "PONG",
+  "redisPersistence": [
+    "appendonly",
+    "yes",
+    "appendfsync",
+    "everysec",
+    "maxmemory-policy",
+    "noeviction"
+  ],
+  "reopenedProducerFoundJob": true,
+  "queueState": "completed",
+  "returnvalue": {
+    "doubled": 42
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "repository": "morluto/rea",
+  "url": "https://github.com/morluto/rea",
+  "reviewedAt": "2026-10-25T07:19:00.800874+00:00",
+  "executedUpstreamCode": false,
+  "metadataError": "HTTP Error 403: rate limit exceeded",
+  "archiveSha256": "363dd7ce31201bcdb0a0c332fe34fcf98d0e286671166ba59c9c3efad5c7ee17",
+  "archiveBytes": 18984138,
+  "status": 200,
+  "sourceError": "Expanded text limit reached",
+  "sourceStatus": "inaccessible or size limited"
+}

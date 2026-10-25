@@ -1,0 +1,592 @@
+[
+  {
+    "url": "https://github.com/anthropics/claude-code/blob/main/plugins/frontend-design/skills/frontend-design/SKILL.md",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "Source SKILL.md and root license read; github-research.md.",
+    "decision": "No skill text redistributed; commercial root terms and referenced LICENSE.txt require clarification.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/jeffallan/claude-skills",
+    "status": "selected",
+    "reviewedAt": "2026-10-25",
+    "evidence": "github-research.md; repository-inventory.md; research/repositories.json",
+    "sourcePaths": [
+      ".astro/content-assets.mjs",
+      ".astro/content-modules.mjs",
+      ".astro/content.d.ts",
+      ".astro/types.d.ts",
+      ".claude-plugin/marketplace.json"
+    ],
+    "archiveSha256": "0c7953d1f16eca934438d2416fbf9c8d2a4390795fdc238a4c0363d441b57cc7",
+    "limitations": "Focused source review, not exhaustive audit or execution.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/AgricIDaniel/claude-seo",
+    "status": "selected",
+    "reviewedAt": "2026-10-25",
+    "evidence": "github-research.md; repository-inventory.md; research/repositories.json",
+    "sourcePaths": [
+      ".claude-plugin/marketplace.json",
+      ".claude-plugin/plugin.json",
+      ".devcontainer/devcontainer.json",
+      ".github/CODEOWNERS",
+      ".github/FUNDING.yml"
+    ],
+    "archiveSha256": "414a6d835e3f972bcf0511006b89ce073c73f5c42e84377f40dbdfea668a224f",
+    "limitations": "Focused source review, not exhaustive audit or execution.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://claudeseoskill.com/",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "Website and linked SNLabat/SEO-GEO-AEO-Skill README/SKILL.md reviewed.",
+    "decision": "Different project from AgricIDaniel; no root license observed in linked tree, so do not copy/install its skill."
+  },
+  {
+    "url": "https://github.com/public-apis/public-apis",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "github-research.md; repository-inventory.md; research/repositories.json",
+    "sourcePaths": [
+      ".gitattributes",
+      ".gitignore",
+      "CONTRIBUTING.md",
+      "LICENSE",
+      "scripts/github_pull_request.sh"
+    ],
+    "archiveSha256": "a726d7b6786bd8902fea9fbd7b7205fce72be5814c649c51632daa76665248ef",
+    "limitations": "Focused source review, not exhaustive audit or execution.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://cloudconvert.com/jpg-to-webp",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "artifacts/research/rea/ and artifacts/research/round2/workflows.json",
+    "limitations": "Verified and partial interactions distinguished in competitor-analysis.md.",
+    "refreshEvidence": "artifacts/research/rea-mcp/; current workflow limitations in docs/competitor-analysis.md"
+  },
+  {
+    "url": "https://www.freeconvert.com/jpg-to-webp",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "artifacts/research/rea/ and artifacts/research/round2/workflows.json",
+    "limitations": "Verified and partial interactions distinguished in competitor-analysis.md.",
+    "refreshEvidence": "artifacts/research/rea-mcp/; current workflow limitations in docs/competitor-analysis.md"
+  },
+  {
+    "url": "https://www.remove.bg/",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "artifacts/research/rea/ and artifacts/research/round2/workflows.json",
+    "limitations": "Verified and partial interactions distinguished in competitor-analysis.md.",
+    "refreshEvidence": "artifacts/research/rea-mcp/; current workflow limitations in docs/competitor-analysis.md"
+  },
+  {
+    "url": "https://imgupscaler.com/",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "artifacts/research/rea/ and artifacts/research/round2/workflows.json",
+    "limitations": "Verified and partial interactions distinguished in competitor-analysis.md.",
+    "refreshEvidence": "artifacts/research/rea-mcp/; current workflow limitations in docs/competitor-analysis.md"
+  },
+  {
+    "url": "https://pagespeed.web.dev/",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "artifacts/research/rea/ and artifacts/research/round2/workflows.json",
+    "limitations": "Verified and partial interactions distinguished in competitor-analysis.md.",
+    "refreshEvidence": "artifacts/research/rea-mcp/; current workflow limitations in docs/competitor-analysis.md"
+  },
+  {
+    "url": "https://www.seobility.net/en/seocheck/",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "artifacts/research/rea/ and artifacts/research/round2/workflows.json",
+    "limitations": "Verified and partial interactions distinguished in competitor-analysis.md.",
+    "refreshEvidence": "artifacts/research/rea-mcp/; current workflow limitations in docs/competitor-analysis.md"
+  },
+  {
+    "url": "https://github.com/topics/seo-audit-tool",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "GitHub topic pages opened through web research; local retrieval returned HTTP 429.",
+    "limitations": "Candidate relevance screened; no blanket license or security endorsement. See github-topics.md.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/topics/image-converter-one-tool",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "GitHub topic pages opened through web research; local retrieval returned HTTP 429.",
+    "limitations": "Candidate relevance screened; no blanket license or security endorsement. See github-topics.md.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/topics/total-image-converter-jpeg-to-png",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "GitHub topic pages opened through web research; local retrieval returned HTTP 429.",
+    "limitations": "Candidate relevance screened; no blanket license or security endorsement. See github-topics.md.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/topics/super-resolution-image",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "GitHub topic pages opened through web research; local retrieval returned HTTP 429.",
+    "limitations": "Candidate relevance screened; no blanket license or security endorsement. See github-topics.md.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/topics/photo-upscaler",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "GitHub topic pages opened through web research; local retrieval returned HTTP 429.",
+    "limitations": "Candidate relevance screened; no blanket license or security endorsement. See github-topics.md.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/topics/social-media-downloader",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "GitHub topic pages opened through web research; local retrieval returned HTTP 429.",
+    "limitations": "Candidate relevance screened; no blanket license or security endorsement. See github-topics.md.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/topics/media-downloader-gui",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "GitHub topic pages opened through web research; local retrieval returned HTTP 429.",
+    "limitations": "Candidate relevance screened; no blanket license or security endorsement. See github-topics.md.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/topics/reels-downloader",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "GitHub topic pages opened through web research; local retrieval returned HTTP 429.",
+    "limitations": "Candidate relevance screened; no blanket license or security endorsement. See github-topics.md.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/topics/background-removal",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "GitHub topic pages opened through web research; local retrieval returned HTTP 429.",
+    "limitations": "Candidate relevance screened; no blanket license or security endorsement. See github-topics.md.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/topics/video-compress?o=asc&s=stars",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "GitHub topic pages opened through web research; local retrieval returned HTTP 429.",
+    "limitations": "Candidate relevance screened; no blanket license or security endorsement. See github-topics.md.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/topics/web-performance-testing?l=javascript",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "GitHub topic pages opened through web research; local retrieval returned HTTP 429.",
+    "limitations": "Candidate relevance screened; no blanket license or security endorsement. See github-topics.md.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/stjudewashere/seonaut",
+    "status": "selected",
+    "reviewedAt": "2026-10-25",
+    "evidence": "github-research.md; repository-inventory.md; research/repositories.json",
+    "sourcePaths": [
+      ".dockerignore",
+      ".github/FUNDING.yml",
+      ".github/ISSUE_TEMPLATE/bug_report.md",
+      ".github/ISSUE_TEMPLATE/feature_request.md",
+      ".github/workflows/build.yml"
+    ],
+    "archiveSha256": "0d9920e0c2037feafcc80fe41b18e08a105de836d4b1769d92958bbe9db323cb",
+    "limitations": "Focused source review, not exhaustive audit or execution.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/Jesikurr/Universal-Image-Converter",
+    "status": "incompatible",
+    "reviewedAt": "2026-10-25",
+    "evidence": "github-research.md; repository-inventory.md; research/repositories.json",
+    "sourcePaths": [
+      ".gitignore",
+      "Images/Screenshot.png",
+      "Images/Screenshot1.png",
+      "Images/Universal_Converter_icon.png",
+      "Images/desktop.ini"
+    ],
+    "archiveSha256": "7c42ed3787b4b9177323a8e5fd779a07c1520df8672e4f310b4d7fc8a5ba9a2b",
+    "limitations": "Focused source review, not exhaustive audit or execution.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/tool3/upscaler-cli",
+    "status": "rejected",
+    "reviewedAt": "2026-10-25",
+    "evidence": "github-research.md; repository-inventory.md; research/repositories.json",
+    "sourcePaths": [
+      ".gitignore",
+      "LICENSE",
+      "README.md",
+      "alien_landscape.png",
+      "alien_landscape_upscaled.png"
+    ],
+    "archiveSha256": "0bdc0140ef99ec6e3779533b20dcc20e882c74806dcdaeeb48c652b58476bd04",
+    "limitations": "Focused source review, not exhaustive audit or execution.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/Vette1123/social-media-downloader",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "github-research.md; repository-inventory.md; research/repositories.json",
+    "sourcePaths": [
+      ".env.sample",
+      ".github/FUNDING.yml",
+      ".github/workflows/cloudflare-edge-policy.yml",
+      ".github/workflows/deploy-cloudflare.yml",
+      ".github/workflows/platform-monitor.yml"
+    ],
+    "archiveSha256": "b2403150bfa309887ab3f72d16e8936c7315af3a8d7485ff06f37d9834e9f37b",
+    "limitations": "Focused source review, not exhaustive audit or execution.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/XGenerationy/SocialMedia-Video-Downloader",
+    "status": "rejected",
+    "reviewedAt": "2026-10-25",
+    "evidence": "github-research.md; repository-inventory.md; research/repositories.json",
+    "sourcePaths": [
+      ".gitignore",
+      "LICENSE",
+      "README.md",
+      "package-lock.json",
+      "package.json"
+    ],
+    "archiveSha256": "578cda687f95f47ff14b4473ae45fd68e6665ced5ae0e267882099619f4f81b7",
+    "limitations": "Focused source review, not exhaustive audit or execution.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/addyosmani/bg-remove",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "github-research.md; repository-inventory.md; research/repositories.json",
+    "sourcePaths": [
+      ".gitignore",
+      "LICENSE.md",
+      "README.md",
+      "eslint.config.js",
+      "index.html"
+    ],
+    "archiveSha256": "044a463c0ae0a0a7ffa2f3c9da7b1c48b399f841a95cf0fbcd67a3f3db536a16",
+    "limitations": "Focused source review, not exhaustive audit or execution.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/Motasaith/image-bg-remover",
+    "status": "rejected",
+    "reviewedAt": "2026-10-25",
+    "evidence": "github-research.md; repository-inventory.md; research/repositories.json",
+    "sourcePaths": [
+      ".dockerignore",
+      ".gitignore",
+      "Dockerfile",
+      "README.md",
+      "bulk_processor.py"
+    ],
+    "archiveSha256": "6d2748c72c527c3b6236d7c738535c15948ddebf7472dab77f8ee1e187ed2382",
+    "limitations": "Focused source review, not exhaustive audit or execution.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/tecnomanu/remove-background-local",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "github-research.md; repository-inventory.md; research/repositories.json",
+    "sourcePaths": [
+      ".github/workflows/pages.yml",
+      ".github/workflows/publish.yml",
+      ".github/workflows/release-please.yml",
+      ".github/workflows/tests.yml",
+      ".gitignore"
+    ],
+    "archiveSha256": "fda32184cd7df21d4e8c5a95174ffd343d931493880786727ebaa5f4af73023f",
+    "limitations": "Focused source review, not exhaustive audit or execution.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/codeforreal1/compressO",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "github-research.md; repository-inventory.md; research/repositories.json",
+    "sourcePaths": [],
+    "archiveSha256": null,
+    "limitations": "Response exceeds bounded 25 MiB research limit",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/Cap-go/capacitor-file-compressor",
+    "status": "incompatible",
+    "reviewedAt": "2026-10-25",
+    "evidence": "github-research.md; repository-inventory.md; research/repositories.json",
+    "sourcePaths": [
+      ".github/FUNDING.yml",
+      ".github/ISSUE_TEMPLATE/bug-report.md",
+      ".github/ISSUE_TEMPLATE/feature-request.md",
+      ".github/scripts/verify-packed-example.sh",
+      ".github/workflows/build.yml"
+    ],
+    "archiveSha256": "60fa68651a01dbf18e95cdc7c674d11b934b516e3c1e21ba2d5e61a864facbd8",
+    "limitations": "Focused source review, not exhaustive audit or execution.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/avvio-agency/website-speed-test",
+    "status": "selected",
+    "reviewedAt": "2026-10-25",
+    "evidence": "github-research.md; repository-inventory.md; research/repositories.json",
+    "sourcePaths": [
+      ".gitignore",
+      "LICENSE",
+      "README.md",
+      "app/api/audit/route.ts",
+      "app/globals.css"
+    ],
+    "archiveSha256": "7658f6db6677aa1529cffe4a2ba3aa95e8ac70bae6065a8a6c063a64afd135c4",
+    "limitations": "Focused source review, not exhaustive audit or execution.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/websu-io/websu",
+    "status": "incompatible",
+    "reviewedAt": "2026-10-25",
+    "evidence": "github-research.md; repository-inventory.md; research/repositories.json",
+    "sourcePaths": [
+      ".dockerignore",
+      ".github/workflows/test-build-deploy.yml",
+      ".gitignore",
+      "LICENSE",
+      "README.md"
+    ],
+    "archiveSha256": "9407130cf1209c1e38d60b1ea6e46dfdec0628c5378c3ac87b71eecc20d49773",
+    "limitations": "Focused source review, not exhaustive audit or execution.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/aliesbelik/webperf-toolkit",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "github-research.md; repository-inventory.md; research/repositories.json",
+    "sourcePaths": [
+      ".editorconfig",
+      ".github/dependabot.yml",
+      ".github/workflows/markdown.yml",
+      ".markdownlint.json",
+      ".mlc_config.json"
+    ],
+    "archiveSha256": "5be739834cc897888bdd2e7cbd92855234f6f13f6860b8cda39d0cd00ea6d6dc",
+    "limitations": "Focused source review, not exhaustive audit or execution.",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/sitespeedio/sitespeed.io",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "evidence": "github-research.md; repository-inventory.md; research/repositories.json",
+    "sourcePaths": [],
+    "archiveSha256": null,
+    "limitations": "Response exceeds bounded 25 MiB research limit",
+    "refreshEvidence": "docs/research/source-refresh-2026-10-25.json or docs/research-refresh.md (topic listings)"
+  },
+  {
+    "url": "https://github.com/morluto/rea",
+    "status": "selected",
+    "reviewedAt": "2026-10-25",
+    "license": "MIT",
+    "commit": "113679c9a6a1af4c77c1b546e466f4d490dc1095",
+    "sourcePaths": [
+      "README.md",
+      "LICENSE",
+      "package.json",
+      "src/cli/setupCommands.ts",
+      "src/application/BrowserScenarioCaptureService.ts",
+      "docs/browser-scenario-contract.md"
+    ],
+    "decision": "Operator-only REA 6.7.0 CLI and MCP; Codex registration repaired with backups. Standalone MCP tools/list and six competitor calls verified. Not embedded in the public platform. Bounded archive text extraction incomplete.",
+    "evidence": "docs/research-refresh.md; docs/research/rea-mcp-verification.json; artifacts/research/rea-mcp/"
+  },
+  {
+    "url": "https://github.com/undefdev/token-efficiency",
+    "status": "selected",
+    "reviewedAt": "2026-10-25",
+    "license": "MIT",
+    "commit": "8dc98e1c70ebe395c31b2a16c9376ca7e4071ba7",
+    "sourcePaths": [
+      "README.md",
+      "LICENSE",
+      "skills/token-efficiency/SKILL.md",
+      "skills/token-efficiency/CORE.md"
+    ],
+    "decision": "Pinned native Codex skill installed with full MIT license; no session hooks, extension plugins or delegation configuration installed. Use only when relevant.",
+    "evidence": "docs/research-refresh.md"
+  },
+  {
+    "url": "https://github.com/topics/codex-skills",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "decision": "Topic listing screened; a directory is not a skill package. Broad catalogs and alternative orchestration stacks not bulk-installed; relevant existing project/REA skills retained. Candidate links in docs/github-topics.md.",
+    "evidence": "docs/research-refresh.md; docs/github-topics.md"
+  },
+  {
+    "url": "https://github.com/topics/token-efficient",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "decision": "Topic listing screened. Alternative coding agents, indexing servers and platform-specific search helpers are not required for this Next.js project. Requested undefdev skill selected instead.",
+    "evidence": "docs/research-refresh.md; docs/github-topics.md"
+  },
+  {
+    "url": "https://developer.semrush.com/api/v4/",
+    "status": "selected",
+    "reviewedAt": "2026-10-25",
+    "decision": "Official v4 auth/keyword endpoint/cost reviewed. Bounded adapter integrated; requires credentials/activation and remains outside working filter pending live verification.",
+    "evidence": "docs/seo-expansion-research.md; docs/research/seo-expansion-*.json"
+  },
+  {
+    "url": "https://github.com/lightspeed-core/lightspeed-stack",
+    "status": "incompatible",
+    "reviewedAt": "2026-10-25",
+    "decision": "Apache-2.0 LLM service stack, Python 3.12+, OGX/providers/database; not an image engine or SEO dataset. Source entrypoint/config/manifests reviewed; not installed.",
+    "evidence": "docs/seo-expansion-research.md; docs/research/seo-expansion-*.json"
+  },
+  {
+    "url": "https://github.com/topics/semrush-api",
+    "status": "inaccessible",
+    "reviewedAt": "2026-10-25",
+    "decision": "HTTP 429 from topic page. User-pasted three candidate repositories individually acquired/source reviewed; no challenge bypass.",
+    "evidence": "docs/seo-expansion-research.md; docs/research/seo-expansion-*.json"
+  },
+  {
+    "url": "https://github.com/springvoiceswell/semrush-ai-tool",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "decision": "MIT official API wrapper; src/api.js and MCP/CLI/manifests reviewed. Requires API units, older endpoints, no whole-app installation; use documented v4 adapter.",
+    "evidence": "docs/seo-expansion-research.md; docs/research/seo-expansion-*.json"
+  },
+  {
+    "url": "https://github.com/omkarcloud/semrush-scraper",
+    "status": "rejected",
+    "reviewedAt": "2026-10-25",
+    "decision": "MIT source includes CAPTCHA-token handling, TLS impersonation and proxy fallback for blocks. No installer or scraping flows executed/integrated.",
+    "evidence": "docs/seo-expansion-research.md; docs/research/seo-expansion-*.json"
+  },
+  {
+    "url": "https://github.com/tvirelli/SEMRUSH-API-Skill-for-Claude",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "decision": "MIT README/SKILL/CLI/references read. Same-day caching and cost visibility informed independent adapter; no Claude instructions/hooks or generic writes installed.",
+    "evidence": "docs/seo-expansion-research.md; docs/research/seo-expansion-*.json"
+  },
+  {
+    "url": "https://aimultiple.com/free-cloud-gpu",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "decision": "Discovery article reviewed, not a provider contract. Google Colab primary FAQ checked; no free-GPU commercial capacity or uptime assumed.",
+    "evidence": "docs/seo-expansion-research.md; docs/research/seo-expansion-*.json"
+  },
+  {
+    "url": "https://github.com/RohanAdwankar/cgpu",
+    "status": "incompatible",
+    "reviewedAt": "2026-10-25",
+    "decision": "Interactive Colab OAuth/remote terminal learning CLI; no root license found. Not installed or used as a public worker. Free managed Colab policy restrictions and non-guaranteed runtime unsuitable.",
+    "evidence": "docs/seo-expansion-research.md; docs/research/seo-expansion-*.json"
+  },
+  {
+    "url": "https://github.com/every-app/open-seo",
+    "status": "selected",
+    "reviewedAt": "2026-10-25",
+    "decision": "MIT; README/package/audit limits/workflow helper source reviewed. Adapted only HTTP Link canonical extraction with full license, commit/hash and tests. Full app uses alternative Cloudflare/TanStack and paid DataForSEO architecture.",
+    "evidence": "docs/seo-expansion-research.md; docs/research/seo-expansion-*.json"
+  },
+  {
+    "url": "https://github.com/topics/open-source-seo",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "decision": "Topic listing screened; provider-account/data costs still apply. Candidate links and decisions in docs/seo-expansion-research.md.",
+    "evidence": "docs/seo-expansion-research.md; docs/research/seo-expansion-*.json"
+  },
+  {
+    "url": "https://github.com/topics/seo-tools?l=python&o=desc&s=updated",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "decision": "Python listing screened; SDKs need accounts/data budgets and cannot be dropped into Next.js. Candidate records retained.",
+    "evidence": "docs/seo-expansion-research.md; docs/research/seo-expansion-*.json"
+  },
+  {
+    "url": "https://github.com/topics/seo-spider",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "decision": "Crawler listings screened for future isolated/site crawl phase; source/runtime/license checks required before adoption.",
+    "evidence": "docs/seo-expansion-research.md; docs/research/seo-expansion-*.json"
+  },
+  {
+    "url": "https://github.com/topics/seo-free?l=python&o=asc&s=stars",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "decision": "Listing screened; free client code does not establish free data. No blanket install.",
+    "evidence": "docs/seo-expansion-research.md; docs/research/seo-expansion-*.json"
+  },
+  {
+    "url": "https://github.com/topics/wordpress-seo",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "decision": "Listing screened; WordPress plugins are incompatible with Next.js runtime. No PHP plugins installed.",
+    "evidence": "docs/seo-expansion-research.md; docs/research/seo-expansion-*.json"
+  },
+  {
+    "url": "https://cloudconvert.com/image-converter",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "decision": "User screenshot and public page inspected; format directory/compact row/action placement patterns adapted independently; no full-format/backend parity claimed.",
+    "evidence": "docs/seo-expansion-research.md; docs/research/seo-expansion-*.json"
+  },
+  {
+    "url": "https://cloudconvert.com/jpeg-converter",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "decision": "Screenshot/public page reviewed; format-selector/toolbar patterns adapted independently, no proprietary code copied.",
+    "evidence": "docs/seo-expansion-research.md; docs/research/seo-expansion-*.json"
+  },
+  {
+    "url": "https://www.freeconvert.com/image-converter",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "decision": "Screenshot/public page reviewed; observed ad separation and conversion row layout. No Google ads/provider authorization inferred.",
+    "evidence": "docs/seo-expansion-research.md; docs/research/seo-expansion-*.json"
+  },
+  {
+    "url": "https://klickpin.com/en5",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "decision": "Screenshot/public page reviewed; marketing download claims not functionally verified; no extraction backend adopted.",
+    "evidence": "docs/seo-expansion-research.md; docs/research/seo-expansion-*.json"
+  },
+  {
+    "url": "https://videodropper.app/",
+    "status": "reviewed",
+    "reviewedAt": "2026-10-25",
+    "decision": "Screenshot/public page reviewed; tab/paste patterns observed, media retrieval not verified or copied.",
+    "evidence": "docs/seo-expansion-research.md; docs/research/seo-expansion-*.json"
+  }
+]

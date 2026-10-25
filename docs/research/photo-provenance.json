@@ -1,0 +1,15 @@
+[
+  {
+    "source": "https://www.pexels.com/photo/417074/",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "file": "/samples/unsplash-lake.jpg",
+    "source": "https://unsplash.com/photos/a-lake-surrounded-by-mountains-and-trees-cpXJYdJSNeM",
+    "download": "https://images.unsplash.com/photo-1702360373582-968d932ac789?fm=jpg&q=85&w=1280",
+    "credit": "Brittany Martin / Unsplash",
+    "license": "https://unsplash.com/license",
+    "sha256": "77a188b296ea02f59d9507f648cf1fec6a2eef78a0a4e92b22f6166bc69093cf",
+    "bytes": 294127
+  }
+]

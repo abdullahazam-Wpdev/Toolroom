@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-25",
+  "phase": "compact converter and SEO API",
+  "unitServiceTests": 81,
+  "productionBrowserTests": 25,
+  "productionBrowserDurationSeconds": 10.5,
+  "productionBuild": "passed",
+  "productionCspUnsafeEval": false,
+  "devPreview": "http://localhost:3000",
+  "userReferencesTracked": 59,
+  "workingTools": 13,
+  "configurationGatedTools": 2,
+  "plannedTools": 5,
+  "supportedSingleFrameImageFormats": [
+    "jpeg",
+    "png",
+    "webp",
+    "avif",
+    "gif",
+    "tiff"
+  ],
+  "codecDirectionsDecoded": 36,
+  "liveSemrushVerified": false,
+  "livePexelsApiVerified": false,
+  "liveAdSenseEnabled": false
+}

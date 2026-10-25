@@ -1,0 +1,1012 @@
+[
+  {
+    "id": "cloudconvert",
+    "url": "https://cloudconvert.com/jpg-to-webp",
+    "testedAt": "2026-10-25T07:19:49.977Z",
+    "actions": [
+      "Selected self-created JPEG",
+      "Clicked exact Convert control"
+    ],
+    "downloadVerified": false,
+    "status": 200,
+    "before": "cloudconvert\nTools\nAPI\nPricing\nSign in\nSign up\nJPG to WEBP Converter\n\nCloudConvert converts your image files online. Amongst many others, we support PNG, JPG, GIF, WEBP and HEIC. You can use the options to control image resolution, quality and file size.\n\nJPG\nTO\nWEBP\nSelect your file to convert\n\nor drop your file here.\n\nSelect File\nJPG\n– Joint Photographic Experts Group\n\nJPG, also known as JPEG, is a file format that can contain image with 10:1 to 20:1 lossy image compression technique. With the compression technique it can reduce the image size without losing the image quality. So it is widely used in web publishing to reduce the image size maintaining the image quality.\n\nJPG Converter\nWEBP\n– WebP\n\nWebP (\"weppy\") is a file format which stores images with both lossy and lossless compression. It was developed by Google, based on acquired technology of On2.\n\nWEBP Converter\nCompany\nAbout Us\nSecurity\nResources\nBlog\nStatus\nLegal\nPrivacy\nTerms\nImprint\nContact\nContact Us\n© 2026 Lunaweb GmbH\nMade in Munich, Germany",
+    "fileInputs": 1,
+    "controls": [
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Tools",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "API",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Switch to dark mode",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Open menu",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "JPG",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Operation: convert",
+        "disabled": true,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "WEBP",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "WEBP",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Options",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Convert with AI",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Add more files",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Select file source",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "file",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Convert",
+        "disabled": false,
+        "accept": null
+      }
+    ],
+    "after": "cloudconvert\nTools\nAPI\nPricing\nSign in\nSign up\nJPG to WEBP Converter\n\nCloudConvert converts your image files online. Amongst many others, we support PNG, JPG, GIF, WEBP and HEIC. You can use the options to control image resolution, quality and file size.\n\nJPG\nTO\nWEBP\nConversion credits exceeded\n\nYour daily limit of 10 conversion credits exceeded. You can buy credits to continue using this service.\n\nBuy credits\nsynthetic-portrait.jpg\n4.4 KB · JPG Image\nConvert\nJPG\nWEBP\nOptions\nFAILED\n\nYour account has run out of conversion credits\n\n1 file ready to convert\nConvert with AI\nAdd more files\nConvert",
+    "mobileOverflow": false
+  },
+  {
+    "id": "freeconvert",
+    "url": "https://www.freeconvert.com/jpg-to-webp",
+    "testedAt": "2026-10-25T07:20:04.682Z",
+    "actions": [
+      "Selected self-created JPEG"
+    ],
+    "downloadVerified": false,
+    "status": 200,
+    "before": "Convert\nCompress\nTools\nAPI\nPricing\nLog In\nSign Up\nHome\nJPG to WebP Converter\nJPG to WebP Converter\n\nConvert JPG to WebP online, for free.\n\n\n\n\n\n Choose Files\n From Device\nFrom Dropbox\nFrom Google Drive\nFrom OneDrive\n From Url\nMax file size 1GB. Sign Up for more\n\nBy proceeding, you confirm you own the rights to the files you upload and agree to our Terms of Use.\n\n\n\n Advanced settings (optional)\nResize Output Image\nKeep original size\nChoose how to set the output size: keep the original, enter a width or height and we'll keep the aspect ratio, enter both dimensions, or scale by a percentage. Use \"Keep original\" to leave its dimensions unchanged.\nLossless compression?\nEnable this option to compress the output WebP image without any quality loss\nImage Quality\n0\nLower values yield better compression but lower image quality. Default (92) is a good balance between image quality and compression.\nCompression Speed\n4 (Modest, default)\nLower values compress the image faster at the expense of lower compression quality and bigger file size.\nAuto Orient\nCorrectly orient the image using the gravity sensor data stored in EXIF\nStrip Metadata\nStrip the image of any profiles, EXIF, and comments to reduce size\nApply to All\nReset all options\nApply from Preset\nSave as Preset\n\n\nBuilt with ❤️ by FreeConvert\nAI Photo Editor\n\nTry ClipSnap, our powerful AI photo editing tools.\n\nBackground Remover\nAI Image Generator\nMagic Eraser\nGenerative Fill\nPDF Tools\n\nTry ProPDF, our all-in-one tools to edit, sign, and build PDFs.\n\nPDF Editor\nSign PDF\nForm Builder\nMerge PDF\nSplit PDF\n\n\n\n\nHow to Convert JPG to WebP?\nClick the “Choose Files” button to select your JPG files.\nClick the “Convert to WebP” button to start the conversion.\nWhen the status change to “Done” click the “Download WebP” button\nEasy to Use\n\nSimply upload your JPG files and click the convert button. You can also batch convert JPG to WebP format.\n\nBest Quality\n\nWe use both open source and custom software to make sure our conversions are of the highest quality. In most cases, you can fine-tune conversion parameters using “Advanced Settings” (optional, look for the  icon).\n\nFree & Secure\n\nOur JPG to WebP Converter is free and works on any w",
+    "fileInputs": 2,
+    "controls": [
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "Convert ▼",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "Video & Audio ▼",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "Image ▼",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "PDF & Documents ▼",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "GIF ▼",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "Others ▼",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "Compress ▼",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "Video & Audio ▼",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "Image ▼",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "PDF & Documents ▼",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "GIF ▼",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "Tools ▼",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "Video Tools ▼",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "Image Tools ▼",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "PDF Tools ▼",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "API ▼",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "Documentation ▼",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "Conversion APIs ▼",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "Specific APIs ▼",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "Compression APIs ▼",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "Pricing",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "file",
+        "text": "",
+        "disabled": false,
+        "accept": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "file",
+        "text": "",
+        "disabled": false,
+        "accept": ""
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "checkbox",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "number",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "range",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "number",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "checkbox",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "checkbox",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "Apply to All",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "Reset all options",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "Apply from Preset",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "Save as Preset",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "Report a Bug",
+        "disabled": false,
+        "accept": null
+      }
+    ],
+    "after": "Convert\nCompress\nTools\nAPI\nPricing\nLog In\nSign Up\nHome\nImage Converter\nWebP Converter\nJPG to WebP Converter\nJPG to WebP Converter\n\nConvert JPG to WebP online, for free.\n\n\n\n\n\n Choose Files\n From Device\nFrom Dropbox\nFrom Google Drive\nFrom OneDrive\n From Url\nMax file size 1GB. Sign Up for more\n\nBy proceeding, you confirm you own the rights to the files you upload and agree to our Terms of Use.\n\n\n\n Advanced settings (optional)\n Image Options\nResize Output Image\nKeep original size\nChoose how to set the output size: keep the original, enter a width or height and we'll keep the aspect ratio, enter both dimensions, or scale by a percentage. Use \"Keep original\" to leave its dimensions unchanged.\nLossless compression?\nEnable this option to compress the output WebP image without any quality loss\nImage Quality\n92\nLower values yield better compression but lower image quality. Default (92) is a good balance between image quality and compression.\nCompression Speed\n4 (Modest, default)\nLower values compress the image faster at the expense of lower compression quality and bigger file size.\nAuto Orient\nCorrectly orient the image using the gravity sensor data stored in EXIF\nStrip Metadata\nStrip the image of any profiles, EXIF, and comments to reduce size\nApply to All\nReset all options\nApply from Preset\nSave as Preset\n\n\nBuilt with ❤️ by FreeConvert\nAI Photo Editor\n\nTry ClipSnap, our powerful AI photo editing tools.\n\nBackground Remover\nAI Image Generator\nMagic Eraser\nGenerative Fill\nPDF Tools\n\nTry ProPDF, our all-in-one tools to edit, sign, and build PDFs.\n\nPDF Editor\nSign PDF\nForm Builder\nMerge PDF\nSplit PDF\n\n\n\n\nHow to Convert JPG to WebP?\nClick the “Choose Files” button to select your JPG files.\nClick the “Convert to WebP” button to start the conversion.\nWhen the status change to “Done” click the “Download WebP” button\nEasy to Use\n\nSimply upload your JPG files and click the convert button. You can also batch convert JPG to WebP format.\n\nBest Quality\n\nWe use both open source and custom software to make sure our conversions are of the highest quality. In most cases, you can fine-tune conversion parameters using “Advanced Settings” (optional, look for the  icon).\n\nFree & Secure\n\nOur JPG to WebP Converter is free and works on any web browser. We guarantee file security and privacy. Files are protected with 256-bit SSL encryption and automatically deleted after 8 hours.\n\n\n\nWhat is a JPG (Joint Photographic Experts Group) file?\n\nJPG (Joint Photographic Experts Group), is a universal file format that utilizes an algorithm to compress photographs and graphics. The considerable compression that JPG offers is the reason for its wide use. As such, the relatively small size of JPG files makes them excellent for transporting over the Internet and using on websites. You can use our compress JPEG tool to reduce the file size by up to 80%!\n\n \n\nIf you need even better compression, you can convert JPG to WebP, which is a newer and more compressible file format.\n\n \n\nHow to open a JPG file?\n\nAlmost all image-viewer programs and applications recognize and can open JPG files. Simply double-clicking the JPG file will usually result in its opening in your default image viewer, image editor, or web browser. To select a specific application to open the file, utilize right-click, and select \"Open with\" to make your selection.\n\n \n\nJPG files open automatically on popular web browsers such as Chrome, Microsoft applications such as Microsoft Photos, and Mac OS applications such as Apple Preview. To resize JPEG images use our Image Resizer tool.\n\n \n\nDeveloped by: Joint Photographic Experts Group\n\nInitial Release: 18 September 1992\n\nRelated JPG Tools: \n\nUse our Color Picker to pick colors from images\n\n\n\nWhat is a WebP file?\n\nWebP is an open-source file type that uses predictive compression to create images that are ideal for web pages and mobile applications. WebP images are as much as 30 percent smaller than JPEG (JPG) and Portable Network Graphics (PNG) files, with similar visual quality. WebP images load quickly on web pages and mobile applications.\n\nHow to open a WebP file?\n\nThe default program for opening WebP is Google Chrome (Chrome), which works across platforms. WebP files also open automatically on GIMP and Microsoft Paint. Besides Chrome, all other web browsers support the WebP format.\n\nAlternative viewers include Pixelmator and Photopea. Also, try Corel PaintShop Pro. IrfanView, Windows Photo Viewer, and Adobe Photoshop each require a WebP plugin. \n\nDeveloped by: Google\n\nInitial Release: September 2010\n\nGoogle Developer article on WebP compression\n\nRelated WebP Tools: \n\nUse our Color Picker to pick colors from WebP images\n\nConvert other files to WebP format\n\nFreeConvert.com can convert your other files to WebP format:\n\nWebP Converter\nGIF to WebP\nPSD to WebP\nODD to WebP\nTIFF to WebP\nBMP to WebP\nPNG to WebP\nSVG to WebP\nPEF to WebP\nORF (Olympus Raw) to WebP\nCanon RAW to WebP\nSigma RAW to WebP\nPanasonic RAW to WebP\nRAW to WebP\nLeica RAW to WebP\nPTX to WebP\nPentax RAW to WebP\nSR2 to WebP\nK25 to WebP\nNRW to WebP\nARW to WebP\nCR2 to WebP\nSony RAW to WebP\nRAF to WebP\nKDC to WebP\nDRF to WebP\nCRW to WebP\nNEF to WebP\nX3F to WebP\nRW2 to WebP\nDCR to WebP\nCR3 to WebP\nKodak RAW to WebP\nSRF to WebP\nSamsung RAW to WebP\nNikon RAW to WebP\nSRW to WebP\nDNG to WebP\nDCS to WebP\nRWL to WebP\nJFIF to WebP\nDJVU to WebP\nDIB to WebP\nTGA to WebP\nJPEG to WebP\nEPS to WebP\nDJV to WebP\nHEIC to WebP\nEMZ to WebP\nICO to WebP\nWMZ to WebP\nTIF to WebP\nPSB to WebP\nDPX to WebP\nPCX to WebP\nDDS to WebP\nART to WebP\nCBZ to WebP\nCBR to WebP\nJXL to WebP\nHEIF to WebP\nAVIF to WebP\nPPM to WebP\nEMF to WebP\nWMF to WebP\nSVGZ to WebP\nAI to WebP\nHTM to WebP\nWebpage to WebP\nPS to WebP\nPDF to WebP\nHTML to WebP\nConvert Your JPG files to other formats\n\nFreeConvert.com can convert your JPG files to these other formats:\n\nJPG Converter\nJPG to EPS\nJPG to SVG\nJPG to WORD\nJPG to DOC\nJPG to DOCX\nJPG to ICO\nJPG to TGA\nJPG to PDF\nJPG to GIF\nJPG to PSD\nJPG to ODD\nJPG to TIFF\nJPG to BMP\nJPG to PNG\nJPG to JPEG\nJPG to PS\nJPG to TEXT\nJPG to TXT\nRelated Tools\n\nFreeConvert.com can convert your files to these related formats:\n\nImage to Text\nImage to PDF\nImage To Word\nCompress JPEG\nImage Compressor\n\n\nYour Data, Our Priority\n\nAt FreeConvert, we go beyond just converting files—we protect them. Our robust security framework ensures that your data is always safe, whether you're converting an image, video, or document. With advanced encryption, secure data centers, and vigilant monitoring, we've covered every aspect of your data's safety.\n\nLearn more about our commitment to security\nSSL/TLS\nEncryption\nSecured Data\nCenters\nAccess Control and\nAuthentication\n\n\n\nWant to convert large files without a queue or Ads?\n\nUpgrade Now\n\nSign Up\n\nVideo Converter\n\nMP4 Converter\nVideo to GIF\nMOV to MP4\nVideo Converter\n\nAudio Converter\n\nMP3 Converter\nMP4 to MP3\nVideo to MP3\nAudio Converter\n\nImage Converter\n\nJPG to PDF\nPDF to JPG\nHEIC to JPG\nImage to PDF\nImage Converter\n\nDocument & Ebook\n\nPDF to WORD\nEPUB to PDF\nEPUB to MOBI\nDocument Converter\n\nArchive & Time\n\nRAR to Zip\nPST to EST\nCST to EST\nArchive Converter\n\nUnit Converter\n\nLbs to Kg\nKg to Lbs\nFeet to Meters\nUnit Converter\n\nWeb Apps\n\nCollage Maker\nImage Resizer\nCrop Image\nColor Picker\n\nMobile Apps\n\nCollage Maker Android\nCollage Maker iOS\nImage Converter Android\nImage Converter iOS\nAbout Us\nBlog\nDonate\nPrivacy\nTerms\nSecurity and Compliance\nContact\nStatus\n\n© FreeConvert.com v2.30 All rights reserved (2026)\n\nEnglish\nEnglish\nDeutsch\nEspañol\nFrançais\nPortuguês\nItaliano\nDutch\n日本語\n简体中文\n繁體中文\n한국어\nSvenska\nTürkçe\nBahasa Indonesia\nPolish",
+    "mobileOverflow": false
+  },
+  {
+    "id": "removebg",
+    "url": "https://www.remove.bg/",
+    "testedAt": "2026-10-25T07:20:17.727Z",
+    "actions": [
+      "Clicked upload control",
+      "Selected self-created JPEG",
+      "Clicked visible download control"
+    ],
+    "downloadVerified": false,
+    "status": 200,
+    "before": "Skip to main content\nremove.bg\nUploads\nBulk Editing\nAPI\nPlugins\nPricing\nLog in\nSign up\nremove.bg's background removal is moving to Canva. The standalone website will no longer be available from 1 December 2026 at 9:00am CET. You can learn more here, and visit our updated General Terms and Conditions.\nRemove Image Background\n\n100% Automatically and Free\n\nUpload Image\n\nor drop a file,\n\npaste image or URL ​\nNo image?\nTry one of these:\n\nBy uploading an image or URL you agree to our Terms of Service. To learn more about how remove.bg handles your personal data, check our Privacy Policy.\n\nStunning quality\nProducts\nPeople\nAnimals\nCars\nGraphics\nSee more samples\nAll-in-one AI background remover & generator\n\nremove.bg is your go-to, high-quality background remover, making it easy to cut out a picture and isolate the background with incredible accuracy.\n\nBut it doesn’t stop there. With the AI background generator, you can instantly create custom backdrops - no need to write a prompt.\n\nOne tool, endless uses\n\nEdit your photos’ backgrounds to white for flawless e-commerce shots, car listings, or professional headshots. Create a transparent background (PNG) to design the perfect logo or graphic for any project or presentation. Whatever your need, remove.bg saves you time and helps you deliver professional results in seconds.\n\nMagic Brush\nfor Individuals\nfor Photographers\nfor Marketing\nfor Developers\nfor Ecommerce\nfor Media\nfor Car Dealerships\nfor Enterprise\nBoost your efficiency with automated background removal\n\nWith remove.bg, deleting backgrounds and extracting the subject from an image is fast and effortless.\n\nBulk editing lets you process up to 500 images per minute, while integrations with tools like Figma, Photoshop, and Zapier embed background removal directly into your workflow.\n\nAnd, with the mobile app, you can erase backgrounds on the go, anytime, anywhere.\n\nremove.bg's integrations\nremove.bg's API docs\nThey love us. You will too.\n\n“We are impressed by the AI and think it's the best choice on the market.”\n\nEmil Barsø Rheinlænder\nContent & Marketing Coordinator\n\n“remove.bg is leaps and bounds ahead of the competition. A thousand times better. It simplified the whol",
+    "fileInputs": 1,
+    "controls": [
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Menu",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "",
+        "disabled": true,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "",
+        "disabled": true,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Cutout",
+        "disabled": true,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Background",
+        "disabled": true,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Effects",
+        "disabled": true,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Adjust",
+        "disabled": true,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Design",
+        "disabled": true,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "",
+        "disabled": true,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "",
+        "disabled": true,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "",
+        "disabled": true,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Download",
+        "disabled": true,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Download",
+        "disabled": true,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "range",
+        "text": "",
+        "disabled": true,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Scroll to end",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Try magic brush",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "reset",
+        "text": "Dismiss",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "checkbox",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "checkbox",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Submit Image",
+        "disabled": true,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "reset",
+        "text": "Cancel",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "checkbox",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "checkbox",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "Yes, contribute image",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "No, don't contribute",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "Close",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": null,
+        "text": "Close",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Close",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "checkbox",
+        "text": "",
+        "disabled": true,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "checkbox",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "checkbox",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "checkbox",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Accept selected",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Reject all",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Accept all",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "file",
+        "text": "",
+        "disabled": false,
+        "accept": ".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
+      }
+    ],
+    "after": "Skip to main content\nremove.bg\nUploads\nBulk Editing\nAPI\nPlugins\nPricing\nLog in\nSign up\nremove.bg's background removal is moving to Canva. The standalone website will no longer be available from 1 December 2026 at 9:00am CET. You can learn more here, and visit our updated General Terms and Conditions.\nCutout\nBackground\nEffects\nAdjust\nDesign\nDownload\nPreview\n480 x 360\nFree\nMax\nImage too small\nEdit in Canva\n\nBy sending your image to Canva you agree to Canva's Terms of Service.\n\nBy using remove.bg you agree to the use of cookies. You can find details on how we use cookies in our Cookie Policy.\n\nClose",
+    "mobileOverflow": false
+  },
+  {
+    "id": "imgupscaler",
+    "url": "https://imgupscaler.com/",
+    "testedAt": "2026-10-25T07:20:36.069Z",
+    "actions": [
+      "Selected self-created JPEG"
+    ],
+    "downloadVerified": false,
+    "status": 200,
+    "before": "Img.Upscaler\nImage Upscaler\nImage Enhancer\nReimagine\nPricing\nChrome Extension\nLog in\nSign up\n\nAI IMAGE UPSCALER ONLINE\n\nUpscale images online with AI\n\nEnlarge photos, anime, product images, portraits, and old pictures by 2x or 4x. ImgUpscaler improves clarity and generates cleaner detail in a fast online workflow.\n\nChoose Images\nDrag and drop your images here\nSupports JPG, PNG, WebP, and AVIF images\n\nIntroducing Upscal, our desktop image upscaler\n\nUpscal helps you enhance and upscale images offline in batches. Learn more about it.\nMicrosoft Store\nMac App Store\nSee how AI image upscaling improves clarity\n\nImgUpscaler uses AI super-resolution to enlarge images by 2x or 4x and generate clearer visual detail. Watch the workflow, then explore tools for everyday image enhancement.\n\nAdvanced AI Super-Resolution\n\nIncrease image resolution with AI models designed to create sharper edges, cleaner textures, and more natural-looking detail.\n\n2x and 4x Image Upscaling\n\nChoose the right upscale ratio for web assets, product listings, social posts, presentations, and print-ready exports.\n\nBatch Image Upscaling\n\nPaid plans unlock batch processing so you can upscale multiple images without repeating the same upload and export steps.\n\nImage Enhancer Workflow\n\nImprove low-resolution photos, anime art, portraits, ecommerce images, and old pictures with a practical online enhancer.\n\nPrivacy-First Processing\n\nUploaded images and generated results are automatically deleted within 24 hours, so your files are not stored indefinitely.\n\nPersonal and Commercial Use\n\nUse your results for personal or commercial projects, including marketing, client work, ecommerce listings, and creative production.\n\nAI image upscaling for real creative work\n\nFrom free single-image upscaling to paid batch processing, ImgUpscaler helps creators and teams produce sharper visuals without complicated editing software.\n\nUpscale images online for web, print, and social media\n\nTurn small, soft, or pixelated images into cleaner high-resolution visuals for websites, thumbnails, presentations, posters, marketplaces, and social media posts. ImgUpscaler increases image size while preserving a more natural look than stand",
+    "fileInputs": 1,
+    "controls": [
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Toggle navigation",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Chrome Extension",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Log in",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Sign up",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "file",
+        "text": "",
+        "disabled": false,
+        "accept": "image/jpeg,image/png,image/webp,image/avif"
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Remove image",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "INPUT",
+        "type": "radio",
+        "text": "",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Clear All",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Upload & Start",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "Web subscriptions and App licenses are separate products. A web subscription does not include the Ap",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "1. What is ImgUpscaler?",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "2. How does an AI image upscaler work?",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "3. How do I upscale an image online?",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "4. Can I upscale an image to 4K?",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "5. What is the difference between an image upscaler and an image enhancer?",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "6. Does AI upscaling fix blurry images?",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "7. What image formats does ImgUpscaler support?",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "8. Can I upscale multiple images at once?",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "9. Are my uploaded images private?",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "10. How long are uploaded images stored?",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "11. Can I use upscaled images commercially?",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "12. What images work best with AI upscaling?",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "13. Is AI upscaling better than normal image resizing?",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "14. Do I need to install software to use ImgUpscaler?",
+        "disabled": false,
+        "accept": null
+      },
+      {
+        "tag": "BUTTON",
+        "type": "button",
+        "text": "English",
+        "disabled": false,
+        "accept": null
+      }
+    ],
+    "after": "Img.Upscaler\nImage Upscaler\nImage Enhancer\nReimagine\nPricing\nChrome Extension\nLog in\nSign up\n\nAI IMAGE UPSCALER ONLINE\nAI powered tools\n\nUpscale images online with AI\n\nEnlarge photos, anime, product images, portraits, and old pictures by 2x or 4x. ImgUpscaler improves clarity and generates cleaner detail in a fast online workflow.\n\nChoose Images\nDrag and drop your images here\nSupports JPG, PNG, WebP, and AVIF images\n\nsynthetic-portrait.jpg\n\n4 KB\n\nRatio:\n200%\n400%\nClear All\nUpload & Start\n\nIntroducing Upscal, our desktop image upscalerDigital image processing\n\nUpscal helps you enhance and upscale images offline in batches. Learn more about it.\nMicrosoft Store\nMac App Store\nSee how AI image upscaling improves clarity\n\nImgUpscaler uses AI super-resolution to enlarge images by 2x or 4x and generate clearer visual detail. Watch the workflow, then explore tools for everyday image enhancement.\n\nAdvanced AI Super-Resolution\n\nIncrease image resolution with AI models designed to create sharper edges, cleaner textures, and more natural-looking detail.High resolution images\n\n2x and 4x Image Upscaling\n\nChoose the right upscale ratio for web assets, product listings, social posts, presentations, and print-ready exports.\n\nBatch Image Upscaling\n\nPaid plans unlock batch processing so you can upscale multiple images without repeating the same upload and export steps.\n\nImage Enhancer Workflow\n\nImprove low-resolution photos, anime art, portraits, ecommerce images, and old pictures with a practical online enhancer.\n\nPrivacy-First Processing\n\nUploaded images and generated results are automatically deleted within 24 hours, so your files are not stored indefinitely.\n\nPersonal and Commercial Use\n\nUse your results for personal or commercial projects, including marketing, client work, ecommerce listings, and creative production.\n\nAI image upscaling for real creative work\n\nFrom free single-image upscaling to paid batch processing, ImgUpscaler helps creators and teams produce sharper visuals without complicated editing software.\n\nUpscale images online for web, print, and social media\n\nTurn small, soft, or pixelated images into cleaner high-resolution visuals for websites, thumbnails, presentations, posters, marketplaces, and social media posts. ImgUpscaler increases image size while preserving a more natural look than standard resizing.Digital image processing\n\nUpscale an image online\nBatch image upscaler for faster production\n\nPaid plans unlock batch upscaling for product photos, campaign assets, anime images, and client files. Process image sets with less repetitive work and prepare consistent exports faster.\n\nExplore batch upscaling\nEnhance portraits, products, anime, and old photos\n\nUse ImgUpscaler as an online image enhancer for the visuals people actually work with: profile photos, ecommerce listings, illustrations, scanned pictures, travel shots, and older images that need more usable resolution.\n\nImprove image quality\nHow to upscale an image online\n\nUse ImgUpscaler as a simple AI image upscaler: upload your file, choose the enlargement ratio, then preview and download a sharper result.\n\nSTEP 1\n\nUpload a JPG, PNG, or WebP image\n\nStart with a low-resolution photo, product image, anime artwork, portrait, old picture, or graphic that needs more clarity.\n\nSTEP 2\n\nChoose 2x or 4x upscaling\n\nSelect the size increase that fits your goal. The AI upscaler enlarges the image while enhancing details, textures, and edges.\n\nSTEP 3\n\nPreview, enhance, and download\n\nCompare the result, continue editing if needed, and download a high-resolution image ready for publishing, sharing, or further design work.\n\n||\nBefore\nAfter\nWhat users say about ImgUpscaler\n\nCreators, editors, marketers, and everyday users rely on ImgUpscaler when they need a practical online image upscaler for sharper, more usable visuals.\n\nImgUpscaler makes image enlargement simple, including batch upscaling for users who need to improve several images at once.\n\nEleonore Lefaix\nEditor at Siecledigital.fr\n\nImgUpscaler is useful when you need to upscale multiple images and improve a larger set of visuals without repeating the same manual steps.\n\nEva Williams\nEditor of Fixthephoto\n\nUpscaling images should not be costly or complicated. ImgUpscaler gives users a straightforward way to enlarge images online.\n\nMatic Broz\n\nEditor\n\nImgUpscaler works well across different image types, from landscapes and product photos to older pictures that need more detail.\n\nSravan\nProductHunt User\nAI image upscaler FAQ\n\nAnswers to common questions about ImgUpscaler, online image upscaling, image enhancement, file privacy, supported formats, and best-use cases.\n\n1. What is ImgUpscaler?\n\nImgUpscaler is an online AI image upscaler that helps you enlarge and enhance images by 2x or 4x. It is designed for photos, anime artwork, product images, portraits, old pictures, and other visuals that need more usable resolution.\n\n2. How does an AI image upscaler work?\n3. How do I upscale an image online?\n4. Can I upscale an image to 4K?\n5. What is the difference between an image upscaler and an image enhancer?\n6. Does AI upscaling fix blurry images?\n7. What image formats does ImgUpscaler support?\n8. Can I upscale multiple images at once?\n9. Are my uploaded images private?\n10. How long are uploaded images stored?\n11. Can I use upscaled images commercially?\n12. What images work best with AI upscaling?\n13. Is AI upscaling better than normal image resizing?\n14. Do I need to install software to use ImgUpscaler?\nImgUpscaler\n\n© 2026 ImgUpscaler. All rights reserved.\n\nf\nP\n@\nPrivacy Policy\nTerms of Service\nCookies\nBlog\nContact\nEnglish",
+    "mobileOverflow": true
+  },
+  {
+    "id": "pagespeed",
+    "url": "https://pagespeed.web.dev/",
+    "testedAt": "2026-10-25T07:20:49.595Z",
+    "actions": [
+      "Entered invalid URL",
+      "Submitted invalid URL",
+      "Entered public example.com URL"
+    ],
+    "downloadVerified": false,
+    "status": 200,
+    "before": "PageSpeed Insights\nDocs\nThis site uses cookies from Google to deliver its services and to analyze traffic.\nLearn More.\nOk, Got it.\n\nEnter a valid URL\n\nAnalyze\nMake your web pages fast on all devices\n\nCHECK OUT\n\nWhat's new\nDocumentation\nLearn about Web Performance\nMore on PageSpeed Insights\nWhat's new\nDocumentation\nLearn about Web Performance\nAsk questions on Stack Overflow\nMailing list\nRelated Content\nUpdates\nWeb Fundamentals\nCase Studies\nPodcasts\nConnect\nTwitter\nYoutube\nChrome\nFirebase\nAll products\nTerms and Privacy Policy\nFor details, see the Google Developers Site Policies.",
+    "invalidText": "PageSpeed Insights\nDocs\nThis site uses cookies from Google to deliver its services and to analyze traffic.\nLearn More.\nOk, Got it.\n\nEnter a valid URL\n\nAnalyze\nMake your web pages fast on all devices\n\nCHECK OUT\n\nWhat's new\nDocumentation\nLearn about Web Performance\nMore on PageSpeed Insights\nWhat's new\nDocumentation\nLearn about Web Performance\nAsk questions on Stack Overflow\nMailing list\nRelated Content\nUpdates\nWeb Fundamentals\nCase Studies\nPodcasts\nConnect\nTwitter\nYoutube\nChrome\nFirebase\nAll products\nTerms and Privacy Policy\nFor details, see the Google Developers Site Policies.",
+    "after": "PageSpeed Insights\nDocs\nThis site uses cookies from Google to deliver its services and to analyze traffic.\nLearn More.\nOk, Got it.\n\nEnter a valid URL\n\nAnalyze\nMake your web pages fast on all devices\n\nCHECK OUT\n\nWhat's new\nDocumentation\nLearn about Web Performance\nMore on PageSpeed Insights\nWhat's new\nDocumentation\nLearn about Web Performance\nAsk questions on Stack Overflow\nMailing list\nRelated Content\nUpdates\nWeb Fundamentals\nCase Studies\nPodcasts\nConnect\nTwitter\nYoutube\nChrome\nFirebase\nAll products\nTerms and Privacy Policy\nFor details, see the Google Developers Site Policies.",
+    "mobileOverflow": true
+  },
+  {
+    "id": "seobility",
+    "url": "https://www.seobility.net/en/seocheck/",
+    "testedAt": "2026-10-25T07:20:54.346Z",
+    "actions": [
+      "Entered invalid URL",
+      "Submitted invalid URL",
+      "Entered public example.com URL",
+      "Submitted public URL"
+    ],
+    "downloadVerified": false,
+    "status": 200,
+    "before": "Skip to content\nFeatures & Use Cases\nPricing\nResources\nEN\nLog in\nTry it free\n\nHome SEO Checker\n\nSEO Checker\nRanking Checker\nBacklink Checker\nKeyword Research\nSnippet Generator\nTF*IDF Tool\nRedirect Checker\nSEO Compare\nKeyword Checker\nFree SEO Checker\nTest your website with Seobility's SEO Checker!\n\nComplying with search engine guidelines – and making your content accessible to both traditional crawlers and AI bots – is essential for sustainable visibility. The Seobility SEO Checker analyzes your website and provides clear recommendations to improve performance in search engines and AI answer engines.\n\nURL\nAnalyze Website\nYou have 0 of max checks left today.\nStart your 14-day trial now!\nSeobility Premium\n\nAnalyze more than a single URL and unlock the full SEO software suite:\n\nFull-site SEO audit\nKeyword ranking monitoring\nBacklink tracking and link profile analysis\nCompetitor comparison\nExportable PDF reports\nFree 14-day trial\nPrice per month\n$69.90\n\nCan be canceled at any time! Automatically renews to our monthly Premium plan for $69.90/month.\n\nStart free trial\nFree website checker\nGet a quick overview of your website optimization\n\nAnalyze any web page with Seobility’s free SEO Checker to uncover technical errors and on-page SEO issues that limit organic rankings or reduce visibility in AI answer engines (LLM-based search tools like ChatGPT and Perplexity).\n\n \n\nWhat you get:\n\nOverall SEO score summarizing how well your page is currently optimized\nIndividual sub scores for meta-information, page quality, page & link structure, server configuration, and external signals\nA prioritized task list with clear recommendations based on your SEO check results\n\n \n\nThe report highlights the highest-impact issues first so you can start with changes that deliver quick, measurable improvements.\n\nMeta information\nHelp search engines and AI models understand your pages\n\nMeta-information helps search engines like Google correctly interpret, categorize, and display your content in search results.\n\n \n\nThe Seobility SEO Checker flags metadata issues, such as:\n\nOverly short, long, or missing meta titles and descriptions\nmeta tags that block indexing (noindex / nofollow)\nmissing or inc",
+    "invalidText": "\nSlow server reponse times\nExcessive CSS or JavaScript requests\nOversized HTML files\nExternal factors\nStrengthen trust and authority signals\n\nSEO and AEO are not only about on-page optimization. External signals, especially backlinks (also called “inbound links”), strongly influence Google rankings and citation likelihood in AI tools.\n\n \n\nThe SEO Checker will tell you if your page has a weak backlink profile.\n\nSEO Checker\n\nFrequently asked questions\n\nWhat is the Seobility SEO Checker?\n\nThe Seobility SEO checker is a tool that scans any web page for technical errors, on-page SEO issues, and optimization gaps that affect search engine rankings and AI visibility.\n\nHow does the SEO Checker work?\n\nThe Seobility SEO checker crawls the entered URL like a search engine bot and evaluates over 200 SEO-relevant factors across metadata, content quality, structure, technical setup, and external signals.\n\n \n\nIt then calculates an SEO score for your page which reflects how well the page is currently optimized for Google and other search engines. It also displays a list of issues found on the page.\n\nWhat is an SEO score?\n\nThe SEO score shows how well a page follows best practices:\n\n \n\n80%+: Strong SEO foundation\n30 – 79%: Optimization potential\nBelow 30%: Critical issues requiring action\n\nCan I download my SEO report?\n\nYes. Premium users can export branded PDF reports (short or full versions of the SEO Checker results), including their company logo.\n\n \n\nPlease visit our pricing page for more information about our plans.\n\nHow do I improve my SEO score?\n\nFollow the prioritized task list generated by the SEO Checker and focus first on high-impact issues on your website (displayed in red).\n\nCan I check keyword rankings on Google too?\n\nYes. Use Seobility’s Ranking Checker to check your site’s keyword positions and compare your performance on Google against competitors.\n\nMore free SEO tools\n\nTry all of these tools for free and without registration!\n\nOn-Page & Technical SEO\nSEO Checker\nKeyword Checker\nSEO Compare\nRedirect Checker\nOff-Page & SERPs\nBacklink Checker\nRanking Checker\nSERP Snippet Generator\nKeyword Research & Content\nKeyword Research Tool\nTF*IDF Tool\nContact us\nSeobility GmbH, Willy-Brandt-Platz 16, 90402 Nuremberg, Germany\nFEATURES\nWebsite Audit\nRanking Monitoring\nAI Visibility Tracking (Coming soon)\nBacklink Monitoring\nSEO Competitor Analysis\nKeyword Research & Content Tools\nUptime Monitoring\nSeobility MCP (Beta)\nUSE CASES\nSeobility for Businesses\nSeobility for Agencies & Freelancers\nSeobility for Local Businesses\nGenerative Engine Optimization (GEO) with Seobility\nFREE SEO TOOLS\nSEO Checker\nRanking Checker\nBacklink Checker\nKeyword Research Tool\nTF*IDF Tool\nRedirect Checker\nSERP Snippet Generator\nKeyword Checker\nSEO Compare\nSEOBILITY\nPlans & Pricing\nSeobility Team\nContact\nSeobility Customers\nAffiliate Program\nEntity & Relational Grounding Data\nRESOURCES\nBlog\nWiki\nFAQ\nSeobility Beginner’s Guide\nLEGAL\nTerms & Conditions\nPrivacy\nImprint\n© 2026 - Seobility.net",
+    "after": "Skip to content\nFeatures & Use Cases\nPricing\nResources\nEN\nLog in\nTry it free\n\nHome  SEO Checker\n\nSEO Checker\nRanking Checker\nBacklink Checker\nKeyword Research\nSnippet Generator\nTF*IDF Tool\nRedirect Checker\nSEO Compare\nKeyword Checker\nMore\nFree SEO Checker\nTest your website with Seobility's SEO Checker!\n\nComplying with search engine guidelines – and making your content accessible to both traditional crawlers and AI bots – is essential for sustainable visibility. The Seobility SEO Checker analyzes your website and provides clear recommendations to improve performance in search engines and AI answer engines.\n\nURL\nAnalyze Website\nYou have 3 of 3 checks left today.\nStart your 14-day trial now!\nSeobility Premium\n\nAnalyze more than a single URL and unlock the full SEO software suite:\n\n Full-site SEO audit\n Keyword ranking monitoring\n Backlink tracking and link profile analysis\n Competitor comparison\n Exportable PDF reports\nFree 14-day trial\nFREE\nPrice per month\n$69.90\n\nCan be canceled at any time! Automatically renews to our monthly Premium plan for $69.90/month.\n\nStart free trial\nFree website checker\nGet a quick overview of your website optimization\n\nAnalyze any web page with Seobility’s free SEO Checker to uncover technical errors and on-page SEO issues that limit organic rankings or reduce visibility in AI answer engines (LLM-based search tools like ChatGPT and Perplexity).\n\n \n\nWhat you get:\n\nOverall SEO score summarizing how well your page is currently optimized\nIndividual sub scores for meta-information, page quality, page & link structure, server configuration, and external signals\nA prioritized task list with clear recommendations based on your SEO check results\n\n \n\nThe report highlights the highest-impact issues first so you can start with changes that deliver quick, measurable improvements.\n\nMeta information\nHelp search engines and AI models understand your pages\n\nMeta-information helps search engines like Google correctly interpret, categorize, and display your content in search results.\n\n \n\nThe Seobility SEO Checker flags metadata issues, such as:\n\nOverly short, long, or missing meta titles and descriptions\nmeta tags that block indexing (noindex / nofollow)\nmissing or incorrect canonical links\ninconsistent language declarations\nUnclear or problematic domain names and page URLs\nServer configuration\nEnsure a fast, error-free technical setup\n\nA clean technical foundation supports smooth crawling by search engine bots and AI crawlers. Fast-loading, error-free pages reduce friction for users and machines alike.\n\n \n\nThe SEO Checker scans for server errors and other technical issues like:\n\nIncorrect redirect between www and non-www subdomains\nHTTP header misconfigurations\nSlow server reponse times\nExcessive CSS or JavaScript requests\nOversized HTML files\nExternal factors\nStrengthen trust and authority signals\n\nSEO and AEO are not only about on-page optimization. External signals, especially backlinks (also called “inbound links”), strongly influence Google rankings and citation likelihood in AI tools.\n\n \n\nThe SEO Checker will tell you if your page has a weak backlink profile.\n\nSEO Checker\n\nFrequently asked questions\n\nWhat is the Seobility SEO Checker?\n\nThe Seobility SEO checker is a tool that scans any web page for technical errors, on-page SEO issues, and optimization gaps that affect search engine rankings and AI visibility.\n\nHow does the SEO Checker work?\n\nThe Seobility SEO checker crawls the entered URL like a search engine bot and evaluates over 200 SEO-relevant factors across metadata, content quality, structure, technical setup, and external signals.\n\n \n\nIt then calculates an SEO score for your page which reflects how well the page is currently optimized for Google and other search engines. It also displays a list of issues found on the page.\n\nWhat is an SEO score?\n\nThe SEO score shows how well a page follows best practices:\n\n \n\n80%+: Strong SEO foundation\n30 – 79%: Optimization potential\nBelow 30%: Critical issues requiring action\n\nCan I download my SEO report?\n\nYes. Premium users can export branded PDF reports (short or full versions of the SEO Checker results), including their company logo.\n\n \n\nPlease visit our pricing page for more information about our plans.\n\nHow do I improve my SEO score?\n\nFollow the prioritized task list generated by the SEO Checker and focus first on high-impact issues on your website (displayed in red).\n\nCan I check keyword rankings on Google too?\n\nYes. Use Seobility’s Ranking Checker to check your site’s keyword positions and compare your performance on Google against competitors.\n\nMore free SEO tools\n\nTry all of these tools for free and without registration!\n\nOn-Page & Technical SEO\nSEO Checker\nKeyword Checker\nSEO Compare\nRedirect Checker\nOff-Page & SERPs\nBacklink Checker\nRanking Checker\nSERP Snippet Generator\nKeyword Research & Content\nKeyword Research Tool\nTF*IDF Tool\nContact us\nSeobility GmbH, Willy-Brandt-Platz 16, 90402 Nuremberg, Germany\nFEATURES\nWebsite Audit\nRanking Monitoring\nAI Visibility Tracking (Coming soon)\nBacklink Monitoring\nSEO Competitor Analysis\nKeyword Research & Content Tools\nUptime Monitoring\nSeobility MCP (Beta)\nUSE CASES\nSeobility for Businesses\nSeobility for Agencies & Freelancers\nSeobility for Local Businesses\nGenerative Engine Optimization (GEO) with Seobility\nFREE SEO TOOLS\nSEO Checker\nRanking Checker\nBacklink Checker\nKeyword Research Tool\nTF*IDF Tool\nRedirect Checker\nSERP Snippet Generator\nKeyword Checker\nSEO Compare\nSEOBILITY\nPlans & Pricing\nSeobility Team\nContact\nSeobility Customers\nAffiliate Program\nEntity & Relational Grounding Data\nRESOURCES\nBlog\nWiki\nFAQ\nSeobility Beginner’s Guide\nLEGAL\nTerms & Conditions\nPrivacy\nImprint\n© 2026 - Seobility.net",
+    "mobileOverflow": true
+  }
+]

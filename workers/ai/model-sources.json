@@ -1,0 +1,64 @@
+[
+  {
+    "repository": "Xenova/modnet",
+    "revision": "fa2fa546052fba4c08921230a26cc69a333fca12",
+    "files": [
+      {
+        "rfilename": "README.md",
+        "blobId": "004d4efcbdf5c0b439526759495087fb6eb34d15",
+        "size": 2793
+      },
+      {
+        "rfilename": "config.json",
+        "blobId": "35db9b35faf0cd204d2d08629e52139f967da8e8",
+        "size": 83
+      },
+      {
+        "rfilename": "onnx/model.onnx",
+        "blobId": "000bf52de7271bc15c026a124df5565419f2af40",
+        "size": 25888640,
+        "lfs": {
+          "sha256": "07c308cf0fc7e6e8b2065a12ed7fc07e1de8febb7dc7839d7b7f15dd66584df9",
+          "size": 25888640,
+          "pointerSize": 133
+        }
+      },
+      {
+        "rfilename": "preprocessor_config.json",
+        "blobId": "dc007ec5904b57916c35d0314fb12da3a8250f1c",
+        "size": 365
+      }
+    ]
+  },
+  {
+    "repository": "Xenova/swin2SR-lightweight-x2-64",
+    "revision": "92a21aca5713f20faf9a87590cdfbdce2e34112c",
+    "files": [
+      {
+        "rfilename": "README.md",
+        "blobId": "6a01f067c716c204bd93042d604f627a6161352f",
+        "size": 1839
+      },
+      {
+        "rfilename": "config.json",
+        "blobId": "bdefd043b194fe7f873833673ebc4011479de235",
+        "size": 801
+      },
+      {
+        "rfilename": "onnx/model.onnx",
+        "blobId": "1a1659f6d757356d41797bf24a83db4ee75c04e7",
+        "size": 8078888,
+        "lfs": {
+          "sha256": "c2abbfe0cc8e685b5e11964970f8ebe3d24072e904fd5545a30ac31ec1e110db",
+          "size": 8078888,
+          "pointerSize": 132
+        }
+      },
+      {
+        "rfilename": "preprocessor_config.json",
+        "blobId": "539dbfb6265f0ece81a881579565e88b90668fc4",
+        "size": 152
+      }
+    ]
+  }
+]

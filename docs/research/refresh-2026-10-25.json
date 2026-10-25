@@ -1,0 +1,152 @@
+{
+  "checkedAt": "2026-10-25T07:17:02.911570+00:00",
+  "repositories": [
+    {
+      "repository": "anthropics/claude-code",
+      "url": "https://github.com/anthropics/claude-code",
+      "sha": "318b7e6ac4e726e88a4ad326214866a93c373b1b",
+      "archived": false,
+      "license": null,
+      "pushed_at": "2026-10-24T02:18:59Z",
+      "status": "metadata refreshed; retained bounded source review"
+    },
+    {
+      "repository": "jeffallan/claude-skills",
+      "url": "https://github.com/jeffallan/claude-skills",
+      "sha": "9e7dbd688015cbd1f440374f8671028bb67c608f",
+      "archived": false,
+      "license": "MIT",
+      "pushed_at": "2026-10-24T22:26:24Z",
+      "status": "metadata refreshed; retained bounded source review"
+    },
+    {
+      "repository": "AgricIDaniel/claude-seo",
+      "url": "https://github.com/AgricIDaniel/claude-seo",
+      "sha": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+      "archived": false,
+      "license": "MIT",
+      "pushed_at": "2026-10-22T16:47:40Z",
+      "status": "metadata refreshed; retained bounded source review"
+    },
+    {
+      "repository": "public-apis/public-apis",
+      "url": "https://github.com/public-apis/public-apis",
+      "sha": "82e763edc4919e2cb13ce8c8c57a33bc73ff4caf",
+      "archived": false,
+      "license": "MIT",
+      "pushed_at": "2026-10-24T09:30:33Z",
+      "status": "metadata refreshed; retained bounded source review"
+    },
+    {
+      "repository": "stjudewashere/seonaut",
+      "url": "https://github.com/stjudewashere/seonaut",
+      "sha": "a67387fe63a291be2ba49dd02399f20e453eb8b5",
+      "archived": false,
+      "license": "MIT",
+      "pushed_at": "2026-10-08T08:57:11Z",
+      "status": "metadata refreshed; retained bounded source review"
+    },
+    {
+      "repository": "Jesikurr/Universal-Image-Converter",
+      "url": "https://github.com/Jesikurr/Universal-Image-Converter",
+      "sha": "43623dd911635de4cb958d3057aba9522d2e0125",
+      "archived": false,
+      "license": "MIT",
+      "pushed_at": "2025-11-17T20:29:25Z",
+      "status": "metadata refreshed; retained bounded source review"
+    },
+    {
+      "repository": "tool3/upscaler-cli",
+      "url": "https://github.com/tool3/upscaler-cli",
+      "sha": "921250f86bacd576d0271f0359c17ed1d83b04c4",
+      "archived": false,
+      "license": "MIT",
+      "pushed_at": "2024-10-30T09:26:28Z",
+      "status": "metadata refreshed; retained bounded source review"
+    },
+    {
+      "repository": "Vette1123/social-media-downloader",
+      "url": "https://github.com/Vette1123/social-media-downloader",
+      "sha": "15cfbee3b63892bc5eb716a5888b84b7d4ef6107",
+      "archived": false,
+      "license": "MIT",
+      "pushed_at": "2026-10-23T08:22:36Z",
+      "status": "metadata refreshed; retained bounded source review"
+    },
+    {
+      "repository": "XGenerationy/SocialMedia-Video-Downloader",
+      "url": "https://github.com/XGenerationy/SocialMedia-Video-Downloader",
+      "sha": "24c1d9b76a1682c4b8ba379e461f59beee065728",
+      "archived": false,
+      "license": "MIT",
+      "pushed_at": "2026-06-18T19:33:42Z",
+      "status": "metadata refreshed; retained bounded source review"
+    },
+    {
+      "repository": "addyosmani/bg-remove",
+      "url": "https://github.com/addyosmani/bg-remove",
+      "status": "inaccessible on refresh; retained prior review",
+      "error": "HTTP Error 403: rate limit exceeded"
+    },
+    {
+      "repository": "Motasaith/image-bg-remover",
+      "url": "https://github.com/Motasaith/image-bg-remover",
+      "status": "inaccessible on refresh; retained prior review",
+      "error": "HTTP Error 403: rate limit exceeded"
+    },
+    {
+      "repository": "tecnomanu/remove-background-local",
+      "url": "https://github.com/tecnomanu/remove-background-local",
+      "status": "inaccessible on refresh; retained prior review",
+      "error": "HTTP Error 403: rate limit exceeded"
+    },
+    {
+      "repository": "codeforreal1/compressO",
+      "url": "https://github.com/codeforreal1/compressO",
+      "status": "inaccessible on refresh; retained prior review",
+      "error": "HTTP Error 403: rate limit exceeded"
+    },
+    {
+      "repository": "Cap-go/capacitor-file-compressor",
+      "url": "https://github.com/Cap-go/capacitor-file-compressor",
+      "status": "inaccessible on refresh; retained prior review",
+      "error": "HTTP Error 403: rate limit exceeded"
+    },
+    {
+      "repository": "avvio-agency/website-speed-test",
+      "url": "https://github.com/avvio-agency/website-speed-test",
+      "status": "inaccessible on refresh; retained prior review",
+      "error": "HTTP Error 403: rate limit exceeded"
+    },
+    {
+      "repository": "websu-io/websu",
+      "url": "https://github.com/websu-io/websu",
+      "status": "inaccessible on refresh; retained prior review",
+      "error": "HTTP Error 403: rate limit exceeded"
+    },
+    {
+      "repository": "aliesbelik/webperf-toolkit",
+      "url": "https://github.com/aliesbelik/webperf-toolkit",
+      "status": "inaccessible on refresh; retained prior review",
+      "error": "HTTP Error 403: rate limit exceeded"
+    },
+    {
+      "repository": "sitespeedio/sitespeed.io",
+      "url": "https://github.com/sitespeedio/sitespeed.io",
+      "status": "inaccessible on refresh; retained prior review",
+      "error": "HTTP Error 403: rate limit exceeded"
+    },
+    {
+      "repository": "morluto/rea",
+      "url": "https://github.com/morluto/rea",
+      "status": "inaccessible on refresh; retained prior review",
+      "error": "HTTP Error 403: rate limit exceeded"
+    },
+    {
+      "repository": "undefdev/token-efficiency",
+      "url": "https://github.com/undefdev/token-efficiency",
+      "status": "inaccessible on refresh; retained prior review",
+      "error": "HTTP Error 403: rate limit exceeded"
+    }
+  ]
+}

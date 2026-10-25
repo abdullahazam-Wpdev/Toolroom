@@ -1,0 +1,101 @@
+[
+  {
+    "repository": "lightspeed-core/lightspeed-stack",
+    "path": "README.md",
+    "status": "readable",
+    "sha256": "cd167738f3b600c3cdcfd1a1b3400229bf25e274f6b5b1038f12fb649f2d3c5e",
+    "bytes": 63230
+  },
+  {
+    "repository": "lightspeed-core/lightspeed-stack",
+    "path": "LICENSE",
+    "status": "readable",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "bytes": 11357
+  },
+  {
+    "repository": "lightspeed-core/lightspeed-stack",
+    "path": "LICENSE.md",
+    "status": "inaccessible",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "repository": "lightspeed-core/lightspeed-stack",
+    "path": "pyproject.toml",
+    "status": "readable",
+    "sha256": "a427e113ca6a5f6ea9b2711f5fad613f00457ae99dc221c040237748de9804f9",
+    "bytes": 7805
+  },
+  {
+    "repository": "lightspeed-core/lightspeed-stack",
+    "path": "src/lightspeed_stack.py",
+    "status": "readable",
+    "sha256": "4ebde63ab2ef917ad63edefbd938aa65f35efe11bb190588151832f1c9f8a502",
+    "bytes": 11391
+  },
+  {
+    "repository": "lightspeed-core/lightspeed-stack",
+    "path": "src/app/endpoints/readiness.py",
+    "status": "inaccessible",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "repository": "RohanAdwankar/cgpu",
+    "path": "README.md",
+    "status": "readable",
+    "sha256": "8a55d6a7815abc17b20a842271ee261718e1b0533686df74adb2c7f0922260b2",
+    "bytes": 1839
+  },
+  {
+    "repository": "RohanAdwankar/cgpu",
+    "path": "LICENSE",
+    "status": "inaccessible",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "repository": "RohanAdwankar/cgpu",
+    "path": "package.json",
+    "status": "readable",
+    "sha256": "9b6f32ed728c6acd4aaf2689838617110888190fa1bf6e0fae1c13e1513aae59",
+    "bytes": 1165
+  },
+  {
+    "repository": "RohanAdwankar/cgpu",
+    "path": "src/index.ts",
+    "status": "readable",
+    "sha256": "727e7c828fe25f4d6f240c1b3f186c4d454b00561d4d48661c5c375328bfa744",
+    "bytes": 10050
+  },
+  {
+    "repository": "RohanAdwankar/cgpu",
+    "path": "src/cli.ts",
+    "status": "inaccessible",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "repository": "every-app/open-seo",
+    "path": "README.md",
+    "status": "inaccessible",
+    "error": "<urlopen error _ssl.c:1015: The handshake operation timed out>"
+  },
+  {
+    "repository": "every-app/open-seo",
+    "path": "LICENSE",
+    "status": "readable",
+    "sha256": "c23e0aa0cdc924726993ffc8eb96e5283a7e8aaa7e068f1200277eb6df0f0f06",
+    "bytes": 1068
+  },
+  {
+    "repository": "every-app/open-seo",
+    "path": "package.json",
+    "status": "readable",
+    "sha256": "010282074662c073a0a163a0cb20f6443a2872f3e80d71ce46a22f9e562a8f10",
+    "bytes": 8655
+  },
+  {
+    "repository": "every-app/open-seo",
+    "path": "pyproject.toml",
+    "status": "inaccessible",
+    "error": "HTTP Error 404: Not Found"
+  }
+]

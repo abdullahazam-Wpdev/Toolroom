@@ -1,0 +1,35 @@
+[
+  {
+    "repository": "https://github.com/avvio-agency/website-speed-test",
+    "sourceUrl": "https://github.com/avvio-agency/website-speed-test/blob/main/app/api/audit/route.ts",
+    "sourcePath": "app/api/audit/route.ts",
+    "archiveSha256": "7658f6db6677aa1529cffe4a2ba3aa95e8ac70bae6065a8a6c063a64afd135c4",
+    "sourceSha256": "537f35b61b1febc2bef0a34e125bd07b6f79623164d4790042614c0cf7692f0a",
+    "adaptation": "apps/web/src/lib/pagespeed.ts",
+    "licenseFile": "third_party/avvio-speed-test/LICENSE",
+    "reviewedAt": "2026-10-25",
+    "scope": "Selected source adaptation, not wholesale upstream application"
+  },
+  {
+    "repository": "https://github.com/stjudewashere/seonaut",
+    "sourceUrl": "https://github.com/stjudewashere/seonaut/blob/main/internal/issues/page/headings.go",
+    "sourcePath": "internal/issues/page/headings.go",
+    "archiveSha256": "0d9920e0c2037feafcc80fe41b18e08a105de836d4b1769d92958bbe9db323cb",
+    "sourceSha256": "6d3aa39b526603a324c05a8ab85b3241458ce0cd35505949815e2e19f625dec5",
+    "adaptation": "apps/web/src/lib/audit.ts",
+    "licenseFile": "third_party/seonaut/LICENSE",
+    "reviewedAt": "2026-10-25",
+    "scope": "Selected source adaptation, not wholesale upstream application"
+  },
+  {
+    "repository": "https://github.com/every-app/open-seo",
+    "commit": "0ca244b0dffef46820faa3fdcac21d7f9f76c088",
+    "sourceUrl": "https://github.com/every-app/open-seo/blob/0ca244b0dffef46820faa3fdcac21d7f9f76c088/src/server/workflows/site-audit-workflow-helpers.ts",
+    "sourcePath": "src/server/workflows/site-audit-workflow-helpers.ts",
+    "sourceSha256": "382969085661efa9e8b67c6eeafef291b095d617806f1324c7cabf7115ce1541",
+    "adaptation": "apps/web/src/lib/http-canonical.ts",
+    "licenseFile": "third_party/open-seo/LICENSE",
+    "reviewedAt": "2026-10-25",
+    "scope": "Only HTTP Link canonical extraction, extended for commas/relation lists; full platform not installed"
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "name": "@toolkit/web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname 0.0.0.0",
+    "build": "next build",
+    "postbuild": "mkdir -p .next/standalone/apps/web/.next && cp -r .next/static .next/standalone/apps/web/.next/static && cp -r public .next/standalone/apps/web/public",
+    "start": "HOSTNAME=0.0.0.0 node --env-file=.env.local .next/standalone/apps/web/server.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.0",
+    "@radix-ui/react-slot": "latest",
+    "bullmq": "latest",
+    "cheerio": "^1.2.0",
+    "class-variance-authority": "latest",
+    "clsx": "latest",
+    "fast-xml-parser": "^5.11.2",
+    "ioredis": "latest",
+    "ipaddr.js": "^2.5.0",
+    "jszip": "latest",
+    "lucide-react": "latest",
+    "next": "latest",
+    "pdf-lib": "^1.17.1",
+    "react": "latest",
+    "react-dom": "latest",
+    "sharp": "latest",
+    "tailwind-merge": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "tailwindcss": "latest"
+  }
+}

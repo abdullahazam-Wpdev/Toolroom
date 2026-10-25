@@ -1,0 +1,46 @@
+[
+  {
+    "url": "https://github.com/topics/seo-audit-tool",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "url": "https://github.com/topics/image-converter-one-tool",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "url": "https://github.com/topics/total-image-converter-jpeg-to-png",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "url": "https://github.com/topics/super-resolution-image",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "url": "https://github.com/topics/photo-upscaler",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "url": "https://github.com/topics/social-media-downloader",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "url": "https://github.com/topics/media-downloader-gui",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "url": "https://github.com/topics/reels-downloader",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "url": "https://github.com/topics/background-removal",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "url": "https://github.com/topics/video-compress?o=asc&s=stars",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "url": "https://github.com/topics/web-performance-testing?l=javascript",
+    "error": "HTTP Error 429: Too Many Requests"
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "name": "toolkit-platform",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w apps/web",
+    "build": "npm run build -w apps/web",
+    "start": "npm run start -w apps/web",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "typecheck": "tsc --noEmit -p apps/web",
+    "db:generate": "prisma generate --schema infra/schema.prisma",
+    "db:push": "prisma db push --schema infra/schema.prisma",
+    "worker": "node --experimental-strip-types scripts/backend/worker.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "latest",
+    "prettier": "^3.9.10",
+    "prisma": "^6.19.0",
+    "typescript": "latest",
+    "vitest": "latest"
+  },
+  "overrides": {
+    "deepmerge-ts": "^8.0.0"
+  }
+}

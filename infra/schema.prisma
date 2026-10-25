@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+// Background website-crawl jobs (the 100/500/1000-page audit tiers). Small
+// crawls (<= MAX_CRAWL_PAGES) run synchronously via /api/site-audits and
+// never create a row here. This model existed before this phase but was
+// unused in code; it is now the real backing store for crawl-tool.ts.
+model AuditJob {
+  id String @id
+  tokenHash String
+  url String
+  maxPages Int
+  status String @default("queued")
+  pagesCrawled Int @default(0)
+  pagesDiscovered Int @default(0)
+  cancelRequested Boolean @default(false)
+  report Json?
+  error String?
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+  @@index([expiresAt])
+  @@index([status])
+}
+model ToolEvent {
+  id String @id @default(cuid())
+  toolId String
+  outcome String
+  createdAt DateTime @default(now())
+  @@index([toolId, createdAt])
+}
+
+model MediaJob {
+  id String @id
+  tokenHash String
+  kind String
+  format String
+  quality String
+  status String @default("queued")
+  progress Int @default(0)
+  cancelRequested Boolean @default(false)
+  inputBytes Int
+  outputBytes Int?
+  error String?
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+  @@index([expiresAt])
+  @@index([status])
+}

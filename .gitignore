@@ -1,0 +1,16 @@
+node_modules/
+.next/
+.env
+.env.*
+!.env.example
+.runtime/
+test-results/
+playwright-report/
+artifacts/**/*.png
+
+*.tsbuildinfo
+
+.research/
+
+__pycache__/
+*.pyc

@@ -1,0 +1,62 @@
+[
+  {
+    "repository": "every-app/open-seo",
+    "path": "README.md",
+    "status": "readable",
+    "sha256": "057e9cbc4ddc278ebfa1c1942a634de69d6d176fb2cfbb9ba2a826c50f2cf00a"
+  },
+  {
+    "repository": "every-app/open-seo",
+    "path": "src/shared/audit-limits.ts",
+    "status": "readable",
+    "sha256": "d8dbda81783732e2ba4f2710c98f30df9c49a842f977f1e1d4d07662b22a2b16"
+  },
+  {
+    "repository": "every-app/open-seo",
+    "path": "src/shared/audit-fetch-class.ts",
+    "status": "readable",
+    "sha256": "1db8067507e9193d4fddb6ddd2f876fbb1ddbe444ca7619b477c7f6e3b192b66"
+  },
+  {
+    "repository": "every-app/open-seo",
+    "path": "src/server/workflows/site-audit-workflow-helpers.ts",
+    "status": "readable",
+    "sha256": "382969085661efa9e8b67c6eeafef291b095d617806f1324c7cabf7115ce1541"
+  },
+  {
+    "repository": "every-app/open-seo",
+    "path": "src/server/features/audit/service.ts",
+    "status": "inaccessible",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "repository": "RohanAdwankar/cgpu",
+    "path": "src/config.ts",
+    "status": "readable",
+    "sha256": "b36c7ef4c2c8989aa6114d9e6cd879da4e6f5c4cd67527af1e5a727142031bba"
+  },
+  {
+    "repository": "RohanAdwankar/cgpu",
+    "path": "src/colab/client.ts",
+    "status": "readable",
+    "sha256": "1decb1d22e2b0f97b0de5d12e2170557f21d2e2e34d3d6b19d9a70524f43ccb1"
+  },
+  {
+    "repository": "RohanAdwankar/cgpu",
+    "path": "src/serve/server.ts",
+    "status": "readable",
+    "sha256": "839950c1cc69b8869f957d870efd298cb67031b685f8d6671f63b67e596b77a2"
+  },
+  {
+    "repository": "lightspeed-core/lightspeed-stack",
+    "path": "src/app/main.py",
+    "status": "readable",
+    "sha256": "8005b6e826ecb097645730c5bb148ffe1d9dc8314556846094155c8fb0d0e892"
+  },
+  {
+    "repository": "lightspeed-core/lightspeed-stack",
+    "path": "src/app/endpoints/query.py",
+    "status": "readable",
+    "sha256": "7add238cf4383d9d66d9869d5cc1b15371939c0fe622438e8d814f673f134fc9"
+  }
+]

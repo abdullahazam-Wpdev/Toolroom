@@ -1,0 +1,143 @@
+[
+  {
+    "site": "cloudconvert",
+    "evidence_id": "ev_4a9f9d52759153030eafb0b3a32669e1b3943dd4a443be6c9649713a03ea5f57",
+    "operation": "capture_browser_scenario",
+    "confidence": "observed",
+    "completeness": {
+      "status": "complete",
+      "equality_eligible": true,
+      "missing_sections": [],
+      "truncated_sections": []
+    },
+    "browser": {
+      "mode": "launch",
+      "process_ownership": "provider-owned",
+      "cleanup": "terminated-owned-process",
+      "product": "Chromium",
+      "version": "156.0.8078.4"
+    },
+    "stepStatuses": [
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "site": "freeconvert",
+    "evidence_id": "ev_b10839cd3dcaa5d9a4cd1224c9ea05027fcc045e7794e6be5eba3c2961c5842e",
+    "operation": "capture_browser_scenario",
+    "confidence": "observed",
+    "completeness": {
+      "status": "complete",
+      "equality_eligible": true,
+      "missing_sections": [],
+      "truncated_sections": []
+    },
+    "browser": {
+      "mode": "launch",
+      "process_ownership": "provider-owned",
+      "cleanup": "terminated-owned-process",
+      "product": "Chromium",
+      "version": "156.0.8078.4"
+    },
+    "stepStatuses": [
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "site": "removebg",
+    "evidence_id": "ev_019b1f62854a63d4502098da83441ad4475ffc7e4ae708b439e4e3188f142cca",
+    "operation": "capture_browser_scenario",
+    "confidence": "observed",
+    "completeness": {
+      "status": "complete",
+      "equality_eligible": true,
+      "missing_sections": [],
+      "truncated_sections": []
+    },
+    "browser": {
+      "mode": "launch",
+      "process_ownership": "provider-owned",
+      "cleanup": "terminated-owned-process",
+      "product": "Chromium",
+      "version": "156.0.8078.4"
+    },
+    "stepStatuses": [
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "site": "imgupscaler",
+    "evidence_id": "ev_d17f533a169b987be95029058d972b247554a227fbff74ad764670b144f77e88",
+    "operation": "capture_browser_scenario",
+    "confidence": "observed",
+    "completeness": {
+      "status": "complete",
+      "equality_eligible": true,
+      "missing_sections": [],
+      "truncated_sections": []
+    },
+    "browser": {
+      "mode": "launch",
+      "process_ownership": "provider-owned",
+      "cleanup": "terminated-owned-process",
+      "product": "Chromium",
+      "version": "156.0.8078.4"
+    },
+    "stepStatuses": [
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "site": "pagespeed",
+    "evidence_id": "ev_fcf3a4ce752e651392d9fdd374bd246019510e648e6c5db7153ce5b909ea1c46",
+    "operation": "capture_browser_scenario",
+    "confidence": "observed",
+    "completeness": {
+      "status": "complete",
+      "equality_eligible": true,
+      "missing_sections": [],
+      "truncated_sections": []
+    },
+    "browser": {
+      "mode": "launch",
+      "process_ownership": "provider-owned",
+      "cleanup": "terminated-owned-process",
+      "product": "Chromium",
+      "version": "156.0.8078.4"
+    },
+    "stepStatuses": [
+      "completed",
+      "completed",
+      "completed",
+      "completed"
+    ]
+  },
+  {
+    "site": "seobility",
+    "evidence_id": "ev_d922dbb976708b5f2a54d830a0f6bb59b7bb1f32d6fe0ae78ec94fe5d07b1db6",
+    "operation": "capture_browser_scenario",
+    "confidence": "observed",
+    "completeness": {
+      "status": "complete",
+      "equality_eligible": true,
+      "missing_sections": [],
+      "truncated_sections": []
+    },
+    "browser": {
+      "mode": "launch",
+      "process_ownership": "provider-owned",
+      "cleanup": "terminated-owned-process",
+      "product": "Chromium",
+      "version": "156.0.8078.4"
+    },
+    "stepStatuses": [
+      "completed",
+      "completed",
+      "completed"
+    ]
+  }
+]
