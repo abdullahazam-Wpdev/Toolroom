@@ -133,6 +133,20 @@ export function additionalSeoEvidence(
         "Review whether comment reply variants create crawl duplication; keep intended comment behavior and verify canonical handling.",
         "links",
       );
+    const elementorElements = $('[class*="elementor-element"]').length;
+    const usesElementor =
+      elementorElements > 0 ||
+      $(
+        'link[href*="/plugins/elementor/"],script[src*="/plugins/elementor/"]',
+      ).length > 0;
+    if (usesElementor)
+      add(
+        "wordpress-elementor-dom-complexity",
+        "Elementor DOM complexity",
+        elementorElements > 400 ? "warning" : "pass",
+        `${elementorElements} .elementor-element wrapper nodes in the server HTML. This counts nested section/column/widget wrappers; it does not measure actual render time or Core Web Vitals.`,
+        "Review section/column nesting depth and widget count on pages with a very high wrapper count; simplifying heavily nested layouts can reduce DOM size and crawl/render cost.",
+      );
     const target = new URL(url);
     if (target.searchParams.has("p"))
       add(
@@ -150,6 +164,7 @@ export function additionalSeoEvidence(
     (strong.has("shopify") && /\/products\/[^/]+/.test(new URL(url).pathname));
   if (productPage) {
     const products: Record<string, unknown>[] = [];
+    const breadcrumbLists: Record<string, unknown>[] = [];
     let invalid = 0;
     $('script[type="application/ld+json" i]')
       .slice(0, 20)
@@ -169,6 +184,7 @@ export function additionalSeoEvidence(
                 ? record["@type"]
                 : [record["@type"]];
             if (types.includes("Product")) products.push(record);
+            if (types.includes("BreadcrumbList")) breadcrumbLists.push(record);
             for (const value of Object.values(record))
               if (value && typeof value === "object") pending.push(value);
           }
@@ -211,6 +227,15 @@ export function additionalSeoEvidence(
           productIssues.push(
             "Offer currency is not a three-letter uppercase code.",
           );
+        if (
+          offer.availability !== undefined &&
+          !/^(?:https?:\/\/schema\.org\/)?(?:InStock|OutOfStock|PreOrder|Discontinued|InStoreOnly|LimitedAvailability|OnlineOnly|PreSale|SoldOut|Reserved)$/i.test(
+            String(offer.availability),
+          )
+        )
+          productIssues.push(
+            "Offer availability is not a recognized schema.org Availability value.",
+          );
       }
     }
     if (products.length)
@@ -236,6 +261,67 @@ export function additionalSeoEvidence(
         "Review theme/app/plugin output for duplicate or conflicting product declarations; repeated nodes are not automatically invalid.",
         "social",
       );
+    if (products.length)
+      add(
+        "commerce-breadcrumbs",
+        "Product breadcrumb structured data",
+        breadcrumbLists.length ? "pass" : "warning",
+        breadcrumbLists.length
+          ? `${breadcrumbLists.length} BreadcrumbList node(s) found alongside this product's JSON-LD.`
+          : "No BreadcrumbList JSON-LD found alongside this product's JSON-LD. A visible breadcrumb trail without matching structured data is not detected here.",
+        "Add BreadcrumbList structured data matching the visible category trail so search results can show breadcrumbs instead of a raw URL.",
+        "social",
+      );
+  }
+  const shopifyCollectionPrefixedProduct =
+    strong.has("shopify") &&
+    /^\/collections\/[^/]+\/products\/[^/]+\/?$/.test(new URL(url).pathname);
+  if (shopifyCollectionPrefixedProduct) {
+    const handle = new URL(url).pathname
+      .split("/products/")[1]
+      ?.replace(/\/$/, "");
+    const expectedBare = handle ? new URL(`/products/${handle}`, url).href : null;
+    const canonicalHref = $('link[rel~="canonical" i]').first().attr("href");
+    const resolvedCanonical = canonicalHref
+      ? (() => {
+          try {
+            return new URL(canonicalHref, url).href;
+          } catch {
+            return null;
+          }
+        })()
+      : null;
+    add(
+      "shopify-collection-product-canonical",
+      "Collection-prefixed product URL canonical",
+      resolvedCanonical && resolvedCanonical === expectedBare
+        ? "pass"
+        : "warning",
+      resolvedCanonical
+        ? `This product is reachable at a collection-prefixed URL; the declared canonical is ${resolvedCanonical}.`
+        : "This product is reachable at a collection-prefixed URL with no canonical declared.",
+      "Canonicalize collection-prefixed product URLs to the bare /products/<handle> form; otherwise each collection a product appears in creates a separate duplicate-content signal.",
+      "metadata",
+    );
+  }
+  const shopifyCollectionListing =
+    strong.has("shopify") &&
+    /^\/collections\/[^/]+\/?$/.test(new URL(url).pathname);
+  if (shopifyCollectionListing) {
+    const page = new URL(url).searchParams.get("page");
+    if (page && page !== "1") {
+      const hasRelPrev = $('link[rel~="prev" i]').length > 0;
+      add(
+        "shopify-pagination-signals",
+        "Collection pagination signals",
+        hasRelPrev ? "pass" : "warning",
+        hasRelPrev
+          ? "A rel=prev link is present on this paginated collection page."
+          : `No rel=prev link found on this paginated collection page (page=${page}).`,
+        "Provide rel=next/prev links (or confirm an intentional canonical strategy) so paginated collection listings are not treated as orphaned or duplicate pages.",
+        "metadata",
+      );
+    }
   }
   if (
     strong.has("nextjs") ||

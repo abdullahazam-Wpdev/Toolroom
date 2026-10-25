@@ -88,5 +88,99 @@ describe("Additional source SEO evidence", () => {
     const r=additionalSeoEvidence('<body class="woocommerce single-product"></body>','https://example.com/product/camera');
     expect(r.checks.some(c=>c.id==='commerce-product-jsonld')).toBe(false);
   });
-
+  it("flags WordPress pages with heavy Elementor DOM nesting but not plain WordPress pages", () => {
+    const heavy = `<meta name="generator" content="WordPress 6"><div>${'<div class="elementor-element elementor-element-abc123">x</div>'.repeat(450)}</div>`;
+    const r = additionalSeoEvidence(heavy, "https://example.com/");
+    expect(
+      r.checks.find((c) => c.id === "wordpress-elementor-dom-complexity")
+        ?.status,
+    ).toBe("warning");
+    const light = `<meta name="generator" content="WordPress 6"><div class="elementor-element">x</div>`;
+    expect(
+      additionalSeoEvidence(light, "https://example.com/").checks.find(
+        (c) => c.id === "wordpress-elementor-dom-complexity",
+      )?.status,
+    ).toBe("pass");
+    const plain = `<meta name="generator" content="WordPress 6"><p>No builder here.</p>`;
+    expect(
+      additionalSeoEvidence(plain, "https://example.com/").checks.some(
+        (c) => c.id === "wordpress-elementor-dom-complexity",
+      ),
+    ).toBe(false);
+  });
+  it("flags an unrecognized Shopify offer availability value and passes a valid one", () => {
+    const bad = `<script src="https://cdn.shopify.com/theme.js"></script><script type="application/ld+json">${JSON.stringify({ "@type": "Product", name: "Mug", offers: { price: 10, priceCurrency: "USD", availability: "Maybe" } })}</script>`;
+    const r = additionalSeoEvidence(bad, "https://example.com/products/mug", { "x-shopid": "1" });
+    expect(r.checks.find((c) => c.id === "commerce-product-fields")?.status).toBe(
+      "warning",
+    );
+    expect(
+      r.checks.find((c) => c.id === "commerce-product-fields")?.evidence,
+    ).toContain("availability");
+    const good = `<script src="https://cdn.shopify.com/theme.js"></script><script type="application/ld+json">${JSON.stringify({ "@type": "Product", name: "Mug", offers: { price: 10, priceCurrency: "USD", availability: "https://schema.org/InStock" } })}</script>`;
+    expect(
+      additionalSeoEvidence(good, "https://example.com/products/mug", { "x-shopid": "1" }).checks.find(
+        (c) => c.id === "commerce-product-fields",
+      )?.status,
+    ).toBe("pass");
+  });
+  it("flags a missing product BreadcrumbList and passes when one is present", () => {
+    const withoutCrumbs = `<script src="https://cdn.shopify.com/theme.js"></script><script type="application/ld+json">${JSON.stringify({ "@type": "Product", name: "Mug" })}</script>`;
+    expect(
+      additionalSeoEvidence(withoutCrumbs, "https://example.com/products/mug", { "x-shopid": "1" }).checks.find(
+        (c) => c.id === "commerce-breadcrumbs",
+      )?.status,
+    ).toBe("warning");
+    const withCrumbs = `<script src="https://cdn.shopify.com/theme.js"></script><script type="application/ld+json">${JSON.stringify({ "@type": "Product", name: "Mug" })}</script><script type="application/ld+json">${JSON.stringify({ "@type": "BreadcrumbList", itemListElement: [] })}</script>`;
+    expect(
+      additionalSeoEvidence(withCrumbs, "https://example.com/products/mug", { "x-shopid": "1" }).checks.find(
+        (c) => c.id === "commerce-breadcrumbs",
+      )?.status,
+    ).toBe("pass");
+  });
+  it("flags a Shopify collection-prefixed product URL whose canonical does not point to the bare product URL", () => {
+    const mismatched = `<script src="https://cdn.shopify.com/theme.js"></script><link rel="canonical" href="https://example.com/collections/mugs/products/camp-mug">`;
+    const r = additionalSeoEvidence(
+      mismatched,
+      "https://example.com/collections/mugs/products/camp-mug",
+      { "x-shopid": "1" },
+    );
+    expect(
+      r.checks.find((c) => c.id === "shopify-collection-product-canonical")
+        ?.status,
+    ).toBe("warning");
+    const correct = `<script src="https://cdn.shopify.com/theme.js"></script><link rel="canonical" href="https://example.com/products/camp-mug">`;
+    expect(
+      additionalSeoEvidence(
+        correct,
+        "https://example.com/collections/mugs/products/camp-mug",
+        { "x-shopid": "1" },
+      ).checks.find((c) => c.id === "shopify-collection-product-canonical")
+        ?.status,
+    ).toBe("pass");
+  });
+  it("flags a paginated Shopify collection page with no rel=prev link", () => {
+    const html = `<script src="https://cdn.shopify.com/theme.js"></script>`;
+    const r = additionalSeoEvidence(
+      html,
+      "https://example.com/collections/mugs?page=2",
+      { "x-shopid": "1" },
+    );
+    expect(
+      r.checks.find((c) => c.id === "shopify-pagination-signals")?.status,
+    ).toBe("warning");
+    const withPrev = `<script src="https://cdn.shopify.com/theme.js"></script><link rel="prev" href="https://example.com/collections/mugs?page=1">`;
+    expect(
+      additionalSeoEvidence(
+        withPrev,
+        "https://example.com/collections/mugs?page=2",
+        { "x-shopid": "1" },
+      ).checks.find((c) => c.id === "shopify-pagination-signals")?.status,
+    ).toBe("pass");
+    expect(
+      additionalSeoEvidence(html, "https://example.com/collections/mugs", { "x-shopid": "1" }).checks.some(
+        (c) => c.id === "shopify-pagination-signals",
+      ),
+    ).toBe(false);
+  });
 });
