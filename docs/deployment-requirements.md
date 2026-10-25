@@ -1,5 +1,11 @@
 # Deployment requirements — SEO audit engine, 25 October 2026
 
+## Migration history was stale — found and fixed, 25 October 2026
+
+Earlier this session the `AuditJob` model gained six new columns (`tokenHash`, `maxPages`, `pagesCrawled`, `pagesDiscovered`, `cancelRequested`, `error`) and a new index when the background crawl-job feature was built, applied to this sandbox's database with `prisma db push` — which syncs the schema directly and does **not** update tracked migration files. The one tracked migration (`20261025090000_initial`) still only created the original six-column shape. Anyone running `prisma migrate deploy` against a fresh database (exactly what a new Prisma Postgres/Vercel setup needs) would get a table missing those columns, and the crawl-job API would fail the first time it tried to write a row.
+
+Found by diffing the tracked migrations against the current schema (`prisma migrate diff --from-migrations infra/migrations --to-schema-datamodel infra/schema.prisma`), which was not empty. Generated the missing migration (`infra/migrations/20261025115327_add_crawl_job_fields/`), then re-ran the same diff and confirmed it came back empty — the migration history now exactly reproduces the current schema. Verified end to end against a genuinely fresh database (not this session's already-migrated one): created a scratch Postgres database on the same server, ran `prisma migrate deploy` against it, introspected the result to confirm every column was present, created and deleted a real row through the actual Prisma client, then dropped the scratch database. `prisma migrate deploy` is safe to run on a brand-new database now.
+
 ## Vercel deployment — verified findings, 25 October 2026
 
 Full environment variable table and reasoning given directly to the operator; summary here for future sessions.
