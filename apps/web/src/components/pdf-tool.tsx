@@ -136,6 +136,13 @@ export function PdfTool({ operation }: { operation: PdfOperation }) {
         Up to 20 MiB combined, 10 files for merging, and 200 pages total.
         Encrypted PDFs are rejected. Files stay in this browser tab.
       </p>
+      {operation !== "pdf-metadata" && (
+        <p className="muted" style={{ fontSize: 12, margin: "10px 0" }}>
+          For static, unsigned PDFs. Rebuilding does not preserve forms,
+          comments, links, signatures or accessibility tags. Keep your
+          originals.
+        </p>
+      )}
       <input
         ref={input}
         className="local-file-input"
@@ -300,7 +307,11 @@ export function PdfTool({ operation }: { operation: PdfOperation }) {
       {busy && (
         <div role="status">
           <progress value={progress} max={100} />
-          <span>{progress}% · completed processing stages</span>
+          <span>
+            {progress === 0
+              ? "Loading the PDF engine and reading files…"
+              : `${progress}% · completed processing stages`}
+          </span>
         </div>
       )}
       {error && (

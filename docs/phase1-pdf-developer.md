@@ -21,3 +21,7 @@ Regression tests retain codec/download, preview/ZIP, source-audit/PDF/CSV, quota
 See the latest `docs/testing-results.md` / `docs/progress.md` entries for final acceptance and deployment. The first browser run caught an ambiguous Pages label and route-announcer locator collision; the accessible field name and scoped error assertions were fixed. All new PDF outputs are loaded back with pdf-lib; extracted/merged order, rotation, metadata and ZIP contents are checked. Browser tests operate through the actual compiled worker and downloads. New tools do not require or enable production workers.
 
 Remaining PDF work: images-to-PDF, PDF rendering, genuine compression with measured output, more preservation options. Remaining developer work: QR codes, safe bounded regex/diff and formatters. No placeholder registry entries for these.
+
+## Live acceptance follow-up
+
+Feature commit 3606b4d reached Ready at toolroom-m9zxhaz0h-norax1.vercel.app. Initial production browser run passed 13/15 checks; two PDF ready assertions expired at five seconds while the UI was still busy. Both passed focused real-download reruns (3.1/3.4 seconds) with waits aligned to the existing 30-second worker contract. Follow-up exposes engine-loading state and moves document-preservation limits above the chooser; tests allow 35 seconds for worker completion without changing the worker deadline. Final full live results are recorded in progress.md.

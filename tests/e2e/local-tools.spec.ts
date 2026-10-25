@@ -45,9 +45,9 @@ for (const op of [
         exact: true,
       })
       .click();
-    await expect(
-      page.getByRole("region", { name: "PDF results" }),
-    ).toBeVisible();
+    await expect(page.getByRole("region", { name: "PDF results" })).toBeVisible(
+      { timeout: 35000 },
+    );
     if (op === "pdf-metadata") {
       await expect(page.locator(".local-results pre")).toContainText(
         "Browser fixture",
@@ -107,32 +107,32 @@ test("PDF worker rejects corrupt input and recovers, clears stale output", async
   page,
 }) => {
   await page.goto("/pdf-tools/pdf-extract");
-  await page
-    .getByLabel("Choose PDF files")
-    .setInputFiles({
-      name: "bad.pdf",
-      mimeType: "application/pdf",
-      buffer: Buffer.from("%PDF-invalid"),
-    });
+  await page.getByLabel("Choose PDF files").setInputFiles({
+    name: "bad.pdf",
+    mimeType: "application/pdf",
+    buffer: Buffer.from("%PDF-invalid"),
+  });
   await page.getByRole("button", { name: "Process PDFs", exact: true }).click();
   await expect(page.locator(".local-tool [role=alert]")).toContainText(
     /encrypted|damaged|unsupported/,
+    { timeout: 35000 },
   );
-  await page
-    .getByLabel("Choose PDF files")
-    .setInputFiles({
-      name: "good.pdf",
-      mimeType: "application/pdf",
-      buffer: await pdf(),
-    });
+  await page.getByLabel("Choose PDF files").setInputFiles({
+    name: "good.pdf",
+    mimeType: "application/pdf",
+    buffer: await pdf(),
+  });
   await page.getByLabel("Pages", { exact: true }).fill("9");
   await page.getByRole("button", { name: "Process PDFs", exact: true }).click();
   await expect(page.locator(".local-tool [role=alert]")).toContainText(
     "1 to 2",
+    { timeout: 35000 },
   );
   await page.getByLabel("Pages", { exact: true }).fill("1");
   await page.getByRole("button", { name: "Process PDFs", exact: true }).click();
-  await expect(page.getByRole("region", { name: "PDF results" })).toBeVisible();
+  await expect(page.getByRole("region", { name: "PDF results" })).toBeVisible({
+    timeout: 35000,
+  });
   await page.getByRole("button", { name: "Clear files", exact: true }).click();
   await expect(page.getByRole("region", { name: "PDF results" })).toHaveCount(
     0,
@@ -199,13 +199,11 @@ test("PDF cancellation terminates the worker and keeps files local", async ({
   page.on("request", (r) => {
     if (r.method() === "POST") posted.push(r.url());
   });
-  await page
-    .getByLabel("Choose PDF files")
-    .setInputFiles({
-      name: "private.pdf",
-      mimeType: "application/pdf",
-      buffer: await pdf(),
-    });
+  await page.getByLabel("Choose PDF files").setInputFiles({
+    name: "private.pdf",
+    mimeType: "application/pdf",
+    buffer: await pdf(),
+  });
   await page.route("**/_next/static/chunks/*", async (route) => {
     await new Promise((r) => setTimeout(r, 1200));
     try {
