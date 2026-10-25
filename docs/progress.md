@@ -1,3 +1,11 @@
+## Verified production deployment — SEO milestone
+
+Implementation commit `1095c65` pushed to existing GitHub main; automatic Vercel deployment `toolroom-7ecjy9i8z-norax1.vercel.app` reached Ready. Public origin: https://toolroom-woad.vercel.app.
+
+Live acceptance: root, robots and sitemap returned 200 with no localhost references; root canonical matched the public origin. Actual pasted-source audit returned 200 with new WordPress/hreflang findings. A production Chromium mobile test downloaded and inspected the real CSV and passed the horizontal-overflow check. A real PNG upload to `/api/images` returned JPEG, decoded at 32×24. POST media/crawl-job routes returned 503 with disabled-worker messages. The operator-only helper did not run authenticated production SQL or migrations. Mobile screenshot reviewed under ignored artifacts.
+
+Local verification: 124 unit/service tests passed and one Redis-dependent test skipped; 29 production-artifact browser tests passed and three worker-only tests skipped; four Python helper safety tests passed. TypeScript, production build and diff whitespace checks passed. Production dependency audit: zero vulnerabilities. Remote build completed Prisma generation and Next build; npm emitted platform cache-dir/install-script approval advisory warnings (not failures). No blanket install-script permission change was made. Lighthouse and deployed worker/storage/database acceptance remain pending; no production-readiness claim.
+
 ## SEO evidence milestone — 25 October 2026
 
 Added source-evidence checks for WordPress reply/query variants, corroborated Shopify/WooCommerce product JSON-LD and selected fields, JavaScript source content, and HTML hreflang syntax/self-reference. Crawls now compare return links only among fetched pages and group matching normalized main text (minimum 200 characters, excluding navigation); no semantic similarity or Google eligibility claim. Added formula-safe CSV downloads alongside existing reports.

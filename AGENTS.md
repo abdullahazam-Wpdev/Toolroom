@@ -82,3 +82,5 @@ Read `docs/prisma-production-connection.md`. Authenticated Vercel CLI confirms r
 
 ## SEO evidence milestone
 Read docs/development-plan.md and the latest progress section. Additional checks live in seo-evidence.ts, shared by static and crawl analysis. Preserve explicit .ts server import extensions for worker execution. Cross-page return links use only fetched pages; duplicates are normalized main-text hashes, not semantic analysis. report-csv.ts must neutralize spreadsheet formulas in website-supplied values. External links AND images require opt-in; inaccessible non-404/410 responses stay unverified. Vercel synchronous crawl engine budget is 45 seconds within maxDuration=60.
+
+Production refresh: 1095c65 deployed successfully through Git integration; canonical/robots/sitemap public-origin fixes are live. Latest progress supersedes older pending-deploy notes. 124 unit tests, 29 production-artifact browser tests, four Python helper tests and one live mobile CSV browser test passed; worker/Redis skipped cases remain explicit. No production DB identity or migrations verified.

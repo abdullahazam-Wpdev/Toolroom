@@ -1,3 +1,7 @@
+## Deployment status refresh
+
+Production hardening and SEO evidence are now deployed, including canonical/robots/sitemap fixes and disabled job gates. See latest progress for actual live tests and deployment ID; older prepared/not-deployed statements below are historical. Database connectivity and shared-storage/worker acceptance remain unverified.
+
 # Production hardening — 25 October 2026
 
 ## Verified production findings and configuration
