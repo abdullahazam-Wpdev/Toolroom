@@ -73,6 +73,31 @@ test("SEO fixture report, inventories, PDF and JSON exports", async ({
     page.getByRole("heading", { name: "Your page, in focus." }),
   ).toBeVisible();
   await expect(page.getByText(/Pasted static HTML/)).toBeVisible();
+  const findingsCount = page.locator(".findings-count");
+  const totalChecks = Number(
+    (await findingsCount.textContent())!.match(/of (\d+) checks/)![1],
+  );
+  await page
+    .getByLabel("Search findings")
+    .fill("heading hierarchy");
+  await expect(findingsCount).toContainText("Showing 1 of");
+  await expect(
+    page.locator(".audit-check").filter({ hasText: "Heading hierarchy" }),
+  ).toBeVisible();
+  await expect(
+    page.locator(".audit-check").filter({ hasText: "Page title" }),
+  ).toHaveCount(0);
+  await page.getByLabel("Search findings").fill("");
+  await page.getByRole("button", { name: /^warning \(\d+\)$/ }).click();
+  const warningCount = Number(
+    (await page.getByRole("button", { name: /^warning \(\d+\)$/ }).textContent())!.match(
+      /\((\d+)\)/,
+    )![1],
+  );
+  await expect(findingsCount).toContainText(`Showing ${warningCount} of`);
+  await expect(page.locator(".audit-check:not(.warning)")).toHaveCount(0);
+  await page.getByRole("button", { name: "Clear filter" }).click();
+  await expect(findingsCount).toContainText(`Showing ${totalChecks} of ${totalChecks}`);
   await page.getByRole("button", { name: "headings", exact: true }).click();
   await expect(
     page

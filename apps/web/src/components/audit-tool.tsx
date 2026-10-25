@@ -22,7 +22,17 @@ export function AuditTool({
     [error, setError] = useState(""),
     [report, setReport] = useState<AuditReport | null>(null),
     [tab, setTab] = useState(view === "audit" ? "findings" : view),
-    [exporting, setExporting] = useState(false);
+    [exporting, setExporting] = useState(false),
+    [findingsQuery, setFindingsQuery] = useState(""),
+    [severityFilter, setSeverityFilter] = useState<Set<string>>(new Set());
+  const severityOrder = ["critical", "warning", "not-tested", "pass"] as const;
+  function toggleSeverity(status: string) {
+    setSeverityFilter((old) => {
+      const next = new Set(old);
+      next.has(status) ? next.delete(status) : next.add(status);
+      return next;
+    });
+  }
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     setBusy(true);
@@ -231,17 +241,92 @@ export function AuditTool({
           <div className="report-panel">
             {tab === "findings" && (
               <div className="check-list">
-                {[...report.checks]
-                  .sort(
-                    (a, b) =>
-                      ({ critical: 0, warning: 1, "not-tested": 2, pass: 3 })[
-                        a.status
-                      ] -
-                      { critical: 0, warning: 1, "not-tested": 2, pass: 3 }[
-                        b.status
-                      ],
-                  )
-                  .map((check) => (
+                <div className="findings-controls">
+                  <label className="findings-search">
+                    <Search size={16} />
+                    <input
+                      type="search"
+                      aria-label="Search findings"
+                      placeholder="Search findings by title or evidence…"
+                      value={findingsQuery}
+                      onChange={(e) => setFindingsQuery(e.target.value)}
+                    />
+                  </label>
+                  <div className="severity-filters" role="group" aria-label="Filter by severity">
+                    {severityOrder.map((status) => {
+                      const count = report.checks.filter(
+                        (c) => c.status === status,
+                      ).length;
+                      return (
+                        <button
+                          key={status}
+                          type="button"
+                          className={"severity-chip " + status}
+                          aria-pressed={severityFilter.has(status)}
+                          disabled={!count}
+                          onClick={() => toggleSeverity(status)}
+                        >
+                          {status === "not-tested" ? "Not tested" : status} (
+                          {count})
+                        </button>
+                      );
+                    })}
+                    {severityFilter.size > 0 && (
+                      <button
+                        type="button"
+                        className="severity-chip-clear"
+                        onClick={() => setSeverityFilter(new Set())}
+                      >
+                        Clear filter
+                      </button>
+                    )}
+                  </div>
+                </div>
+                {(() => {
+                  const query = findingsQuery.trim().toLowerCase();
+                  const visible = [...report.checks]
+                    .filter(
+                      (c) =>
+                        (severityFilter.size === 0 ||
+                          severityFilter.has(c.status)) &&
+                        (!query ||
+                          c.title.toLowerCase().includes(query) ||
+                          c.evidence.toLowerCase().includes(query) ||
+                          c.recommendation.toLowerCase().includes(query)),
+                    )
+                    .sort(
+                      (a, b) =>
+                        ({ critical: 0, warning: 1, "not-tested": 2, pass: 3 })[
+                          a.status
+                        ] -
+                        { critical: 0, warning: 1, "not-tested": 2, pass: 3 }[
+                          b.status
+                        ],
+                    );
+                  return (
+                    <>
+                      <p className="findings-count" role="status">
+                        Showing {visible.length} of {report.checks.length}{" "}
+                        checks
+                        {(query || severityFilter.size > 0) && (
+                          <button
+                            type="button"
+                            className="link-button"
+                            onClick={() => {
+                              setFindingsQuery("");
+                              setSeverityFilter(new Set());
+                            }}
+                          >
+                            Reset
+                          </button>
+                        )}
+                      </p>
+                      {visible.length === 0 && (
+                        <p className="findings-empty">
+                          No findings match this search/filter.
+                        </p>
+                      )}
+                      {visible.map((check) => (
                     <details
                       key={check.id}
                       className={"audit-check " + check.status}
@@ -270,8 +355,11 @@ export function AuditTool({
                       <p>
                         Priority: {check.priority} · Effort: {check.effort}
                       </p>
-                    </details>
-                  ))}
+                        </details>
+                      ))}
+                    </>
+                  );
+                })()}
               </div>
             )}
             {tab === "metadata" && (
