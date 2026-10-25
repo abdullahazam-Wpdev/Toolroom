@@ -2,12 +2,14 @@ import { storageConfigured, validatedUpload, putResult, deleteObjects, cleanupOb
 import { mkdir, writeFile, readFile } from "node:fs/promises";
 import { Worker, UnrecoverableError } from 'bullmq';
 import { rm } from 'node:fs/promises';
-import { database, connection, queueName, jobDirectory, crawlQueueName } from '../../packages/jobs/runtime.ts';
+import { database, connection, queueName, jobDirectory, crawlQueueName, renderedAuditQueueName } from '../../packages/jobs/runtime.ts';
 import { processMedia } from '../../packages/jobs/process.ts';
 import { processCrawl } from '../../packages/jobs/crawl-process.ts';
-const db = database(), redis = connection(true), crawlRedis = connection(true);
+import { renderedAudit } from '../../packages/jobs/rendered-audit.ts';
+const db = database(), redis = connection(true), crawlRedis = connection(true), renderedAuditRedis = connection(true);
 redis.on('error', (error) => console.error('Worker Redis:', error.message));
 crawlRedis.on('error', (error) => console.error('Crawl worker Redis:', error.message));
+renderedAuditRedis.on('error', (error) => console.error('Rendered-audit worker Redis:', error.message));
 const worker = new Worker(queueName, async (entry) => {
   const id = String(entry.id);
   const record = await db.mediaJob.findUnique({ where: { id } });
@@ -73,6 +75,28 @@ const crawlWorker = new Worker(crawlQueueName, async (entry) => {
 }, { connection: crawlRedis, concurrency: 1, maxStalledCount: 1, lockDuration: 120000 });
 crawlWorker.on('error', (error) => console.error('Crawl worker:', error.message));
 crawlWorker.on('failed', (job, error) => console.error('Crawl job failed:', job?.id, error.message));
+// JavaScript-rendered auditing (Phase 3). Launches a real, sandboxed
+// Chromium per job -- never inside a Vercel Function, only here. A single
+// browser launch/navigation/comparison is bounded by rendered-audit.ts's own
+// timeouts, so a generous lockDuration is just headroom, not an expectation
+// that jobs routinely take that long.
+const renderedAuditWorker = new Worker(renderedAuditQueueName, async (entry) => {
+  const id = String(entry.id);
+  const record = await db.renderedAuditJob.findUnique({ where: { id } });
+  if (!record || !['queued', 'processing'].includes(record.status) || record.expiresAt.getTime() < Date.now()) throw new UnrecoverableError('Job expired.');
+  try {
+    await db.renderedAuditJob.update({ where: { id }, data: { status: 'processing', error: null } });
+    const report = await renderedAudit(record.url);
+    await db.renderedAuditJob.update({ where: { id }, data: { status: 'completed', report: report as object } });
+    return { checks: report.checks.length };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Rendered audit failed.';
+    await db.renderedAuditJob.update({ where: { id }, data: { status: 'failed', error: message.slice(0, 800) } });
+    throw new UnrecoverableError(message);
+  }
+}, { connection: renderedAuditRedis, concurrency: 1, maxStalledCount: 1, lockDuration: 60000 });
+renderedAuditWorker.on('error', (error) => console.error('Rendered-audit worker:', error.message));
+renderedAuditWorker.on('failed', (job, error) => console.error('Rendered-audit job failed:', job?.id, error.message));
 async function cleanup() {
   if(storageConfigured())await cleanupObjects();
   const expired = await db.mediaJob.findMany({ where: { expiresAt: { lt: new Date() } }, take: 100 });
@@ -87,9 +111,14 @@ async function cleanup() {
     if (record.status === 'processing') { await db.auditJob.update({ where: { id: record.id }, data: { cancelRequested: true } }); continue; }
     await db.auditJob.delete({ where: { id: record.id } });
   }
+  const expiredRenderedAudits = await db.renderedAuditJob.findMany({ where: { expiresAt: { lt: new Date() } }, take: 100 });
+  for (const record of expiredRenderedAudits) {
+    if (record.status === 'processing') continue; // a single render is always short; let it finish rather than flag cancellation.
+    await db.renderedAuditJob.delete({ where: { id: record.id } });
+  }
 }
-const heartbeat = setInterval(()=>{void crawlRedis.set('toolroom:crawl-worker','ready','EX',45).catch(console.error);if(storageConfigured())void redis.set('toolroom:media-worker:s3','ready','EX',45).catch(console.error);},10000);
+const heartbeat = setInterval(()=>{void crawlRedis.set('toolroom:crawl-worker','ready','EX',45).catch(console.error);void renderedAuditRedis.set('toolroom:rendered-audit-worker','ready','EX',45).catch(console.error);if(storageConfigured())void redis.set('toolroom:media-worker:s3','ready','EX',45).catch(console.error);},10000);
 const timer = setInterval(() => { void cleanup().catch(console.error); }, 30000);
 void cleanup().catch(console.error);
-for (const signal of ['SIGTERM', 'SIGINT']) process.on(signal, async () => { clearInterval(timer); clearInterval(heartbeat); await worker.close(); await crawlWorker.close(); await redis.quit(); await crawlRedis.quit(); await db.$disconnect(); process.exit(0); });
-console.log('Toolroom media + crawl worker started; media concurrency=1 (retention 1 hour), crawl concurrency=1 (retention 6 hours).');
+for (const signal of ['SIGTERM', 'SIGINT']) process.on(signal, async () => { clearInterval(timer); clearInterval(heartbeat); await worker.close(); await crawlWorker.close(); await renderedAuditWorker.close(); await redis.quit(); await crawlRedis.quit(); await renderedAuditRedis.quit(); await db.$disconnect(); process.exit(0); });
+console.log('Toolroom media + crawl + rendered-audit worker started; media concurrency=1 (retention 1 hour), crawl concurrency=1 (retention 6 hours), rendered-audit concurrency=1 (retention 1 hour).');

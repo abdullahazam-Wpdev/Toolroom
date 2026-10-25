@@ -15,7 +15,9 @@ export const jobDirectory = (id: string) => {
 };
 export const crawlQueueName = 'toolroom-crawl-v1';
 export const crawlTtlMs = 6 * 60 * 60 * 1000; // crawl results/results-of-record are read-only JSON; keep longer than media binaries.
-const state = globalThis as typeof globalThis & { mediaQueue?: Queue; crawlQueue?: Queue; mediaDb?: PrismaClient; mediaRedis?: IORedis };
+export const renderedAuditQueueName = 'toolroom-rendered-audit-v1';
+export const renderedAuditTtlMs = 60 * 60 * 1000;
+const state = globalThis as typeof globalThis & { mediaQueue?: Queue; crawlQueue?: Queue; renderedAuditQueue?: Queue; mediaDb?: PrismaClient; mediaRedis?: IORedis };
 export function database() {
   if (!process.env.DATABASE_URL) throw new Error('PostgreSQL is not configured.');
   return state.mediaDb ||= new PrismaClient();
@@ -58,4 +60,12 @@ export function crawlQueue() {
     state.crawlQueue = new Queue(crawlQueueName, { connection: redis, defaultJobOptions: { attempts: 1, removeOnComplete: { age: 21600, count: 100 }, removeOnFail: { age: 21600, count: 100 } } });
   }
   return state.crawlQueue;
+}
+export function renderedAuditQueue() {
+  if (!state.renderedAuditQueue) {
+    const redis = connection();
+    redis.on('error', () => {});
+    state.renderedAuditQueue = new Queue(renderedAuditQueueName, { connection: redis, defaultJobOptions: { attempts: 1, removeOnComplete: { age: 3600, count: 100 }, removeOnFail: { age: 3600, count: 100 } } });
+  }
+  return state.renderedAuditQueue;
 }

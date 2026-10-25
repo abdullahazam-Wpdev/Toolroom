@@ -50,6 +50,29 @@ describe("evidence-based static audit", () => {
     );
     expect(r.checks.find((c) => c.id === "schema")?.status).toBe("warning");
   });
+  it("flags a canonical that points at a different page than the one being audited", () => {
+    const matching = analyzeHtml(
+      '<link rel="canonical" href="https://example.com/post">',
+      "https://example.com/post",
+    );
+    expect(
+      matching.checks.find((c) => c.id === "canonical-self-reference")
+        ?.status,
+    ).toBe("pass");
+    const mismatched = analyzeHtml(
+      '<link rel="canonical" href="https://example.com/">',
+      "https://example.com/post",
+    );
+    const check = mismatched.checks.find(
+      (c) => c.id === "canonical-self-reference",
+    );
+    expect(check?.status).toBe("warning");
+    expect(check?.evidence).toContain("different page");
+    const none = analyzeHtml("<p>No canonical here.</p>", "https://example.com/post");
+    expect(
+      none.checks.find((c) => c.id === "canonical-self-reference")?.status,
+    ).toBe("not-tested");
+  });
   it("calculates score from tested categories and reports coverage", () => {
     const r = analyzeHtml(html, "https://example.com");
     const scores = scoreAudit(r.checks);

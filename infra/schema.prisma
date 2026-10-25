@@ -25,6 +25,22 @@ model AuditJob {
   @@index([expiresAt])
   @@index([status])
 }
+// JavaScript-rendered SEO auditing (Phase 3). The worker is the only
+// consumer; the web app only enqueues/polls. Stays entirely unused in
+// production until RENDERED_AUDIT_ENABLED is set and an external worker
+// with Chromium is actually running -- see docs/rendered-audit.md.
+model RenderedAuditJob {
+  id String @id
+  tokenHash String
+  url String
+  status String @default("queued")
+  report Json?
+  error String?
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+  @@index([expiresAt])
+  @@index([status])
+}
 model ToolEvent {
   id String @id @default(cuid())
   toolId String

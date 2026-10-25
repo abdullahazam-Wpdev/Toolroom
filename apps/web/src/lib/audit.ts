@@ -190,6 +190,34 @@ export function analyzeHtml(
       : canonical || "No canonical declared.",
     "Review canonical intent; missing canonicals do not automatically cause a ranking penalty.",
   );
+  // A declared canonical that quietly points at a different page (a stale
+  // template default, or everything canonicalized to the homepage) is a
+  // common, real self-inflicted deindexing cause; only evaluated when a
+  // canonical actually exists, since "missing" is already its own check above.
+  const canonicalTarget = canonical ? resolve(canonical) : null;
+  const normalize = (href: string) => {
+    try {
+      const u = new URL(href);
+      u.hash = "";
+      return u.origin + u.pathname.replace(/\/$/, "");
+    } catch {
+      return null;
+    }
+  };
+  const selfReferencing =
+    !canonicalTarget || normalize(canonicalTarget) === normalize(url);
+  check(
+    "canonical-self-reference",
+    "metadata",
+    "Canonical target",
+    canonical ? (selfReferencing ? "pass" : "warning") : "not-tested",
+    canonical
+      ? selfReferencing
+        ? `Canonical points to this page: ${canonicalTarget}.`
+        : `Canonical points to a different page: ${canonicalTarget}.`
+      : "No canonical declared.",
+    "A canonical pointing elsewhere is valid for syndicated or paginated content, but confirm it is intentional here rather than a template default.",
+  );
   const h1 = headings.filter((h) => h.level === 1);
   check(
     "h1",

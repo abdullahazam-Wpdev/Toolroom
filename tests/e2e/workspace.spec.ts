@@ -95,3 +95,15 @@ test('background website crawl submits, shows real progress and can be cancelled
  await expect(page.getByText(/completed/)).toBeVisible({timeout:20000});
  await expect(page.getByRole('button',{name:/Download.*JSON report/})).toBeVisible();
 });
+test('JS-rendered audit submits, completes through the real sandboxed browser worker and shows searchable findings',async({page})=>{
+ test.skip(process.env.RENDERED_AUDIT_ENABLED!=='true','Requires a configured Postgres/Redis/worker installation with Chromium (see docs/rendered-audit.md).');
+ await page.goto('/seo-tools/website-seo-checker');
+ await page.getByText('JavaScript-rendered comparison').click();
+ await page.getByLabel('Rendered comparison page URL').fill('https://example.com');
+ await page.getByRole('button',{name:'Run rendered comparison'}).click();
+ await expect(page.getByText(/completed/)).toBeVisible({timeout:30000});
+ await expect(page.getByRole('button',{name:'Download JSON report'})).toBeVisible();
+ await page.getByLabel('Search rendered-audit findings').fill('canonical');
+ await expect(page.getByText('Showing 1 of')).toBeVisible();
+ await expect(page.getByText('Canonical URL after rendering')).toBeVisible();
+});

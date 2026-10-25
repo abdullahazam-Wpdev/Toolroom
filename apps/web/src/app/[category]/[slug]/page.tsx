@@ -19,6 +19,7 @@ import { MediaJobTool } from "@/components/media-job-tool";
 import { Converter } from "@/components/converter";
 import { SiteAuditTool } from "@/components/site-audit-tool";
 import { CrawlJobTool } from "@/components/crawl-job-tool";
+import { RenderedAuditTool } from "@/components/rendered-audit-tool";
 import { AuditTool } from "@/components/audit-tool";
 import { PageSpeedTool } from "@/components/pagespeed-tool";
 import { ProviderMetadataTool } from "@/components/provider-metadata-tool";
@@ -204,6 +205,7 @@ export default async function Page({ params }: Props) {
       )}
       {tool.id === "website-seo-checker" && <SiteAuditTool />}
       {tool.id === "website-seo-checker" && <CrawlJobTool />}
+      {tool.id === "website-seo-checker" && <RenderedAuditTool />}
       {available && tool.id === "jpg-to-webp" && (
         <>
           <div className="tool-explainer">

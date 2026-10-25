@@ -25,6 +25,7 @@
     "lucide-react": "latest",
     "next": "latest",
     "pdf-lib": "^1.17.1",
+    "playwright-core": "latest",
     "react": "latest",
     "react-dom": "latest",
     "sharp": "latest",
