@@ -14,3 +14,5 @@ artifacts/**/*.png
 
 __pycache__/
 *.pyc
+.vercel
+.env*
